@@ -1,4 +1,3 @@
-
 import json
 import pandas as pd
 import logging
@@ -72,7 +71,9 @@ def read_write_popIndex(params):
                 df_out.columns = ['Symbol']
 
         if df_out is not None:
-            df_out[['Symbol']].to_json(file_path, orient='records')
+            res_list = list(df_out.Symbol.values)
+            with open(file_path, "w") as write_file:
+                json.dump(res_list, write_file)
 
         else:
             logging.error('failed to write data for ' + path)
@@ -83,7 +84,7 @@ def read_write_popIndex(params):
 
 for params in params_list:
     read_write_popIndex(params)
-    
+
 
 def prep_spy_sectors():
     
@@ -101,14 +102,14 @@ def prep_spy_sectors():
                 table_out['Sector'] = [_set_sector(s) for s in table_out.GICS_Sector]
 
         if table_out is not None:
-            df_list = []
+            res_dict = dict()
             sector_ids = list(table_out.Sector.unique())
 
             for idx in sector_ids:
-                dfx_dict = table_out[table_out.Sector == idx][['Symbol']].to_dict(orient='records')
-                df_list.append([idx, dfx_dict])
+                res_list = list(table_out[table_out.Sector == idx].Symbol.values)
+                res_dict.update({idx: res_list})
                 
-            return df_list
+            return res_dict
 
         else:
             return None
@@ -116,19 +117,19 @@ def prep_spy_sectors():
     except Exception as e:
         logging.error(str(e))
         return None
-        
 
+
+# +
 try:
-    df_list = prep_spy_sectors()
+    res_out = prep_spy_sectors()
 
-    if df_list is not None:
+    if res_out is not None:
         file_path = './data/spysectors.json'
         with open(file_path, 'w') as fp:
-            json.dump(df_list, fp)
+            json.dump(res_out, fp)
 
     else:
         logging.error('failed to write data for spysectors.')
         
 except Exception as e:
     logging.error(str(e))
-    
