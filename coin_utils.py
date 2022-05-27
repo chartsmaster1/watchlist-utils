@@ -8,7 +8,6 @@ import logging
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 config = json.load(open('config.json'))
-print(config)
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -48,8 +47,13 @@ if len(coinlist) > 0:
         with open(file_path, 'w') as fp:
             json.dump(coinlist, fp)
 
+        print('CMC data read was successfull.')
+
     except Exception as e:
         logging.error(str(e))
+        print('CMC data read failed.')
 
 else:
     logging.error('read api return null.')
+    print('CMC data read failed.')
+

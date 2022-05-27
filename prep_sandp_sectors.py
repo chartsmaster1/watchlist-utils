@@ -92,6 +92,9 @@ if res_out is not None:
     with open(file_path, 'w') as fp:
         json.dump(res_out, fp)
 
+    print('S&P 500 sectors data read was successfull.')
+
 else:
     logging.error('failed to write data for spysectors.')
+    print('S&P 500 sectors data read failed.')
 

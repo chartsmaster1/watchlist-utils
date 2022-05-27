@@ -30,7 +30,10 @@ def read_prep_sandp(url):
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
+        print('S&P500 data read was successfull.')
+
     except Exception as e:
         logging.error(str(e))
+        print('S&P500 data read failed.')
 
 read_prep_sandp(url)

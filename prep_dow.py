@@ -30,7 +30,10 @@ def read_prep_dow(url):
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
+        print('Dow data read was successfull.')
+
     except Exception as e:
         logging.error(str(e))
+        print('Dow data read failed.')
 
 read_prep_dow(url)

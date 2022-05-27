@@ -31,8 +31,11 @@ def read_prep_nasdaq(url):
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
+        print('Nasdaq data read was successfull.')
+
     except Exception as e:
         logging.error(str(e))
+        print('Nasdaq data read failed.')
 
 read_prep_nasdaq(url)
 # -
