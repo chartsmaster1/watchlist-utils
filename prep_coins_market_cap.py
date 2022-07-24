@@ -12,7 +12,7 @@ config = json.load(open('config.json'))
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
   'start':'1',
-  'limit':'100',
+  'limit':'1000',
   'convert':'USD'
 }
 headers = {
@@ -23,20 +23,34 @@ headers = {
 session = Session()
 session.headers.update(headers)
 
+def _stable(d):
+    if 'stablecoin' in d['tags']:
+        return True
+    else:
+        return False
+
+def _handle_ticker(tkr):
+    if 'USD' in tkr:
+        return tkr
+    return tkr + 'USD'        
+
 try:
     response = session.get(url, params=parameters)
     data = json.loads(response.text)
     coinlist = []
     for d in data['data']:
         try:
-            if 'stablecoin' not in d['tags']:
-                coinlist.append({
-                    'Name': d['name'],
-                    'Ticker': d['symbol'] + 'USD'
-                })
+            coinlist.append({
+                'Rank': d['cmc_rank'],
+                'Name': d['name'],
+                'Ticker': _handle_ticker(d['symbol']),
+                'MarketCap': d['quote']['USD']['market_cap'],
+                'Stablecoin': _stable(d)
+            })
                 
-        except:
-            print(d)
+                
+        except Exception as e:
+            print(e)
     
 except (ConnectionError, Timeout, TooManyRedirects) as e:
     logging.error(str(e))
@@ -56,4 +70,5 @@ if len(coinlist) > 0:
 else:
     logging.error('read api return null.')
     print('CMC data read failed.')
+
 

@@ -13,7 +13,7 @@ def read_prep_companies_market_cap():
     
     df = pd.read_csv('./data/CompaniesMarketCap.csv').sort_values('Rank')
     
-    file_name = 'companiesMarketCap'
+    file_name = 'stocks'
     file_path = './data/' + file_name + '.json'
     
     try:
@@ -26,8 +26,6 @@ def read_prep_companies_market_cap():
                 'Name': item[1],
                 'Ticker': item[2],
                 'MarketCap': item[3],
-                'Price': item[4],
-                'Country': item[5]
             }
             res_list.append(d)
 

@@ -16,7 +16,7 @@ def read_prep_nasdaq(url):
     file_path = './data/' + file_name + '.json'
     
     try:
-        comps = pd.read_html(url)[3]
+        comps = pd.read_html(url)[4]
         comps_list = comps[['Company', 'Ticker']].values.tolist()
         
         res_list = []
