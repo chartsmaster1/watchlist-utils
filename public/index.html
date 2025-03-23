@@ -47,7 +47,9 @@
   
       <script>
           const jsonFiles = ["spy.json", "dow.json", "nasdaq.json", "coins.json", "spysectors.json", "stocks.json", "etfs_market_cap.json"]; // List of JSON files
-          const baseURL = "http://localhost:5000/data/"; // Change to hosted URL when deploying
+          const baseURL = window.location.hostname === "localhost"
+            ? "http://localhost:5000/data/"
+            : "https://watchlist-static-files.web.app//data/";          
           const listElement = document.getElementById("json-list");
   
           jsonFiles.forEach(file => {

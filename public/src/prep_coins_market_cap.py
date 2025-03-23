@@ -7,7 +7,7 @@ import logging
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
-config = json.load(open('config.json'))
+config = json.load(open('../../config.json'))
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
