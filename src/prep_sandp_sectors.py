@@ -1,12 +1,10 @@
-# +
+
 import json
 import pandas as pd
 import logging
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
-
-# -
 
 # Communication Services Select Sector (XLC)   
 # Consumer Discretionary Select Sector (XLY)   
@@ -50,51 +48,46 @@ def _set_sector(s):
 def prep_spy_sectors():
     
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+    file_name = 'spysectors'
+    file_path = '../data/' + file_name + '.json'
     
-    try:
-        comps_df = pd.read_html(url)[0]
-        comps_grp = comps_df.groupby('GICS Sector')
+    comps_df = pd.read_html(url)[0]
+    comps_grp = comps_df.groupby('GICS Sector')
 
-        res_list = []
+    res_list = []
 
-        for k,v in comps_grp:
+    for k,v in comps_grp:
 
-            comps_list = v[['Security', 'Symbol']].values.tolist()
+        comps_list = v[['Security', 'Symbol']].values.tolist()
 
-            sec_items = []
-            for item in comps_list:
-                d = {
-                    'Name': item[0],
-                    'Ticker': item[1],
-                    'Exchange': ''
-                }
-                sec_items.append(d)
-
-            sec_dict = {
-                'Name': k,
-                'Ticker': _set_sector(k),
-                'Comps': sec_items
+        sec_items = []
+        for item in comps_list:
+            d = {
+                'Name': item[0],
+                'Ticker': item[1],
+                'Exchange': ''
             }
-            res_list.append(sec_dict)
+            sec_items.append(d)
+
+        sec_dict = {
+            'Name': k,
+            'Ticker': _set_sector(k),
+            'Comps': sec_items
+        }
+        res_list.append(sec_dict)
+
+        
+    if res_list:
+        with open(file_path, 'w') as fp:
+            json.dump(res_list, fp)
+
+        print('S&P 500 sectors data read was successfull.')
+
+    else:
+        raise ValueError("Failed to collect SPY sectors.")
             
-        return res_list
-            
-    except Exception as e:
-        logging.error(str(e))
-        return None
 
 
-# +
-res_out = prep_spy_sectors()
+if __name__ == '__main__':
 
-if res_out is not None:
-    file_path = './data/spysectors.json'
-    with open(file_path, 'w') as fp:
-        json.dump(res_out, fp)
-
-    print('S&P 500 sectors data read was successfull.')
-
-else:
-    logging.error('failed to write data for spysectors.')
-    print('S&P 500 sectors data read failed.')
-
+    prep_spy_sectors()

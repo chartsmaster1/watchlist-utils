@@ -1,39 +1,41 @@
-# +
+
 import json
 import pandas as pd
 import logging
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
-# -
 
-url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
 
-# +
-def read_prep_sandp(url):
+def read_prep_dow():
+
+    url = 'https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average'
     
-    file_name = 'spy'
-    file_path = './data/' + file_name + '.json'
+    file_name = 'dow'
+    file_path = '../data/' + file_name + '.json'
     
     try:
-        comps = pd.read_html(url)[0]
-        comps_list = comps[['Security', 'Symbol']].values.tolist()
+        comps = pd.read_html(url)[2]
+        comps_list = comps[['Company', 'Symbol', 'Exchange']].values.tolist()
         
         res_list = []
         for item in comps_list:
             d = {
                 'Name': item[0],
                 'Ticker': item[1],
-                'Exchange': ''
+                'Exchange': item[2]
             }
             res_list.append(d)
 
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
-        print('S&P500 data read was successfull.')
+        print('Dow data read was successfull.')
 
     except Exception as e:
         logging.error(str(e))
-        print('S&P500 data read failed.')
+        print(f'Dow data read failed. {e}')
 
-read_prep_sandp(url)
+
+if __name__ == '__main__':
+
+    read_prep_dow()
