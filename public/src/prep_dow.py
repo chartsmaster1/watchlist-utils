@@ -1,10 +1,32 @@
 
 import json
 import pandas as pd
+import numpy as np
 import logging
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
+def sort_by_market_cap(df):
+    """
+    Sorts the DataFrame by MarketCap in descending order.
+    """
+    mc_df = pd.read_json('../data/stocks.json')
+    mc_df['Ticker'] = np.where(mc_df['Ticker'] == 'BRK-B', 'BRK.B', mc_df['Ticker'])
+    mc_df['Ticker'] = np.where(mc_df['Ticker'] == 'BF-A', 'BF.B', mc_df['Ticker'])
+
+    in_df = df.copy()
+    in_df.columns = ['Name', 'Ticker', 'Exchange']
+
+    in_mc_df = (
+        in_df.merge(
+            mc_df[['Ticker', 'MarketCap']],
+            on='Ticker',
+            how='left'
+        )
+        .sort_values(by='MarketCap', ascending=False)
+    )
+
+    return in_mc_df
 
 def read_prep_dow():
 
@@ -15,7 +37,11 @@ def read_prep_dow():
     
     try:
         comps = pd.read_html(url)[2]
-        comps_list = comps[['Company', 'Symbol', 'Exchange']].values.tolist()
+        comps_sorted = sort_by_market_cap(comps[['Company', 'Symbol', 'Exchange']])
+
+        assert comps_sorted[comps_sorted['MarketCap'].isnull()].shape[0] == 0, "Fix the ticker issue before joining the two dataframes."
+
+        comps_list = comps_sorted[['Name', 'Ticker', 'Exchange']].values.tolist()
         
         res_list = []
         for item in comps_list:
