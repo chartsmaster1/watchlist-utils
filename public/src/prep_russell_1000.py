@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 
-def read_prep_dow():
+def read_prep_russell():
 
     url = 'https://en.wikipedia.org/wiki/Russell_1000_Index'
     
@@ -38,4 +38,4 @@ def read_prep_dow():
 
 if __name__ == '__main__':
 
-    read_prep_dow()
+    read_prep_russell()
