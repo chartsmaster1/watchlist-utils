@@ -1,4 +1,4 @@
-
+# *** Run this script after prep_sandp.py ***
 import json
 import pandas as pd
 import logging
@@ -18,47 +18,39 @@ logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - 
 # Technology Select Sector (XLK)   
 # Utilities Select Sector (XLU)
 
-def _set_sector(s):
-    
-    if s == 'Industrials':
-        return 'XLI'
-    elif s == 'Health Care':
-        return 'XLV'
-    elif s == 'Information Technology':
-        return 'XLK'
-    elif s == 'Communication Services':
-        return 'XLC'
-    elif s == 'Consumer Discretionary':
-        return 'XLY'
-    elif s == 'Utilities':
-        return 'XLU'
-    elif s == 'Financials':
-        return 'XLF'
-    elif s == 'Materials':
-        return 'XLB'
-    elif s == 'Real Estate':
-        return 'XLRE'
-    elif s == 'Consumer Staples':
-        return 'XLP'
-    elif s == 'Energy':
-        return 'XLE'
-    else:
-        return None
+sector_map = {
+    'Industrials': 'XLI',
+    'Health Care': 'XLV',
+    'Information Technology': 'XLK',
+    'Communication Services': 'XLC',
+    'Consumer Discretionary': 'XLY',
+    'Utilities': 'XLU',
+    'Financials': 'XLF',
+    'Materials': 'XLB',
+    'Real Estate': 'XLRE',
+    'Consumer Staples': 'XLP',
+    'Energy': 'XLE'
+}
 
 def prep_spy_sectors():
     
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     file_name = 'spysectors'
     file_path = '../data/' + file_name + '.json'
+    # comps_df = pd.read_html(url)[0]
+    # comps_grp = comps_df.groupby('GICS Sector')
     
-    comps_df = pd.read_html(url)[0]
-    comps_grp = comps_df.groupby('GICS Sector')
+    comps_df  = pd.read_json('../data/spy.json', orient='records')
+    comps_df['SectorKey'] = comps_df['Sector'].map(sector_map)
+    # print(comps_df.head())
 
     res_list = []
-
-    for k,v in comps_grp:
-
-        comps_list = v[['Security', 'Symbol']].values.tolist()
+    if comps_df.empty:
+        raise ValueError("No data found in the S&P 500 components DataFrame.")
+    
+    for k,v in sector_map.items():
+        comps_list = comps_df[comps_df['SectorKey'] == v][['Name', 'Ticker']].values.tolist()
+        print(comps_list)
 
         sec_items = []
         for item in comps_list:
@@ -71,7 +63,7 @@ def prep_spy_sectors():
 
         sec_dict = {
             'Name': k,
-            'Ticker': _set_sector(k),
+            'Ticker': v,
             'Comps': sec_items
         }
         res_list.append(sec_dict)

@@ -15,7 +15,7 @@ def sort_by_market_cap(df):
     mc_df['Ticker'] = np.where(mc_df['Ticker'] == 'BF-A', 'BF.B', mc_df['Ticker'])
 
     sp_df = df.copy()
-    sp_df.columns = ['Name', 'Ticker']
+    sp_df.columns = ['Name', 'Ticker', 'Sector']
     sp_df = sp_df[~sp_df['Ticker'].isin(['GOOGL', 'FOXA', 'NWSA'])]
 
     sp_mc_df = (
@@ -38,18 +38,20 @@ def read_prep_sandp():
     
     try:
         comps = pd.read_html(url)[0]
-        comps_sorted = sort_by_market_cap(comps[['Security', 'Symbol']])
+        comps_sorted = sort_by_market_cap(comps[['Security', 'Symbol', 'GICS Sector']])
 
         assert comps_sorted[comps_sorted['MarketCap'].isnull()].shape[0] == 0, "Fix the ticker issue before joining the two dataframes."
 
-        comps_list = comps_sorted[['Name', 'Ticker']].values.tolist()
+        comps_list = comps_sorted[['Name', 'Ticker', 'Sector', 'MarketCap']].values.tolist()
         
         res_list = []
         for item in comps_list:
             d = {
                 'Name': item[0],
                 'Ticker': item[1],
-                'Exchange': ''
+                'Exchange': '',
+                'Sector': item[2],
+                'MarketCap': item[3]
             }
             res_list.append(d)
 
