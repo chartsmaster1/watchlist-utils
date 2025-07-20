@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Table View</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; }
+    h1 { color: #333; }
+    table { border-collapse: collapse; margin-top: 16px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    th { background-color: #f5f5f5; }
+    #download-btn { display: none; margin-bottom: 16px; background-color: #4CAF50; color: white; padding: 10px 15px; text-align: center; text-decoration: none; border: none; cursor: pointer; border-radius: 4px; font-size: 14px; }
+    #download-btn:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <h1 id="table-title"></h1>
+  <a id="download-btn">Download CSV</a>
+  <div id="table-output"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const fileName = params.get("file");
+    const displayName = params.get("name");
+    const baseURL = window.location.hostname === "localhost"
+      ? "http://localhost:5000/data/"
+      : "https://watchlist-static-files.web.app/data/";
+
+    if (displayName) {
+      document.title = displayName;
+      document.getElementById("table-title").textContent = displayName;
+    } else {
+      document.getElementById("table-title").textContent = "No file selected";
+    }
+
+    if (fileName) {
+      const downloadBtn = document.getElementById("download-btn");
+      downloadBtn.href = baseURL + fileName;
+      downloadBtn.download = fileName;
+      downloadBtn.style.display = "inline-block";
+
+      fetch(baseURL + fileName)
+        .then(res => {
+          if (!res.ok) throw new Error(res.statusText);
+          return res.text();
+        })
+        .then(csvText => {
+          const parsed = Papa.parse(csvText, { header: true });
+          displayTable(parsed.data);
+        })
+        .catch(err => {
+          document.getElementById("table-output").innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
+        });
+    }
+
+    function displayTable(rows) {
+      const outputEl = document.getElementById("table-output");
+      if (!rows || !rows.length) {
+        outputEl.textContent = "No data.";
+        return;
+      }
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      Object.keys(rows[0]).forEach(col => {
+        const th = document.createElement("th");
+        th.textContent = col;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+        Object.values(r).forEach(val => {
+          const td = document.createElement("td");
+          td.textContent = val;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+
+      outputEl.appendChild(table);
+    }
+  </script>
+</body>
+</html>

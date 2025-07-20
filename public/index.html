@@ -1,75 +1,164 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Market Benchmarks Holdings</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.5.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.5.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.5.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <!-- Firebase (compat) -->
+  <script defer src="/__/firebase/11.5.0/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/11.5.0/firebase-performance-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+  <!-- Papa Parse for CSV → JSON -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; }
+    h1, h2 { color: #333; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 4px; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    pre { background: #f5f5f5; padding: 12px; overflow: auto; }
+    table { border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid #ccc; padding: 4px 8px; }
+  </style>
+</head>
+<body>
+
+  <h1>Watchlist101 Data Browser</h1>
+
+  <section>
+    <h2>JSON Files (click to view)</h2>
+    <ul id="json-links"></ul>
+  </section>
+
+  <section>
+    <h2>CSV Files (click to view)</h2>
+    <ul id="csv-links"></ul>
+  </section>
+
+  <section id="csv-output"></section>
+
+  <script>
+    const fileMap = [
+      { name: "S&P 500", json: "spy.json", csv: "spy.csv" },
+      { name: "Dow Jones Industrial Average", json: "dow.json", csv: "dow.csv" },
+      { name: "NASDAQ 100", json: "nasdaq.json", csv: "nasdaq.csv" },
+      { name: "Cryptocurrencies", json: "coins.json", csv: "coins.csv" },
+      { name: "S&P 500 Sectors", json: "spysectors.json", csv: "spysectors.csv" },
+      { name: "Stocks by Market Cap", json: "stocks.json", csv: "CompaniesMarketCap.csv" },
+      { name: "ETFs by Market Cap", json: "etfs_market_cap.json", csv: "etfs_market_cap.csv" }
+    ];
+
+    const baseURL = window.location.hostname === "localhost"
+      ? "http://localhost:5000/data/"
+      : "https://watchlist-static-files.web.app/data/";
+
+    const jsonLinksEl = document.getElementById("json-links");
+    const csvLinksEl  = document.getElementById("csv-links");
+    const csvOutput   = document.getElementById("csv-output");
+
+    // Load JSON files
+    fileMap.forEach(fileInfo => {
+      fetch(baseURL + fileInfo.json)
+      .then(res => res.json())
+      .then(data => {
+        // link
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = baseURL + fileInfo.json;
+        a.textContent = fileInfo.name;
+        a.target = "_blank";
+        li.appendChild(a);
+        jsonLinksEl.appendChild(li);
+      })
+      .catch(err => {
+        const li = document.createElement("li");
+        li.textContent = `Error loading ${fileInfo.name}`;
+        jsonLinksEl.appendChild(li);
+      });
+    });
+
+    // Setup CSV links
+    fileMap.forEach(fileInfo => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `table.html?file=${encodeURIComponent(fileInfo.csv)}&name=${encodeURIComponent(fileInfo.name)}`;
+      a.textContent = fileInfo.name;
+      a.target = "_blank";
+      li.appendChild(a);
+      csvLinksEl.appendChild(li);
+    });
+
+    function displayJSON(title, data) {
+      csvOutput.innerHTML = "";                // clear
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      csvOutput.appendChild(h2);
+
+      const pre = document.createElement("pre");
+      pre.textContent = JSON.stringify(data, null, 2);
+      csvOutput.appendChild(pre);
+    }
+
+    function fetchAndDisplayTable(fileName) {
+      fetch(baseURL + fileName)
+        .then(res => {
+          if (!res.ok) throw new Error(res.statusText);
+          return res.text();
+        })
+        .then(csvText => {
+          const parsed = Papa.parse(csvText, { header: true });
+          displayTable(fileName, parsed.data);
+        })
+        .catch(err => {
+          csvOutput.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
+        });
+    }
+
+    function displayTable(title, rows) {
+      csvOutput.innerHTML = "";
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      csvOutput.appendChild(h2);
+
+      if (!rows.length) {
+        csvOutput.appendChild(document.createTextNode("No data."));
+        return;
       }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <p id="json-length">Number of components in each popular list used in Watchlist101.</p>
-      <h1></h1>
-      <ul id="json-list"></ul>
-  
-      <script>
-          const jsonFiles = ["spy.json", "dow.json", "nasdaq.json", "coins.json", "spysectors.json", "stocks.json", "etfs_market_cap.json"]; // List of JSON files
-          const baseURL = window.location.hostname === "localhost"
-            ? "http://localhost:5000/data/"
-            : "https://watchlist-static-files.web.app//data/";          
-          const listElement = document.getElementById("json-list");
-  
-          jsonFiles.forEach(file => {
-              fetch(baseURL + file)
-                  .then(response => response.json())
-                  .then(data => {
-                      const listItem = document.createElement("li");
-                      listItem.textContent = `${file}: ${data.length}`;
-                      listElement.appendChild(listItem);
-                  })
-                  .catch(error => {
-                      console.error(`Error fetching ${file}:`, error);
-                      const listItem = document.createElement("li");
-                      listItem.textContent = `${file}: Error loading JSON`;
-                      listElement.appendChild(listItem);
-                  });
-          });
-      </script>
-      
-    </div>
 
-  </body>
+      const table = document.createElement("table");
+      const headerRow = document.createElement("tr");
+      Object.keys(rows[0]).forEach(col => {
+        const th = document.createElement("th");
+        th.textContent = col;
+        headerRow.appendChild(th);
+      });
+      table.appendChild(headerRow);
+
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+        Object.values(r).forEach(val => {
+          const td = document.createElement("td");
+          td.textContent = val;
+          tr.appendChild(td);
+        });
+        table.appendChild(tr);
+      });
+      csvOutput.appendChild(table);
+    }
+    
+  </script>
+
+</body>
 </html>
