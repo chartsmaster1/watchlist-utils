@@ -55,7 +55,17 @@ def read_prep_dow():
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
-        print('Dow data read was successfull.')
+        print('Dow data read and json write was successfull.')
+
+        try:
+            df = pd.read_json(file_path)
+            df.to_csv('../data/dow.csv', index=False, encoding='utf-8-sig')
+            print('Dow data read and csv write was successfull.')
+
+        except Exception as e:
+            logging.error(str(e))
+            print('Failed to save Dow data to csv.')
+
 
     except Exception as e:
         logging.error(str(e))

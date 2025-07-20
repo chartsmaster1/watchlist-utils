@@ -58,7 +58,19 @@ def read_prep_sandp():
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
-        print('S&P500 data read was successfull.')
+        print('S&P500 data read and json write was successfull.')
+
+        try:
+            df = pd.read_json(file_path)
+            df['MarketCap'] = df['MarketCap'].astype('float')
+            df.to_csv('../data/spy.csv', index=False, encoding='utf-8-sig')
+            print('S&P500 data read and csv write was successfull.')
+
+        except Exception as e:
+            logging.error(str(e))
+            print(f'Failed to save S&P500 data to CSV. {e}')
+
+            
 
     except Exception as e:
         logging.error(str(e))

@@ -1,0 +1,501 @@
+﻿Name,Ticker,Exchange,Sector,MarketCap,SectorKey
+Nvidia,NVDA,,Information Technology,4022003040256,XLK
+Microsoft,MSFT,,Information Technology,3740946137088,XLK
+Apple Inc.,AAPL,,Information Technology,3153843453952,XLK
+Amazon,AMZN,,Consumer Discretionary,2388902281216,XLY
+Alphabet Inc. (Class C),GOOG,,Communication Services,2192672555008,XLC
+Meta Platforms,META,,Communication Services,1804057051136,XLC
+Broadcom,AVGO,,Information Technology,1290538188800,XLK
+Berkshire Hathaway,BRK.B,,Financials,1026073165824,XLF
+"Tesla, Inc.",TSLA,,Consumer Discretionary,1009803198464,XLY
+JPMorgan Chase,JPM,,Financials,797209722880,XLF
+Walmart,WMT,,Consumer Staples,753351655424,XLP
+Lilly (Eli),LLY,,Health Care,711913635840,XLV
+Visa Inc.,V,,Financials,679681261568,XLF
+Oracle Corporation,ORCL,,Information Technology,647603814400,XLK
+Netflix,NFLX,,Communication Services,529882710016,XLC
+Mastercard,MA,,Financials,499608551424,XLF
+ExxonMobil,XOM,,Energy,497461755904,XLE
+Costco,COST,,Consumer Staples,430319042560,XLP
+Johnson & Johnson,JNJ,,Health Care,377512361984,XLV
+Procter & Gamble,PG,,Consumer Staples,368209985536,XLP
+Home Depot (The),HD,,Consumer Discretionary,368193011712,XLY
+Bank of America,BAC,,Financials,351964758016,XLF
+AbbVie,ABBV,,Health Care,339943686144,XLV
+Palantir Technologies,PLTR,,Information Technology,335343222784,XLK
+Coca-Cola Company (The),KO,,Consumer Staples,300739330048,XLP
+Philip Morris International,PM,,Consumer Staples,280033492992,XLP
+UnitedHealth Group,UNH,,Health Care,275861274624,XLV
+GE Aerospace,GE,,Industrials,272377331712,XLI
+Cisco,CSCO,,Information Technology,269081985024,XLK
+Chevron Corporation,CVX,,Energy,269032636416,XLE
+Wells Fargo,WFC,,Financials,268632571904,XLF
+IBM,IBM,,Information Technology,263567687680,XLK
+T-Mobile US,TMUS,,Communication Services,258610085888,XLC
+Salesforce,CRM,,Information Technology,246714925056,XLK
+Advanced Micro Devices,AMD,,Information Technology,237405388800,XLK
+Abbott Laboratories,ABT,,Health Care,229693685760,XLV
+Morgan Stanley,MS,,Financials,228262641664,XLF
+American Express,AXP,,Financials,223817170944,XLF
+Linde plc,LIN,,Materials,220680110080,XLB
+Goldman Sachs,GS,,Financials,216307564544,XLF
+Walt Disney Company (The),DIS,,Communication Services,215496294400,XLC
+McDonald's,MCD,,Consumer Discretionary,214445555712,XLY
+Merck & Co.,MRK,,Health Care,209319460864,XLV
+Intuit,INTU,,Information Technology,208624467968,XLK
+Texas Instruments,TXN,,Information Technology,200999436288,XLK
+Uber,UBER,,Industrials,199476707328,XLI
+Blackstone Inc.,BX,,Financials,196543250432,XLF
+RTX Corporation,RTX,,Industrials,196210966528,XLI
+ServiceNow,NOW,,Information Technology,194470166528,XLK
+AT&T,T,,Communication Services,194203942912,XLC
+Caterpillar Inc.,CAT,,Industrials,190910267392,XLI
+Booking Holdings,BKNG,,Consumer Discretionary,186036158464,XLY
+PepsiCo,PEP,,Consumer Staples,185452265472,XLP
+Intuitive Surgical,ISRG,,Health Care,183531520000,XLV
+Verizon,VZ,,Communication Services,175480324096,XLC
+Accenture,ACN,,Information Technology,175059058688,XLK
+Qualcomm,QCOM,,Information Technology,172891095040,XLK
+Boeing,BA,,Industrials,171038720000,XLI
+BlackRock,BLK,,Financials,170672685056,XLF
+Charles Schwab Corporation,SCHW,,Financials,167106723840,XLF
+Thermo Fisher Scientific,TMO,,Health Care,164157046784,XLV
+Citigroup,C,,Financials,161988231168,XLF
+S&P Global,SPGI,,Financials,161643413504,XLF
+Applied Materials,AMAT,,Information Technology,158838423552,XLK
+Amgen,AMGN,,Health Care,158768447488,XLV
+Adobe Inc.,ADBE,,Information Technology,154133069824,XLK
+NextEra Energy,NEE,,Utilities,153162072064,XLU
+Boston Scientific,BSX,,Health Care,152679235584,XLV
+Honeywell,HON,,Industrials,151763632128,XLI
+Stryker Corporation,SYK,,Health Care,148837974016,XLV
+GE Vernova,GEV,,Industrials,147155632128,XLI
+Danaher Corporation,DHR,,Health Care,146605015040,XLV
+Pfizer,PFE,,Health Care,145829740544,XLV
+Progressive Corporation,PGR,,Financials,143613149184,XLF
+Eaton Corporation,ETN,,Industrials,141110607872,XLI
+Capital One,COF,,Financials,140585369600,XLF
+Union Pacific Corporation,UNP,,Industrials,140466601984,XLI
+Micron Technology,MU,,Information Technology,139365253120,XLK
+Deere & Company,DE,,Industrials,138774462464,XLI
+TJX Companies,TJX,,Consumer Discretionary,138013343744,XLY
+Gilead Sciences,GILD,,Health Care,136384479232,XLV
+Arista Networks,ANET,,Information Technology,136355233792,XLK
+Comcast,CMCSA,,Communication Services,130642173952,XLC
+KKR & Co.,KKR,,Financials,130500870144,XLF
+Lam Research,LRCX,,Information Technology,130124881920,XLK
+Lowe's,LOW,,Consumer Discretionary,125610975232,XLY
+Palo Alto Networks,PANW,,Information Technology,124951650304,XLK
+Automatic Data Processing,ADP,,Industrials,122852597760,XLI
+KLA Corporation,KLAC,,Information Technology,122267385856,XLK
+Analog Devices,ADI,,Information Technology,121419481088,XLK
+ConocoPhillips,COP,,Energy,120699019264,XLE
+Vertex Pharmaceuticals,VRTX,,Health Care,120399273984,XLV
+Amphenol,APH,,Information Technology,119460102144,XLK
+CrowdStrike,CRWD,,Information Technology,119252705280,XLK
+Medtronic,MDT,,Health Care,115210903552,XLV
+Chubb Limited,CB,,Financials,111427977216,XLF
+Lockheed Martin,LMT,,Industrials,109535723520,XLI
+Starbucks,SBUX,,Consumer Discretionary,107889819648,XLY
+"Nike, Inc.",NKE,,Consumer Discretionary,107201150976,XLY
+Marsh McLennan,MMC,,Financials,104330231808,XLF
+Intercontinental Exchange,ICE,,Financials,103545225216,XLF
+American Tower,AMT,,Real Estate,102634577920,XLRE
+Intel,INTC,,Information Technology,102201655296,XLK
+Southern Company,SO,,Utilities,101943607296,XLU
+DoorDash,DASH,,Consumer Discretionary,101885009920,XLY
+Welltower,WELL,,Real Estate,101467193344,XLRE
+Prologis,PLD,,Real Estate,101301682176,XLRE
+Constellation Energy,CEG,,Utilities,100776099840,XLU
+CME Group,CME,,Financials,99127549952,XLF
+Coinbase,COIN,,Financials,98586116096,XLF
+Trane Technologies,TT,,Industrials,97570373632,XLI
+Altria,MO,,Consumer Staples,97361215488,XLP
+Bristol Myers Squibb,BMY,,Health Care,95363850240,XLV
+Royal Caribbean Group,RCL,,Consumer Discretionary,91925774336,XLY
+Fiserv,FI,,Financials,91769913344,XLF
+Parker Hannifin,PH,,Industrials,91349770240,XLI
+Duke Energy,DUK,,Utilities,91296612352,XLU
+Waste Management,WM,,Industrials,90948231168,XLI
+HCA Healthcare,HCA,,Health Care,90472669184,XLV
+Moody's Corporation,MCO,,Financials,89884426240,XLF
+McKesson Corporation,MCK,,Health Care,88630632448,XLV
+Cadence Design Systems,CDNS,,Information Technology,87537262592,XLK
+Cintas,CTAS,,Industrials,86991872000,XLI
+Mondelez International,MDLZ,,Consumer Staples,86986006528,XLP
+Synopsys,SNPS,,Information Technology,86778445824,XLK
+Sherwin-Williams,SHW,,Materials,86690398208,XLB
+TransDigm Group,TDG,,Industrials,86668083200,XLI
+Dell Technologies,DELL,,Information Technology,86098419712,XLK
+United Parcel Service,UPS,,Industrials,85755232256,XLI
+Apollo Global Management,APO,,Financials,84112482304,XLF
+3M,MMM,,Industrials,83870121984,XLI
+Airbnb,ABNB,,Consumer Discretionary,83539779584,XLY
+CVS Health,CVS,,Health Care,81947992064,XLV
+General Dynamics,GD,,Industrials,81109270528,XLI
+Cigna,CI,,Health Care,81016455168,XLV
+Arthur J. Gallagher & Co.,AJG,,Financials,79770755072,XLF
+Emerson Electric,EMR,,Industrials,78806245376,XLI
+O’Reilly Automotive,ORLY,,Consumer Discretionary,78320623616,XLY
+PNC Financial Services,PNC,,Financials,77934616576,XLF
+Marriott International,MAR,,Consumer Discretionary,77142810624,XLY
+Elevance Health,ELV,,Health Care,76969279488,XLV
+Aon plc,AON,,Financials,76803383296,XLF
+Illinois Tool Works,ITW,,Industrials,76187156480,XLI
+Fortinet,FTNT,,Information Technology,75822104576,XLK
+Ecolab,ECL,,Materials,75686625280,XLB
+Chipotle Mexican Grill,CMG,,Consumer Discretionary,75452162048,XLY
+Republic Services,RSG,,Industrials,75377401856,XLI
+Northrop Grumman,NOC,,Industrials,74065346560,XLI
+Equinix,EQIX,,Real Estate,74019635200,XLRE
+U.S. Bancorp,USB,,Financials,73445531648,XLF
+Colgate-Palmolive,CL,,Consumer Staples,72597422080,XLP
+Howmet Aerospace,HWM,,Industrials,72532140032,XLI
+Williams Companies,WMB,,Energy,71087210496,XLE
+Johnson Controls,JCI,,Industrials,69654274048,XLI
+Motorola Solutions,MSI,,Information Technology,69442060288,XLK
+PayPal,PYPL,,Financials,69399953408,XLF
+Zoetis,ZTS,,Health Care,68989435904,XLV
+EOG Resources,EOG,,Energy,67153633280,XLE
+BNY Mellon,BK,,Financials,67050475520,XLF
+Newmont,NEM,,Materials,66924687360,XLB
+Vistra Corp.,VST,,Utilities,66705883136,XLU
+Freeport-McMoRan,FCX,,Materials,66582228992,XLB
+Hilton Worldwide,HLT,,Consumer Discretionary,65916588032,XLY
+Carrier Global,CARR,,Industrials,65360080896,XLI
+Air Products,APD,,Materials,64976171008,XLB
+CSX Corporation,CSX,,Industrials,64058552320,XLI
+AutoZone,AZO,,Consumer Discretionary,61990539264,XLY
+Kinder Morgan,KMI,,Energy,61881913344,XLE
+Regeneron Pharmaceuticals,REGN,,Health Care,61296046080,XLV
+Simon Property Group,SPG,,Real Estate,61002235904,XLRE
+Norfolk Southern,NSC,,Industrials,60096610304,XLI
+Autodesk,ADSK,,Information Technology,59988037632,XLK
+"Workday, Inc.",WDAY,,Information Technology,59549548544,XLK
+Truist Financial,TFC,,Financials,59492401152,XLF
+Roper Technologies,ROP,,Information Technology,58860163072,XLK
+NXP Semiconductors,NXPI,,Information Technology,57831829504,XLK
+Digital Realty,DLR,,Real Estate,57808961536,XLRE
+Travelers Companies (The),TRV,,Financials,57657274368,XLF
+Monster Beverage,MNST,,Consumer Staples,57373724672,XLP
+Cencora,COR,,Health Care,57218490368,XLV
+Quanta Services,PWR,,Industrials,56875814912,XLI
+Axon Enterprise,AXON,,Industrials,56801501184,XLI
+FedEx,FDX,,Industrials,56559742976,XLI
+American Electric Power,AEP,,Utilities,56272101376,XLU
+Marathon Petroleum,MPC,,Energy,55255515136,XLE
+Aflac,AFL,,Financials,54913310720,XLF
+Phillips 66,PSX,,Energy,53663526912,XLE
+Charter Communications,CHTR,,Communication Services,53585502208,XLC
+United Rentals,URI,,Industrials,52927385600,XLI
+TE Connectivity,TEL,,Information Technology,52521439232,XLK
+MetLife,MET,,Financials,52159852544,XLF
+Paychex,PAYX,,Industrials,51656044544,XLI
+Realty Income,O,,Real Estate,51620052992,XLRE
+"Nasdaq, Inc.",NDAQ,,Financials,51332247552,XLF
+General Motors,GM,,Consumer Discretionary,51331014656,XLY
+Allstate,ALL,,Financials,51197263872,XLF
+Ameriprise Financial,AMP,,Financials,51068887040,XLF
+Paccar,PCAR,,Industrials,51031265280,XLI
+W. W. Grainger,GWW,,Industrials,50897051648,XLI
+Oneok,OKE,,Energy,50807566336,XLE
+Public Storage,PSA,,Real Estate,50722369536,XLRE
+Becton Dickinson,BDX,,Health Care,50434236416,XLV
+Schlumberger,SLB,,Energy,50404319232,XLE
+Corteva,CTVA,,Materials,50187243520,XLB
+Fastenal,FAST,,Industrials,49641070592,XLI
+Dominion Energy,D,,Utilities,48941674496,XLU
+Sempra,SRE,,Utilities,48625790976,XLU
+L3Harris,LHX,,Industrials,48521830400,XLI
+Valero Energy,VLO,,Energy,47936180224,XLE
+Datadog,DDOG,,Information Technology,47441137664,XLK
+Hess Corporation,HES,,Energy,47386505216,XLE
+Target Corporation,TGT,,Consumer Staples,47363112960,XLP
+American International Group,AIG,,Financials,47132266496,XLF
+Ford Motor Company,F,,Consumer Discretionary,46843756544,XLY
+Cummins,CMI,,Industrials,46674153472,XLI
+Kroger,KR,,Consumer Staples,46664388608,XLP
+Copart,CPRT,,Industrials,45890781184,XLI
+Edwards Lifesciences,EW,,Health Care,45784133632,XLV
+Occidental Petroleum,OXY,,Energy,45575200768,XLE
+Keurig Dr Pepper,KDP,,Consumer Staples,45485785088,XLP
+Crown Castle,CCI,,Real Estate,44747767808,XLRE
+Corning Inc.,GLW,,Information Technology,44193902592,XLK
+Exelon,EXC,,Utilities,43925082112,XLU
+MSCI Inc.,MSCI,,Financials,43758227456,XLF
+Kimberly-Clark,KMB,,Consumer Staples,42930356224,XLP
+Ross Stores,ROST,,Consumer Discretionary,42901905408,XLY
+Idexx Laboratories,IDXX,,Health Care,42894630912,XLV
+Take-Two Interactive,TTWO,,Communication Services,42780930048,XLC
+Diamondback Energy,FANG,,Energy,42168606720,XLE
+Verisk Analytics,VRSK,,Industrials,42036543488,XLI
+D. R. Horton,DHI,,Consumer Discretionary,42028507136,XLY
+CBRE Group,CBRE,,Real Estate,41883750400,XLRE
+Ametek,AME,,Industrials,41782173696,XLI
+Yum! Brands,YUM,,Consumer Discretionary,41636372480,XLY
+Garmin,GRMN,,Consumer Discretionary,41573449728,XLY
+Fidelity National Information Services,FIS,,Financials,41322319872,XLF
+Public Service Enterprise Group,PEG,,Utilities,41192288256,XLU
+Kenvue,KVUE,,Consumer Staples,40970878976,XLP
+Baker Hughes,BKR,,Energy,40323526656,XLE
+Microchip Technology,MCHP,,Information Technology,40238166016,XLK
+Xcel Energy,XEL,,Utilities,39577341952,XLU
+Otis Worldwide,OTIS,,Industrials,39266414592,XLI
+Carnival,CCL,,Consumer Discretionary,38859517952,XLY
+Rockwell Automation,ROK,,Industrials,38669479936,XLI
+Cardinal Health,CAH,,Health Care,38419836928,XLV
+Fair Isaac,FICO,,Information Technology,37589184512,XLK
+Prudential Financial,PRU,,Financials,37503504384,XLF
+Electronic Arts,EA,,Communication Services,37361635328,XLC
+ResMed,RMD,,Health Care,37301911552,XLV
+Targa Resources,TRGP,,Energy,37290610688,XLE
+Sysco,SYY,,Consumer Staples,37248339968,XLP
+Cognizant,CTSH,,Information Technology,37148110848,XLK
+Trade Desk (The),TTD,,Communication Services,37044670464,XLC
+Delta Air Lines,DAL,,Industrials,36989788160,XLI
+Wabtec,WAB,,Industrials,36562780160,XLI
+Entergy,ETR,,Utilities,36487888896,XLU
+Consolidated Edison,ED,,Utilities,36242173952,XLU
+CoStar Group,CSGP,,Real Estate,36041805824,XLRE
+Ingersoll Rand,IR,,Industrials,35916275712,XLI
+Vulcan Materials Company,VMC,,Materials,35535974400,XLB
+eBay Inc.,EBAY,,Consumer Discretionary,35535679488,XLY
+Old Dominion,ODFL,,Industrials,35445538816,XLI
+Vici Properties,VICI,,Real Estate,35315245056,XLRE
+Monolithic Power Systems,MPWR,,Information Technology,35242553344,XLK
+Brown & Brown,BRO,,Financials,35207962624,XLF
+Las Vegas Sands,LVS,,Consumer Discretionary,35197140992,XLY
+Agilent Technologies,A,,Health Care,35019530240,XLV
+GE HealthCare,GEHC,,Health Care,34400899072,XLV
+Hartford (The),HIG,,Financials,34359418880,XLF
+Martin Marietta Materials,MLM,,Materials,33880395776,XLB
+WEC Energy Group,WEC,,Utilities,33671831552,XLU
+Hershey Company (The),HSY,,Consumer Staples,33381033984,XLP
+Live Nation Entertainment,LYV,,Communication Services,33361262592,XLC
+Extra Space Storage,EXR,,Real Estate,33287925760,XLRE
+EQT Corporation,EQT,,Energy,33121976320,XLE
+Arch Capital Group,ACGL,,Financials,32918478848,XLF
+Nucor,NUE,,Materials,32858941440,XLB
+Estée Lauder Companies (The),EL,,Consumer Staples,32766212096,XLP
+Dexcom,DXCM,,Health Care,32689963008,XLV
+M&T Bank,MTB,,Financials,32409786368,XLF
+Equifax,EFX,,Industrials,32125313024,XLI
+Kraft Heinz,KHC,,Consumer Staples,32121274368,XLP
+Raymond James Financial,RJF,,Financials,31957991424,XLF
+Xylem Inc.,XYL,,Industrials,31866814464,XLI
+DuPont,DD,,Materials,31592488960,XLB
+State Street Corporation,STT,,Financials,31244541952,XLF
+Seagate Technology,STX,,Information Technology,31234095104,XLK
+Willis Towers Watson,WTW,,Financials,30470717440,XLF
+Constellation Brands,STZ,,Consumer Staples,30360711168,XLP
+Tractor Supply,TSCO,,Consumer Discretionary,30110228480,XLY
+PG&E Corporation,PCG,,Utilities,29492867072,XLU
+NRG Energy,NRG,,Utilities,29459445760,XLU
+Supermicro,SMCI,,Information Technology,29387319296,XLK
+Lennar,LEN,,Consumer Discretionary,29342763008,XLY
+Ventas,VTR,,Real Estate,29235621888,XLRE
+Fifth Third Bancorp,FITB,,Financials,29209446400,XLF
+Warner Bros. Discovery,WBD,,Communication Services,29020839936,XLC
+Iron Mountain,IRM,,Real Estate,28911360000,XLRE
+Gartner,IT,,Information Technology,28816404480,XLK
+AvalonBay Communities,AVB,,Real Estate,28738404352,XLRE
+United Airlines Holdings,UAL,,Industrials,28639641600,XLI
+Lululemon Athletica,LULU,,Consumer Discretionary,28345958400,XLY
+Keysight Technologies,KEYS,,Information Technology,28172521472,XLK
+IQVIA,IQV,,Health Care,28164401152,XLV
+General Mills,GIS,,Consumer Staples,27978438656,XLP
+Humana,HUM,,Health Care,27840253952,XLV
+DTE Energy,DTE,,Utilities,27782242304,XLU
+American Water Works,AWK,,Utilities,27748255744,XLU
+International Paper,IP,,Materials,27667345408,XLB
+Broadridge Financial Solutions,BR,,Industrials,27624947712,XLI
+Kellanova,K,,Consumer Staples,27560835072,XLP
+Hewlett Packard Enterprise,HPE,,Information Technology,27189198848,XLK
+Synchrony Financial,SYF,,Financials,26878189568,XLF
+"Rollins, Inc.",ROL,,Industrials,26781538304,XLI
+PPG Industries,PPG,,Materials,26624169984,XLB
+Verisign,VRSN,,Information Technology,26422521856,XLK
+Archer Daniels Midland,ADM,,Consumer Staples,26395922432,XLP
+Equity Residential,EQR,,Real Estate,26155499520,XLRE
+W. R. Berkley Corporation,WRB,,Financials,26130040832,XLF
+Ameren,AEE,,Utilities,26080972800,XLU
+Dover Corporation,DOV,,Industrials,25904431104,XLI
+Mettler Toledo,MTD,,Health Care,25436694528,XLV
+PPL Corporation,PPL,,Utilities,25334577152,XLU
+Huntington Bancshares,HBAN,,Financials,25333923840,XLF
+Veralto,VLTO,,Industrials,25264470016,XLI
+Expand Energy,EXE,,Energy,25123444736,XLE
+ON Semiconductor,ON,,Information Technology,24960270336,XLK
+Dollar General,DG,,Consumer Staples,24898834432,XLP
+Teledyne Technologies,TDY,,Information Technology,24869636096,XLK
+Smurfit Westrock,SW,,Materials,24639012864,XLB
+Cboe Global Markets,CBOE,,Financials,24608602112,XLF
+SBA Communications,SBAC,,Real Estate,24583415808,XLRE
+Darden Restaurants,DRI,,Consumer Discretionary,24498223104,XLY
+Northern Trust,NTRS,,Financials,24494407680,XLF
+Atmos Energy,ATO,,Utilities,24491075584,XLU
+Church & Dwight,CHD,,Consumer Staples,24147460096,XLP
+Eversource Energy,ES,,Utilities,24140867584,XLU
+Texas Pacific Land Corporation,TPL,,Energy,24062646272,XLE
+GoDaddy,GDDY,,Information Technology,23918034944,XLK
+HP Inc.,HPQ,,Information Technology,23876321280,XLK
+Jabil,JBL,,Information Technology,23826964480,XLK
+Tyler Technologies,TYL,,Information Technology,23795546112,XLK
+Fox Corporation (Class B),FOX,,Communication Services,23753877504,XLC
+CenterPoint Energy,CNP,,Utilities,23589588992,XLU
+CDW Corporation,CDW,,Information Technology,23358285824,XLK
+Expedia Group,EXPE,,Consumer Discretionary,23344500736,XLY
+FirstEnergy,FE,,Utilities,23311329280,XLU
+PTC Inc.,PTC,,Information Technology,23210539008,XLK
+Western Digital,WDC,,Information Technology,23074791424,XLK
+Cincinnati Financial,CINF,,Financials,23040774144,XLF
+PulteGroup,PHM,,Consumer Discretionary,22902794240,XLY
+Corpay,CPAY,,Financials,22867355648,XLF
+Dollar Tree,DLTR,,Consumer Staples,22822993920,XLP
+Steris,STE,,Health Care,22431539200,XLV
+Hubbell Incorporated,HUBB,,Industrials,22375927808,XLI
+T. Rowe Price,TROW,,Financials,22355464192,XLF
+"NVR, Inc.",NVR,,Consumer Discretionary,22315372544,XLY
+Regions Financial Corporation,RF,,Financials,22194581504,XLF
+Amcor,AMCR,,Materials,22134343680,XLB
+Lennox International,LII,,Industrials,21888798720,XLI
+Devon Energy,DVN,,Energy,21812135936,XLE
+"Williams-Sonoma, Inc.",WSM,,Consumer Discretionary,21502511104,XLY
+Ulta Beauty,ULTA,,Consumer Discretionary,21431859200,XLY
+Southwest Airlines,LUV,,Industrials,21159124992,XLI
+NetApp,NTAP,,Information Technology,21092528128,XLK
+CMS Energy,CMS,,Utilities,21043372032,XLU
+Waters Corporation,WAT,,Health Care,21001357312,XLV
+Labcorp,LH,,Health Care,20893194240,XLV
+Dow Inc.,DOW,,Materials,20887771136,XLB
+Leidos,LDOS,,Industrials,20858914816,XLI
+LyondellBasell,LYB,,Materials,20746371072,XLB
+Citizens Financial Group,CFG,,Financials,20672047104,XLF
+"Tapestry, Inc.",TPR,,Consumer Discretionary,20442927104,XLY
+Insulet Corporation,PODD,,Health Care,20360865792,XLV
+KeyCorp,KEY,,Financials,20088580096,XLF
+Steel Dynamics,STLD,,Materials,20051683328,XLB
+Halliburton,HAL,,Energy,19842222080,XLE
+Invitation Homes,INVH,,Real Estate,19828899840,XLRE
+Essex Property Trust,ESS,,Real Estate,19791687680,XLRE
+Biogen,BIIB,,Health Care,19665524736,XLV
+Edison International,EIX,,Utilities,19646050304,XLU
+International Flavors & Fragrances,IFF,,Materials,19427250176,XLB
+Tyson Foods,TSN,,Consumer Staples,19315007488,XLP
+McCormick & Company,MKC,,Consumer Staples,19313106944,XLP
+Coterra,CTRA,,Energy,19295238144,XLE
+Global Payments,GPN,,Financials,19217743872,XLF
+Trimble Inc.,TRMB,,Information Technology,19084574720,XLK
+Weyerhaeuser,WY,,Real Estate,19081932800,XLRE
+Loews Corporation,L,,Financials,18996449280,XLF
+Quest Diagnostics,DGX,,Health Care,18764726272,XLV
+NiSource,NI,,Utilities,18625718272,XLU
+Zimmer Biomet,ZBH,,Health Care,18556164096,XLV
+Packaging Corporation of America,PKG,,Materials,18526881792,XLB
+Mid-America Apartment Communities,MAA,,Real Estate,18104184832,XLRE
+Principal Financial Group,PFG,,Financials,18018232320,XLF
+Erie Indemnity,ERIE,,Financials,17993476096,XLF
+Fortive,FTV,,Industrials,17908381696,XLI
+Gen Digital,GEN,,Information Technology,17794400256,XLK
+Pentair,PNR,,Industrials,17617551360,XLI
+News Corp (Class B),NWS,,Communication Services,17587924992,XLC
+First Solar,FSLR,,Information Technology,17420716032,XLK
+Ralph Lauren Corporation,RL,,Consumer Discretionary,17383843840,XLY
+Genuine Parts Company,GPC,,Consumer Discretionary,17284907008,XLY
+FactSet,FDS,,Financials,16869772288,XLF
+Hormel Foods,HRL,,Consumer Staples,16777295872,XLP
+"F5, Inc.",FFIV,,Information Technology,16763710464,XLK
+Zebra Technologies,ZBRA,,Information Technology,16636476416,XLK
+Snap-on,SNA,,Industrials,16606053376,XLI
+West Pharmaceutical Services,WST,,Health Care,16321837056,XLV
+Jacobs Solutions,J,,Industrials,16237881344,XLI
+Ball Corporation,BALL,,Materials,16176242688,XLB
+Alliant Energy,LNT,,Utilities,15946862592,XLU
+CF Industries,CF,,Materials,15915862016,XLB
+Domino's,DPZ,,Consumer Discretionary,15904492544,XLY
+Evergy,EVRG,,Utilities,15867075584,XLU
+Expeditors International,EXPD,,Industrials,15853101056,XLI
+Centene Corporation,CNC,,Health Care,15644639232,XLV
+Clorox,CLX,,Consumer Staples,15596434432,XLP
+Teradyne,TER,,Information Technology,15568761856,XLK
+Textron,TXT,,Industrials,15349426176,XLI
+Bunge Global,BG,,Consumer Staples,15349303296,XLP
+J.B. Hunt,JBHT,,Industrials,15233315840,XLI
+"UDR, Inc.",UDR,,Real Estate,15230639104,XLRE
+Deckers Brands,DECK,,Consumer Discretionary,15202124800,XLY
+Best Buy,BBY,,Consumer Discretionary,15172601856,XLY
+Aptiv,APTV,,Consumer Discretionary,15084334080,XLY
+Cooper Companies (The),COO,,Health Care,14917585920,XLV
+Builders FirstSource,BLDR,,Industrials,14729439232,XLI
+Baxter International,BAX,,Health Care,14728123392,XLV
+Align Technology,ALGN,,Health Care,14662224896,XLV
+Hologic,HOLX,,Health Care,14645372928,XLV
+Kimco Realty,KIM,,Real Estate,14531133440,XLRE
+Everest Group,EG,,Financials,14434150400,XLF
+Omnicom Group,OMC,,Communication Services,14246923264,XLC
+Avery Dennison,AVY,,Materials,14244376576,XLB
+TKO Group Holdings,TKO,,Communication Services,14060570624,XLC
+Masco,MAS,,Industrials,13890530304,XLI
+Brown–Forman,BF.B,,Consumer Staples,13785847808,XLP
+Alexandria Real Estate Equities,ARE,,Real Estate,13761274880,XLRE
+IDEX Corporation,IEX,,Industrials,13709078528,XLI
+Incyte,INCY,,Health Care,13276965888,XLV
+Franklin Resources,BEN,,Financials,13069707264,XLF
+Moderna,MRNA,,Health Care,13010000896,XLV
+Healthpeak Properties,DOC,,Real Estate,12817806336,XLRE
+Allegion,ALLE,,Industrials,12804995072,XLI
+Solventum,SOLV,,Health Care,12768359424,XLV
+Jack Henry & Associates,JKHY,,Financials,12756635648,XLF
+Regency Centers,REG,,Real Estate,12663078912,XLRE
+"BXP, Inc.",BXP,,Real Estate,12508101632,XLRE
+Nordson Corporation,NDSN,,Industrials,12478296064,XLI
+Paycom,PAYC,,Industrials,12335053824,XLI
+Camden Property Trust,CPT,,Real Estate,12153890816,XLRE
+Molina Healthcare,MOH,,Health Care,12008009728,XLV
+Revvity,RVTY,,Health Care,11963804672,XLV
+C.H. Robinson,CHRW,,Industrials,11801861120,XLI
+Universal Health Services,UHS,,Health Care,11761661952,XLV
+Wynn Resorts,WYNN,,Consumer Discretionary,11623268352,XLY
+Host Hotels & Resorts,HST,,Real Estate,11615410176,XLRE
+Mosaic Company (The),MOS,,Materials,11563070464,XLB
+Pool Corporation,POOL,,Consumer Discretionary,11516162048,XLY
+Skyworks Solutions,SWKS,,Information Technology,11322728448,XLK
+Stanley Black & Decker,SWK,,Industrials,11273935872,XLI
+J.M. Smucker Company (The),SJM,,Consumer Staples,11176216576,XLP
+Akamai Technologies,AKAM,,Information Technology,11013959680,XLK
+Pinnacle West Capital,PNW,,Utilities,10870084608,XLU
+DaVita,DVA,,Health Care,10773501952,XLV
+Viatris,VTRS,,Health Care,10703961088,XLV
+Hasbro,HAS,,Consumer Discretionary,10561522688,XLY
+MGM Resorts,MGM,,Consumer Discretionary,10322611200,XLY
+Huntington Ingalls Industries,HII,,Industrials,10130750464,XLI
+Molson Coors Beverage Company,TAP,,Consumer Staples,10119199744,XLP
+Norwegian Cruise Line Holdings,NCLH,,Consumer Discretionary,10106774528,XLY
+Walgreens Boots Alliance,WBA,,Consumer Staples,9971263488,XLP
+LKQ Corporation,LKQ,,Consumer Discretionary,9964512256,XLY
+A. O. Smith,AOS,,Industrials,9816889344,XLI
+Globe Life,GL,,Financials,9750792192,XLF
+CarMax,KMX,,Consumer Discretionary,9655631872,XLY
+EPAM Systems,EPAM,,Information Technology,9624161280,XLK
+Assurant,AIZ,,Financials,9509723136,XLF
+Campbell's Company (The),CPB,,Consumer Staples,9313581056,XLP
+Eastman Chemical Company,EMN,,Materials,9266820096,XLB
+Conagra Brands,CAG,,Consumer Staples,9261035520,XLP
+Henry Schein,HSIC,,Health Care,9177867264,XLV
+Interpublic Group of Companies (The),IPG,,Communication Services,9150941184,XLC
+Paramount Global,PARA,,Communication Services,9011649536,XLC
+AES Corporation,AES,,Utilities,8963110912,XLU
+Generac,GNRC,,Industrials,8887054336,XLI
+Dayforce,DAY,,Industrials,8833424384,XLI
+Bio-Techne,TECH,,Health Care,8487365632,XLV
+Albemarle Corporation,ALB,,Materials,8351578112,XLB
+Federal Realty Investment Trust,FRT,,Real Estate,8242026496,XLRE
+MarketAxess,MKTX,,Financials,8102242304,XLF
+Match Group,MTCH,,Communication Services,7967360512,XLC
+Charles River Laboratories,CRL,,Health Care,7829042176,XLV
+Invesco,IVZ,,Financials,7800901120,XLF
+APA Corporation,APA,,Energy,7256592896,XLE
+Lamb Weston,LW,,Consumer Staples,7242073088,XLP
+Mohawk Industries,MHK,,Consumer Discretionary,7035904512,XLY
+Caesars Entertainment,CZR,,Consumer Discretionary,6245279232,XLY
+Enphase Energy,ENPH,,Information Technology,5491668992,XLK

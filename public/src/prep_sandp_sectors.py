@@ -50,7 +50,7 @@ def prep_spy_sectors():
     
     for k,v in sector_map.items():
         comps_list = comps_df[comps_df['SectorKey'] == v][['Name', 'Ticker']].values.tolist()
-        print(comps_list)
+        # print(comps_list)
 
         sec_items = []
         for item in comps_list:
@@ -73,7 +73,14 @@ def prep_spy_sectors():
         with open(file_path, 'w') as fp:
             json.dump(res_list, fp)
 
-        print('S&P 500 sectors data read was successfull.')
+        print('S&P 500 sectors data read and json write was successfull.')
+
+        try:
+            comps_df.to_csv('../data/spysectors.csv', index=False, encoding='utf-8-sig')
+            print('S&P 500 sectors data saved to CSV successfully.')
+        except Exception as e:
+            logging.error(str(e))
+            print(f'Failed to save S&P 500 sectors data to CSV. {e}')
 
     else:
         raise ValueError("Failed to collect SPY sectors.")

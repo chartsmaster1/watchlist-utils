@@ -65,7 +65,16 @@ def read_prep_russell():
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
-        print('Russell 1000 data read was successfull.')
+        print('Russell 1000 data read and json write was successfull.')
+
+        try:
+            df = pd.read_json(file_path)
+            df.to_csv('../data/russell_1000.csv', index=False, encoding='utf-8-sig')
+            print('Russell 1000 data read and csv write was successfull.')
+
+        except Exception as e:
+            logging.error(str(e))
+            print('Failed to save Russell 1000 data to csv.')
 
     except Exception as e:
         logging.error(str(e))

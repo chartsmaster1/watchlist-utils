@@ -1,4 +1,4 @@
-
+import pandas as pd
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
@@ -64,17 +64,27 @@ def read_prep_coins():
             with open(file_path, 'w') as fp:
                 json.dump(coinlist, fp)
 
-            print('CMC data read was successfull.')
+            print('CMC data read and json write was successfull.')
+
+            try:
+                df = pd.read_json('../data/coins.json', dtype=str, encoding='utf-8')
+                df['Rank'] = df['Rank'].astype(int)
+                df['MarketCap'] = df['MarketCap'].astype(float)
+                df.sort_values(by='Rank', inplace=True)
+                df.to_csv('../data/coins.csv', index=False, encoding='utf-8-sig')
+                print('CMC data read and csv write was successfull.')
+
+            except Exception as e:
+                logging.error(str(e))
+                print('Failed to save CMC data to csv.')
 
         except Exception as e:
             logging.error(str(e))
-            print('CMC data read failed.')
+            print('Failed to read & save CMC data.')
 
     else:
         logging.error('read api return null.')
         print('CMC data read failed.')
-
-
 
 
 if __name__ == '__main__':

@@ -57,73 +57,81 @@ def read_etfs():
     return all_etfs
 
 
-def read_prep_etfs(use_csv=False):
+def read_prep_etfs():
 
     file_name = 'etfs_market_cap'
     file_path = '../data/' + file_name + '.json'
 
     res_list = []
-    if use_csv:
+
+    try:
+        # df = pd.read_csv('etf_list.csv', index_col=False)
+        # df['market_cap'] = df['market_cap'].replace({'\\$': '', ',': ''}, regex=True).astype('int')
+        # df = df[df['market_cap'] > 0]
+        # df.sort_values(['market_cap'], inplace=True, ascending=False)
+        # df.reset_index(drop=True, inplace=True)
+        df = read_etfs()
+        for idx, row in df.iterrows():
+            d = {
+                'Rank': row['Rank'],
+                'Name': row['Name'],
+                'Ticker': row['Symbol'],
+                'MarketCap': row['MarketCap'],
+                'Exchange': ""
+            }
+            res_list.append(d)
+
+        with open(file_path, "w") as write_file:
+            json.dump(res_list, write_file)
+
+        print('ETFs data read was successfull.')
 
         try:
-            # df = pd.read_csv('etf_list.csv', index_col=False)
-            # df['market_cap'] = df['market_cap'].replace({'\\$': '', ',': ''}, regex=True).astype('int')
-            # df = df[df['market_cap'] > 0]
-            # df.sort_values(['market_cap'], inplace=True, ascending=False)
-            # df.reset_index(drop=True, inplace=True)
-            df = read_etfs()
-            for idx, row in df.iterrows():
-                d = {
-                    'Rank': row['Rank'],
-                    'Name': row['Name'],
-                    'Ticker': row['Symbol'],
-                    'MarketCap': row['MarketCap'],
-                    'Exchange': ""
-                }
-                res_list.append(d)
-
-            with open(file_path, "w") as write_file:
-                json.dump(res_list, write_file)
-
-            print('ETFs data read was successfull.')
+            df = pd.read_json(file_path)
+            df.to_csv('../data/etfs_market_cap.csv', index=False, encoding='utf-8-sig')
+            print('ETFs data saved to CSV successfully.')
 
         except Exception as e:
-            raise ValueError(f"Failed to prep ETF list. {e}")
+            logging.error(str(e))
+            print(f'Failed to save ETFs data to CSV. {e}')
+
+    except Exception as e:
+        raise ValueError(f"Failed to prep ETF list. {e}")
     
-    else:
-        try:
-            etf_df = fd.ETFs().select()
-            etf_list = etf_df.index.tolist()
-            print(len(etf_list))
+    # else:
+    #     try:
+    #         etf_df = fd.ETFs().select()
+    #         etf_list = etf_df.index.tolist()
+    #         print(len(etf_list))
 
-            # Define a regex pattern that matches any character that is not alpahbetic.
-            pattern = r"[^a-zA-Z]"
+    #         # Define a regex pattern that matches any character that is not alpahbetic.
+    #         pattern = r"[^a-zA-Z]"
 
-            drop_list = [s for s in etf_list if re.search(pattern, s)]
-            print(len(drop_list))
+    #         drop_list = [s for s in etf_list if re.search(pattern, s)]
+    #         print(len(drop_list))
 
-            etf_list = list(set(etf_list).difference(drop_list))
+    #         etf_list = list(set(etf_list).difference(drop_list))
 
-            print(len(etf_list))
+    #         print(len(etf_list))
 
-            final_etf_df = etf_df.loc[etf_list][['name']].reset_index(drop=False)
-            for idx, row in final_etf_df.iterrows():
-                d = {
-                    'Rank': idx+1,
-                    'Name': row['name'],
-                    'Ticker': row['symbol'],
-                    'MarketCap': "",
-                    'Exchange': ""
-                }
-                res_list.append(d)
+    #         final_etf_df = etf_df.loc[etf_list][['name']].reset_index(drop=False)
+    #         for idx, row in final_etf_df.iterrows():
+    #             d = {
+    #                 'Rank': idx+1,
+    #                 'Name': row['name'],
+    #                 'Ticker': row['symbol'],
+    #                 'MarketCap': "",
+    #                 'Exchange': ""
+    #             }
+    #             res_list.append(d)
 
-            return res_list
+    #         return res_list
         
-        except Exception as e:
-            raise ValueError(f"Failed to prep ETF list. {e}")
+    #     except Exception as e:
+    #         raise ValueError(f"Failed to prep ETF list. {e}")
         
     # TODO: ADD WRITE TO JSON FILE WHEN RANK AND MARKET CAP SOURCE BECOMES AVAILABLE
 
 
 if __name__ == '__main__':
-    read_prep_etfs(use_csv=True)
+    read_prep_etfs()

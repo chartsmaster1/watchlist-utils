@@ -49,14 +49,11 @@ try:
 except Exception as e:
     print(e)
 
-# DOES NOT PRODUCE FILE OUTPUT *** SOURCE DATA UNDEFIND ***
 try:
     prep_etfs_market_cap.read_prep_etfs()
 
 except Exception as e:
     print(e)
-
-
 
 try:
     prep_coins_market_cap.read_prep_coins()

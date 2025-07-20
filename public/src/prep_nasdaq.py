@@ -58,7 +58,17 @@ def read_prep_nasdaq():
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
-        print('Nasdaq data read was successfull.')
+        print('Nasdaq data read and json write was successfull.')
+
+        try:
+            df = pd.read_json(file_path, dtype=str, encoding='utf-8')
+            df.to_csv('../data/nasdaq.csv', index=False, encoding='utf-8-sig')
+            print('Nasdaq data read and csv write was successfull.')
+
+        except Exception as e:
+            logging.error(str(e))
+            print('Failed to save Nasdaq data to csv.')
+
 
     except Exception as e:
         logging.error(str(e))
