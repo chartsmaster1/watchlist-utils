@@ -209,7 +209,6 @@ Sempra,SRE,,Utilities,48625790976.0
 L3Harris,LHX,,Industrials,48521830400.0
 Valero Energy,VLO,,Energy,47936180224.0
 Datadog,DDOG,,Information Technology,47441137664.0
-Hess Corporation,HES,,Energy,47386505216.0
 Target Corporation,TGT,,Consumer Staples,47363112960.0
 American International Group,AIG,,Financials,47132266496.0
 Ford Motor Company,F,,Consumer Discretionary,46843756544.0
@@ -239,6 +238,7 @@ Public Service Enterprise Group,PEG,,Utilities,41192288256.0
 Kenvue,KVUE,,Consumer Staples,40970878976.0
 Baker Hughes,BKR,,Energy,40323526656.0
 Microchip Technology,MCHP,,Information Technology,40238166016.0
+"Block, Inc.",XYZ,,Financials,40062337024.0
 Xcel Energy,XEL,,Utilities,39577341952.0
 Otis Worldwide,OTIS,,Industrials,39266414592.0
 Carnival,CCL,,Consumer Discretionary,38859517952.0

@@ -33,9 +33,9 @@ def sort_by_market_cap(df):
 def read_prep_sandp():
     
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
-    file_name = 'spy'
-    file_path = '../data/' + file_name + '.json'
-    
+    file_name = 's&p500'
+    json_file_path = '../data/' + file_name + '.json'
+    csv_file_path = '../data/' + file_name + '.csv'
     try:
         comps = pd.read_html(url)[0]
         comps_sorted = sort_by_market_cap(comps[['Security', 'Symbol', 'GICS Sector']])
@@ -55,15 +55,15 @@ def read_prep_sandp():
             }
             res_list.append(d)
 
-        with open(file_path, "w") as write_file:
+        with open(json_file_path, "w") as write_file:
             json.dump(res_list, write_file)
 
         print('S&P500 data read and json write was successfull.')
 
         try:
-            df = pd.read_json(file_path)
+            df = pd.read_json(json_file_path)
             df['MarketCap'] = df['MarketCap'].astype('float')
-            df.to_csv('../data/spy.csv', index=False, encoding='utf-8-sig')
+            df.to_csv(csv_file_path, index=False, encoding='utf-8-sig')
             print('S&P500 data read and csv write was successfull.')
 
         except Exception as e:

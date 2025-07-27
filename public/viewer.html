@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading…</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    header { display: flex; align-items: center; gap: 1rem; }
+    pre { background: #f5f5f5; padding: 1rem; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; }
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:disabled { background: #999; cursor: default; }
+    #msg {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: green;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">JSON Viewer</h1>
+    <button id="copyBtn" disabled>Copy JSON</button>
+    <span id="msg">Copied!</span>
+  </header>
+  <pre id="jsonContent">Loading…</pre>
+
+  <script>
+    const params   = new URLSearchParams(window.location.search);
+    const raw      = params.get("file");
+    const name     = params.get("name");
+    const pre      = document.getElementById("jsonContent");
+    const copyBtn  = document.getElementById("copyBtn");
+    const msg      = document.getElementById("msg");
+
+    // Set title & heading
+    if (name) {
+      document.title = name;
+      document.getElementById("title").textContent = name;
+    }
+
+    // Build a proper JSON URL:
+    let fileUrl;
+    if (/^https?:\/\//.test(raw)) {
+      fileUrl = raw;
+    } else {
+      const cleanPath = raw.replace(/^\/+/, "");
+      fileUrl = `${window.location.origin}/${cleanPath}`;
+    }
+
+    // Fetch and render JSON
+    fetch(fileUrl)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const pretty = JSON.stringify(data, null, 2);
+        pre.textContent = pretty;
+
+        // Enable copy button
+        copyBtn.disabled = false;
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard.writeText(pretty)
+            .then(() => {
+              // show temporary success message
+              msg.style.visibility = "visible";
+              setTimeout(() => msg.style.visibility = "hidden", 1500);
+            })
+            .catch(err => {
+              alert("Failed to copy: " + err);
+            });
+        });
+      })
+      .catch(err => {
+        pre.textContent = `❌ Failed to load ${name}: ${err.message}`;
+      });
+  </script>
+</body>
+</html>

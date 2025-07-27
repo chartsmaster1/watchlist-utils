@@ -26,11 +26,12 @@
     h1, h2 { color: #333; }
     ul { list-style: none; padding-left: 0; }
     li { margin-bottom: 4px; }
-    a { color: #1a73e8; text-decoration: none; }
+    a { color: #1a73e8; text-decoration: none; cursor: pointer; }
     a:hover { text-decoration: underline; }
     pre { background: #f5f5f5; padding: 12px; overflow: auto; }
-    table { border-collapse: collapse; margin-top: 8px; }
-    th, td { border: 1px solid #ccc; padding: 4px 8px; }
+    table { border-collapse: collapse; margin-top: 8px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    #csv-output { margin-top: 16px; }
   </style>
 </head>
 <body>
@@ -43,7 +44,7 @@
   </section>
 
   <section>
-    <h2>CSV Files (click to view)</h2>
+    <h2>CSV Files (click to view inline)</h2>
     <ul id="csv-links"></ul>
   </section>
 
@@ -51,7 +52,7 @@
 
   <script>
     const fileMap = [
-      { name: "S&P 500", json: "spy.json", csv: "spy.csv" },
+      { name: "S&P 500", json: "s&p500.json", csv: "s&p500.csv" },
       { name: "Dow Jones Industrial Average", json: "dow.json", csv: "dow.csv" },
       { name: "NASDAQ 100", json: "nasdaq.json", csv: "nasdaq.csv" },
       { name: "Cryptocurrencies", json: "coins.json", csv: "coins.csv" },
@@ -60,7 +61,7 @@
       { name: "ETFs by Market Cap", json: "etfs_market_cap.json", csv: "etfs_market_cap.csv" }
     ];
 
-    const baseURL = window.location.hostname === "localhost"
+    const dataPath = window.location.hostname === "localhost"
       ? "http://localhost:5000/data/"
       : "https://watchlist-static-files.web.app/data/";
 
@@ -68,96 +69,100 @@
     const csvLinksEl  = document.getElementById("csv-links");
     const csvOutput   = document.getElementById("csv-output");
 
-    // Load JSON files
+    // JSON viewer links
     fileMap.forEach(fileInfo => {
-      fetch(baseURL + fileInfo.json)
-      .then(res => res.json())
-      .then(data => {
-        // link
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = baseURL + fileInfo.json;
-        a.textContent = fileInfo.name;
-        a.target = "_blank";
-        li.appendChild(a);
-        jsonLinksEl.appendChild(li);
-      })
-      .catch(err => {
-        const li = document.createElement("li");
-        li.textContent = `Error loading ${fileInfo.name}`;
-        jsonLinksEl.appendChild(li);
-      });
-    });
+      const viewerUrl = new URL('viewer.html', window.location.origin);
+      viewerUrl.searchParams.set('file', `data/${fileInfo.json}`);
+      viewerUrl.searchParams.set('name', fileInfo.name);
 
-    // Setup CSV links
-    fileMap.forEach(fileInfo => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = `table.html?file=${encodeURIComponent(fileInfo.csv)}&name=${encodeURIComponent(fileInfo.name)}`;
+      const li = document.createElement('li');
+      const a  = document.createElement('a');
+      a.href        = viewerUrl.toString();
       a.textContent = fileInfo.name;
-      a.target = "_blank";
+      a.target      = '_blank';
+      a.rel         = 'noopener';   // security best practice
       li.appendChild(a);
-      csvLinksEl.appendChild(li);
+      jsonLinksEl.appendChild(li);
     });
 
-    function displayJSON(title, data) {
-      csvOutput.innerHTML = "";                // clear
-      const h2 = document.createElement("h2");
-      h2.textContent = title;
-      csvOutput.appendChild(h2);
-
-      const pre = document.createElement("pre");
-      pre.textContent = JSON.stringify(data, null, 2);
-      csvOutput.appendChild(pre);
-    }
-
-    function fetchAndDisplayTable(fileName) {
-      fetch(baseURL + fileName)
+    fileMap.forEach(fileInfo => {
+      // Check if CSV file exists before showing link
+      fetch(dataPath + fileInfo.csv)
         .then(res => {
-          if (!res.ok) throw new Error(res.statusText);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const li = document.createElement("li");
+          const a  = document.createElement("a");
+          a.textContent = fileInfo.name;
+          a.href = "#";
+          a.target = "_blank";
+          // Open CSV table view in a new tab using table.html
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            const tableUrl = new URL('table.html', window.location.origin);
+            tableUrl.searchParams.set('file', fileInfo.csv);
+            tableUrl.searchParams.set('name', fileInfo.name);
+            window.open(tableUrl.toString(), "_blank");
+          });
+          li.appendChild(a);
+          csvLinksEl.appendChild(li);
+        })
+        .catch(() => {
+          // Optionally skip or show as unavailable
+        });
+    });
+    
+    // Fetch and show CSV as HTML table
+    function fetchAndDisplayTable(fileName, displayName) {
+      csvOutput.innerHTML = '<p>Loading CSV…</p>';
+      fetch(dataPath + fileName)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.text();
         })
         .then(csvText => {
-          const parsed = Papa.parse(csvText, { header: true });
-          displayTable(fileName, parsed.data);
+          const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+          displayTable(parsed.meta.fields, parsed.data, displayName || fileName);
         })
         .catch(err => {
           csvOutput.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
         });
     }
 
-    function displayTable(title, rows) {
-      csvOutput.innerHTML = "";
-      const h2 = document.createElement("h2");
+    function displayTable(headers, rows, title) {
+      csvOutput.innerHTML = '';
+      const h2 = document.createElement('h2');
       h2.textContent = title;
       csvOutput.appendChild(h2);
 
       if (!rows.length) {
-        csvOutput.appendChild(document.createTextNode("No data."));
+        csvOutput.appendChild(document.createTextNode('No data.'));
         return;
       }
 
-      const table = document.createElement("table");
-      const headerRow = document.createElement("tr");
-      Object.keys(rows[0]).forEach(col => {
-        const th = document.createElement("th");
-        th.textContent = col;
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      headers.forEach(col => {
+        const th = document.createElement('th'); th.textContent = col;
         headerRow.appendChild(th);
       });
-      table.appendChild(headerRow);
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
 
+      const tbody = document.createElement('tbody');
       rows.forEach(r => {
-        const tr = document.createElement("tr");
-        Object.values(r).forEach(val => {
-          const td = document.createElement("td");
-          td.textContent = val;
+        const tr = document.createElement('tr');
+        headers.forEach(col => {
+          const td = document.createElement('td');
+          td.textContent = r[col];
           tr.appendChild(td);
         });
-        table.appendChild(tr);
+        tbody.appendChild(tr);
       });
+      table.appendChild(tbody);
       csvOutput.appendChild(table);
     }
-    
+
   </script>
 
 </body>

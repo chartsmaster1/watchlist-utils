@@ -40,7 +40,7 @@ def prep_spy_sectors():
     # comps_df = pd.read_html(url)[0]
     # comps_grp = comps_df.groupby('GICS Sector')
     
-    comps_df  = pd.read_json('../data/spy.json', orient='records')
+    comps_df  = pd.read_json('../data/s&p500.json', orient='records')
     comps_df['SectorKey'] = comps_df['Sector'].map(sector_map)
     # print(comps_df.head())
 
