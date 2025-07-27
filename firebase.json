@@ -8,28 +8,24 @@
     ],
     "headers": [
       {
-        "source": "**/*.{jpg,jpeg,gif,png,css,js}",
+        "source": "/data/**",
         "headers": [
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          },
-          {
-            "key": "Access-Control-Allow-Methods",
-            "value": "GET,HEAD,PUT,PATCH,POST,DELETE"
-          },
-          {
-            "key": "Access-Control-Allow-Headers",
-            "value": "Content-Type, Authorization"
-          }
+          { "key": "Access-Control-Allow-Origin",  "value": "*" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" }
+        ]
+      },
+      {
+        "source": "**/*.{js,css,png,jpg,jpeg,gif,svg,json,csv}",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin",  "value": "*" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" }
         ]
       }
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+      { "source": "/viewer", "destination": "/viewer.html" },
+      { "source": "/table",  "destination": "/table.html" },
+      { "source": "**",     "destination": "/index.html" }
     ]
   }
 }
