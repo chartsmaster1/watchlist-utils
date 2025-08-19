@@ -14,6 +14,7 @@ import prep_companies_market_cap
 import prep_coins_market_cap
 import prep_etfs_market_cap
 import prep_russell_1000
+import prep_arkk
 
 try:
     prep_dow.read_prep_dow()
@@ -64,6 +65,13 @@ except Exception as e:
 
 try:
     prep_russell_1000.read_prep_russell()
+
+except Exception as e:
+    print(e)
+
+
+try:
+    prep_arkk.read_prep_arkk()
 
 except Exception as e:
     print(e)

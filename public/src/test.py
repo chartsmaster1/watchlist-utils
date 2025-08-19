@@ -1,21 +1,22 @@
+import requests
+import pandas as pd
+from io import StringIO
+from datetime import datetime
 
-import shutil
-import os
+API_KEY = "OFWE463Q7WHJXGAM"
+url = f"https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey={API_KEY}"
 
+response = requests.get(url)
 
-file_list = os.listdir('data/')
+# Read CSV data into DataFrame
+df = pd.read_csv(StringIO(response.text))
 
-for f in file_list:
+# Convert reportDate to datetime
+df['reportDate'] = pd.to_datetime(df['reportDate'], errors='coerce')
 
-    try:
-        src_dir = os.path.join('data/', f)
-        des_dir = os.path.join('../frontend/src/data/', f)
-        shutil.copyfile(src_dir, des_dir)
-        print(f)
+# Filter for today's earnings
+today = pd.Timestamp(datetime.today().date())
+todays_earnings = df[df['reportDate'] == today]
 
-    except Exception as e:
-        print(e)
-
-
-
-
+print("Companies reporting earnings today:")
+print(todays_earnings[['symbol', 'name', 'reportDate', 'fiscalDateEnding', 'estimate', 'currency']])
