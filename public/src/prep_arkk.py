@@ -18,6 +18,8 @@ def read_prep_arkk():
 
     try:
         df_raw = pd.read_csv('../data/arkk_holdings.csv').dropna(subset=['ticker']).reset_index(drop=True)
+        df_raw['ticker'] = df_raw['ticker'].str.strip().str.upper()
+        df_raw['ticker'] = df_raw['ticker'].apply(lambda x: x.split(' ')[0] if ' ' in x else x)
 
         res_list = []
         for idx, row in df_raw.iterrows():
