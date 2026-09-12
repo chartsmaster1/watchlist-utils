@@ -5,9 +5,9 @@
 import json
 import pandas as pd
 import requests
-import financedatabase as fd
-import re
 import logging
+from io import StringIO
+from pathlib import Path
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
@@ -33,13 +33,17 @@ def read_etfs():
     etf_dfs = []
 
     # Iterate through all 23 pages
+    session = requests.Session()
+    session.headers.update({'User-Agent': 'watchlist-utils/1.0'})
     for page in range(1, 24):
         url = f"{base_url}?page={page}"
-        response = requests.get(url)
+        response = session.get(url, timeout=30)
         response.raise_for_status()
         
         # Parse the first table on the page
-        tables = pd.read_html(response.text)
+        tables = pd.read_html(StringIO(response.text))
+        if not tables:
+            raise ValueError(f'No ETF table found at {url}')
         etf_table = tables[0]
         etf_dfs.append(etf_table)
 
@@ -57,10 +61,11 @@ def read_etfs():
     return all_etfs
 
 
-def read_prep_etfs():
+def read_prep_etfs_market_cap():
 
     file_name = 'etfs_market_cap'
-    file_path = '../data/' + file_name + '.json'
+    data_dir = Path(__file__).resolve().parent.parent / 'data'
+    file_path = data_dir / (file_name + '.json')
 
     res_list = []
 
@@ -88,7 +93,7 @@ def read_prep_etfs():
 
         try:
             df = pd.read_json(file_path)
-            df.to_csv('../data/etfs_market_cap.csv', index=False, encoding='utf-8-sig')
+            df.to_csv(data_dir / 'etfs_market_cap.csv', index=False, encoding='utf-8-sig')
             print('ETFs data saved to CSV successfully.')
 
         except Exception as e:
@@ -134,4 +139,4 @@ def read_prep_etfs():
 
 
 if __name__ == '__main__':
-    read_prep_etfs()
+    read_prep_etfs_market_cap()

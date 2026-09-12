@@ -2,6 +2,7 @@
 import json
 import pandas as pd
 import logging
+from pathlib import Path
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
@@ -36,11 +37,12 @@ def prep_spy_sectors():
     
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     file_name = 'spysectors'
-    file_path = '../data/' + file_name + '.json'
+    data_dir = Path(__file__).resolve().parent.parent / 'data'
+    file_path = data_dir / (file_name + '.json')
     # comps_df = pd.read_html(url)[0]
     # comps_grp = comps_df.groupby('GICS Sector')
     
-    comps_df  = pd.read_json('../data/s&p500.json', orient='records')
+    comps_df  = pd.read_json(data_dir / 's&p500.json', orient='records')
     comps_df['SectorKey'] = comps_df['Sector'].map(sector_map)
     # print(comps_df.head())
 
@@ -76,7 +78,9 @@ def prep_spy_sectors():
         print('S&P 500 sectors data read and json write was successfull.')
 
         try:
-            comps_df.to_csv('../data/spysectors.csv', index=False, encoding='utf-8-sig')
+            comps_df.drop(columns=['SectorKey']).to_csv(
+                data_dir / 'spysectors.csv', index=False, encoding='utf-8-sig'
+            )
             print('S&P 500 sectors data saved to CSV successfully.')
         except Exception as e:
             logging.error(str(e))

@@ -3,6 +3,9 @@ import json
 import pandas as pd
 import numpy as np
 import logging
+from pathlib import Path
+from common.wiki import fetch_by_schema
+from common.tickers import normalize_tickers, report_missing_market_caps
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
@@ -10,22 +13,25 @@ def sort_by_market_cap(df):
     """
     Sorts the DataFrame by MarketCap in descending order.
     """
-    mc_df = pd.read_json('../data/stocks.json')
-    mc_df['Ticker'] = np.where(mc_df['Ticker'] == 'BRK-B', 'BRK.B', mc_df['Ticker'])
-    mc_df['Ticker'] = np.where(mc_df['Ticker'] == 'BF-A', 'BF.B', mc_df['Ticker'])
+    data_dir = Path(__file__).resolve().parent.parent / 'data'
+    mc_df = pd.read_json(data_dir / 'stocks.json')
+    mc_df['Ticker'] = normalize_tickers(mc_df['Ticker'])
+    mc_df['TickerKey'] = mc_df['Ticker']
 
     sp_df = df.copy()
     sp_df.columns = ['Name', 'Ticker', 'Sector']
-    sp_df = sp_df[~sp_df['Ticker'].isin(['GOOGL', 'FOXA', 'NWSA'])]
+    sp_df['TickerKey'] = normalize_tickers(sp_df['Ticker'])
+    sp_df = sp_df[sp_df['TickerKey'] != '']
 
     sp_mc_df = (
         sp_df.merge(
-            mc_df[['Ticker', 'MarketCap']],
-            on='Ticker',
+            mc_df[['TickerKey', 'MarketCap']],
+            on='TickerKey',
             how='left'
         )
         .sort_values(by='MarketCap', ascending=False)
     )
+    sp_mc_df = sp_mc_df.drop(columns=['TickerKey'])
 
     return sp_mc_df
 
@@ -33,14 +39,15 @@ def sort_by_market_cap(df):
 def read_prep_sandp():
     
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+    data_dir = Path(__file__).resolve().parent.parent / 'data'
     file_name = 's&p500'
-    json_file_path = '../data/' + file_name + '.json'
-    csv_file_path = '../data/' + file_name + '.csv'
+    json_file_path = data_dir / (file_name + '.json')
+    csv_file_path = data_dir / (file_name + '.csv')
     try:
-        comps = pd.read_html(url)[0]
+        comps, _table_idx = fetch_by_schema('sp500')
         comps_sorted = sort_by_market_cap(comps[['Security', 'Symbol', 'GICS Sector']])
 
-        assert comps_sorted[comps_sorted['MarketCap'].isnull()].shape[0] == 0, "Fix the ticker issue before joining the two dataframes."
+        report_missing_market_caps(comps_sorted)
 
         comps_list = comps_sorted[['Name', 'Ticker', 'Sector', 'MarketCap']].values.tolist()
         

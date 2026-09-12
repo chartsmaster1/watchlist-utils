@@ -3,11 +3,10 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import logging
+from pathlib import Path
 
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
-
-config = json.load(open('./config.json'))
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -15,13 +14,8 @@ parameters = {
   'limit':'1000',
   'convert':'USD'
 }
-headers = {
-  'Accepts': 'application/json',
-  'X-CMC_PRO_API_KEY': config['CMC_API_KEY'],
-}
-
-session = Session()
-session.headers.update(headers)
+DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
+CONFIG_PATH = Path(__file__).resolve().parent.parent.parent / 'config.json'
 
 def _stable(d):
     if 'stablecoin' in d['tags']:
@@ -39,13 +33,26 @@ def read_prep_coins():
 
     coinlist = []
     try:
-        response = session.get(url, params=parameters, verify=True)
-        data = json.loads(response.text)
+        with open(CONFIG_PATH) as config_file:
+            config = json.load(config_file)
+        api_key = config.get('CMC_API_KEY')
+        if not api_key:
+            raise ValueError(f'Missing CMC_API_KEY in {CONFIG_PATH}')
+        session = Session()
+        session.headers.update({
+            'Accepts': 'application/json',
+            'X-CMC_PRO_API_KEY': api_key,
+        })
+        response = session.get(url, params=parameters, verify=True, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        if not isinstance(data.get('data'), list):
+            raise ValueError('CoinMarketCap response has no data list')
         for d in data['data']:
             try:
                 coinlist.append({
                     'Rank': d['cmc_rank'],
-                    'Name': d['name'],
+                    'Name': ' '.join(str(d['name']).split()),
                     'Ticker': _handle_ticker(d['symbol']),
                     'MarketCap': d['quote']['USD']['market_cap'],
                     'Stablecoin': _stable(d)
@@ -60,18 +67,18 @@ def read_prep_coins():
 
     if len(coinlist) > 0:
         try:
-            file_path = '../data/coins.json'
+            file_path = DATA_DIR / 'coins.json'
             with open(file_path, 'w') as fp:
                 json.dump(coinlist, fp)
 
             print('CMC data read and json write was successfull.')
 
             try:
-                df = pd.read_json('../data/coins.json', dtype=str, encoding='utf-8')
+                df = pd.read_json(file_path, dtype=str, encoding='utf-8')
                 df['Rank'] = df['Rank'].astype(int)
                 df['MarketCap'] = df['MarketCap'].astype(float)
                 df.sort_values(by='Rank', inplace=True)
-                df.to_csv('../data/coins.csv', index=False, encoding='utf-8-sig')
+                df.to_csv(DATA_DIR / 'coins.csv', index=False, encoding='utf-8-sig')
                 print('CMC data read and csv write was successfull.')
 
             except Exception as e:

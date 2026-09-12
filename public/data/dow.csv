@@ -1,31 +1,31 @@
 ﻿Name,Ticker,Exchange
 Nvidia,NVDA,NASDAQ
-Microsoft,MSFT,NASDAQ
 Apple,AAPL,NASDAQ
+Alphabet (Class A),GOOGL,NASDAQ
+Microsoft,MSFT,NASDAQ
 Amazon,AMZN,NASDAQ
 JPMorgan Chase,JPM,NYSE
-Walmart,WMT,NYSE
+Walmart,WMT,NASDAQ
 Visa,V,NYSE
 Johnson & Johnson,JNJ,NYSE
-Procter & Gamble,PG,NYSE
-Home Depot,HD,NYSE
-Coca-Cola,KO,NYSE
-UnitedHealth Group,UNH,NYSE
 Cisco,CSCO,NASDAQ
 Chevron,CVX,NYSE
-IBM,IBM,NYSE
-Salesforce,CRM,NYSE
-American Express,AXP,NYSE
+Coca-Cola,KO,NYSE
+Caterpillar,CAT,NYSE
+Merck,MRK,NYSE
+UnitedHealth Group,UNH,NYSE
+Procter & Gamble,PG,NYSE
+Home Depot,HD,NYSE
 Goldman Sachs,GS,NYSE
+IBM,IBM,NYSE
+American Express,AXP,NYSE
+Amgen,AMGN,NASDAQ
+Salesforce,CRM,NYSE
 Disney,DIS,NYSE
 McDonald's,MCD,NYSE
-Merck,MRK,NYSE
-Caterpillar,CAT,NYSE
-Verizon,VZ,NYSE
 Boeing,BA,NYSE
-Amgen,AMGN,NASDAQ
-Honeywell,HON,NASDAQ
-Nike,NKE,NYSE
-Sherwin-Williams,SHW,NYSE
 3M,MMM,NYSE
+Sherwin-Williams,SHW,NYSE
 Travelers,TRV,NYSE
+Honeywell Technologies,HON,NASDAQ
+Nike,NKE,NYSE
