@@ -27,11 +27,16 @@ def main():
         ('Russell 1000', prep_russell_1000.read_prep_russell),
         ('ARKK', prep_arkk.read_prep_arkk),
     ]
+    failures = []
     for name, job in jobs:
         try:
             job()
         except Exception as e:
             print(f'{name} failed: {e}')
+            failures.append(name)
+
+    if failures:
+        raise RuntimeError(f'Data refresh failed for: {", ".join(failures)}')
 
 
 if __name__ == '__main__':

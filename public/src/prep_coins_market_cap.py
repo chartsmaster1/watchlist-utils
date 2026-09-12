@@ -3,6 +3,7 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import logging
+import os
 from pathlib import Path
 
 
@@ -33,11 +34,13 @@ def read_prep_coins():
 
     coinlist = []
     try:
-        with open(CONFIG_PATH) as config_file:
-            config = json.load(config_file)
-        api_key = config.get('CMC_API_KEY')
+        api_key = os.environ.get('CMC_API_KEY')
+        if not api_key and CONFIG_PATH.exists():
+            with open(CONFIG_PATH) as config_file:
+                config = json.load(config_file)
+            api_key = config.get('CMC_API_KEY')
         if not api_key:
-            raise ValueError(f'Missing CMC_API_KEY in {CONFIG_PATH}')
+            raise ValueError('Missing CMC_API_KEY environment variable or config.json value')
         session = Session()
         session.headers.update({
             'Accepts': 'application/json',

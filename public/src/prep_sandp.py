@@ -58,7 +58,7 @@ def read_prep_sandp():
                 'Ticker': item[1],
                 'Exchange': '',
                 'Sector': item[2],
-                'MarketCap': item[3]
+                'MarketCap': None if pd.isna(item[3]) else float(item[3])
             }
             res_list.append(d)
 
