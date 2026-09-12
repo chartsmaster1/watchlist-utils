@@ -62,9 +62,7 @@
       { name: "ARKK Holdings", json: "arkk.json", csv: "arkk.csv" }
     ];
 
-    const dataPath = window.location.hostname === "localhost"
-      ? "http://localhost:5000/data/"
-      : "https://watchlist-static-files.web.app/data/";
+    const dataPath = "/data/";
 
     const jsonLinksEl = document.getElementById("json-links");
     const csvLinksEl  = document.getElementById("csv-links");

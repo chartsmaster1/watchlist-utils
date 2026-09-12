@@ -22,9 +22,7 @@
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file");
     const displayName = params.get("name");
-    const baseURL = window.location.hostname === "localhost"
-      ? "http://localhost:5000/data/"
-      : "https://watchlist-static-files.web.app/data/";
+    const baseURL = "/data/";
 
     if (displayName) {
       document.title = displayName;
