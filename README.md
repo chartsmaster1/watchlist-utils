@@ -1,5 +1,15 @@
 # watchlist-utils
 
+## Routine Refresh
+
+After making and committing any code changes, run the local automation from the repository root:
+
+```bash
+./refresh_and_deploy.sh
+```
+
+You can also double-click `refresh_and_deploy.command` in Finder. It refreshes all datasets, validates the generated files, commits only `public/data`, pushes `main`, and deploys Firebase Hosting. It never commits `config.json`, which contains the CoinMarketCap API key.
+
 ###### This repository contains a few python files to read S&P500, NASDAQ, and DOW components from Wikipedia and save them as JSON files.
 ###### It also populates a JSON file of companies market cap. This is information is downloaded and saved as csv manually.
 
