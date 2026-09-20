@@ -20,15 +20,15 @@ Files in this repo:
 > `refresh_and_deploy.sh` only runs on `main`. Keep this clone on `main`
 > while the schedule is enabled; the refresh commits `public/data`
 > directly to `main`.
-
-> `refresh_and_deploy.sh` only runs on `main`. Keep this clone on `main`
-> while the schedule is enabled; the refresh commits `public/data`
-> directly to `main`.
+>
+> The repo lives at `~/watchlist-utils` (not `~/Desktop/...`) because
+> macOS privacy controls (TCC) block LaunchAgents from executing scripts
+> under `~/Desktop`, `~/Documents`, and `~/Downloads`.
 
 ## 1. Test the wrapper manually (once, from main)
 
 ```bash
-cd /Users/tamilla/Desktop/watchlist-utils
+cd /Users/tamilla/watchlist-utils
 git checkout main
 chmod +x scheduled_refresh.sh refresh_and_deploy.sh
 ./scheduled_refresh.sh

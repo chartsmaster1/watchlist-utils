@@ -10,7 +10,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/tamilla/Desktop/watchlist-utils/scheduled_refresh.sh</string>
+    <string>/Users/tamilla/watchlist-utils/scheduled_refresh.sh</string>
   </array>
 
   <!-- Monthly target: 1st of each month at 05:30 local time.
@@ -37,13 +37,13 @@
 
   <!-- Run from the repo so relative paths (public/src/main.py, public/data) resolve. -->
   <key>WorkingDirectory</key>
-  <string>/Users/tamilla/Desktop/watchlist-utils</string>
+  <string>/Users/tamilla/watchlist-utils</string>
 
   <!-- Append stdout/stderr here as well as logs/scheduled-refresh.log. -->
   <key>StandardOutPath</key>
-  <string>/Users/tamilla/Desktop/watchlist-utils/logs/launchd-refresh.out.log</string>
+  <string>/Users/tamilla/watchlist-utils/logs/launchd-refresh.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/tamilla/Desktop/watchlist-utils/logs/launchd-refresh.err.log</string>
+  <string>/Users/tamilla/watchlist-utils/logs/launchd-refresh.err.log</string>
 
   <!-- Don't run two refreshes at once if one runs long. -->
   <key>ThrottleInterval</key>
