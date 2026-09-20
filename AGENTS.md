@@ -10,6 +10,7 @@ Keep changes focused on data correctness, repeatable refreshes, and preserving t
 
 - `public/src/main.py`: orchestrates all data-preparation jobs.
 - `public/src/prep_*.py`: individual source adapters and output writers.
+- `public/src/notify_run.py`: emails the scheduled-run summary (success or failure); SMTP settings come from the gitignored root `config.json` or environment variables, and the same text is written to `logs/last-run-summary.txt`.
 - `public/src/common/wiki.py`: schema-based Wikipedia table selection.
 - `public/src/common/marketcap_live.py`: CompaniesMarketCap HTML scraper.
 - `public/src/common/tickers.py`: ticker aliases used when joining index data to market caps.
@@ -92,6 +93,7 @@ After editing a preparer:
 4. For ranked files, check ordering and whether missing values are intentionally at the end.
 5. Run `python3 public/src/test.py` when shared code, orchestration, or multiple preparers changed.
 6. Run `git diff --check` and inspect `git status --short` before reporting completion.
+7. When touching scheduled-run notifications, run `python3 public/src/notify_run.py --dry-run --exit-code 0` (and `--exit-code 1`) to confirm the email renders without sending.
 
 For read-only comparisons, use:
 

@@ -59,6 +59,8 @@ if ! CHECK_OUT=$(is_due); then
   exit 0
 fi
 
+run_status=0
+
 {
   echo "=================================================================="
   echo "Scheduled refresh start: $(date)"
@@ -70,15 +72,39 @@ fi
   if [[ "$(git branch --show-current)" != "main" ]]; then
     echo "ERROR: scheduled refresh runs from main; currently on $(git branch --show-current)."
     echo "Checkout main before enabling the schedule."
+    python3 public/src/notify_run.py --exit-code 1 --log-file "$LOG_FILE" \
+      || echo "Notification email was not sent (see the message above)."
     exit 1
   fi
 
+  # Capture the refresh status without tripping `set -e`, so that both the
+  # success and the failure path can be reported by email.
+  set +e
   ./refresh_and_deploy.sh
+  run_status=$?
+  set -e
 
-  # Record success only after everything above passed; a failure leaves the
-  # state untouched so the next check retries automatically.
-  date +%Y-%m-%dT%H:%M:%S%z > "$STATE_FILE"
+  if [[ $run_status -eq 0 ]]; then
+    # Record success only after everything above passed; a failure leaves the
+    # state untouched so the next check retries automatically.
+    date +%Y-%m-%dT%H:%M:%S%z > "$STATE_FILE"
 
-  echo "---"
-  echo "Scheduled refresh end: $(date) (exit 0)"
+    echo "---"
+    echo "Scheduled refresh end: $(date) (exit 0)"
+  else
+    echo "---"
+    echo "Scheduled refresh FAILED: $(date) (exit $run_status)"
+    echo "Success state left unchanged; the next hourly check will retry."
+  fi
 } >> "$LOG_FILE" 2>&1
+
+# Email the run summary after the log section is complete so the message can
+# include its tail. A notification problem never changes the run's status.
+{
+  echo "---"
+  echo "Notification:"
+  python3 public/src/notify_run.py --exit-code "$run_status" --log-file "$LOG_FILE" \
+    || echo "Notification email was not sent (see the message above)."
+} >> "$LOG_FILE" 2>&1
+
+exit "$run_status"

@@ -74,6 +74,56 @@ launchctl unload ~/Library/LaunchAgents/com.watchlist-utils.refresh.plist  # pau
 rm ~/Library/LaunchAgents/com.watchlist-utils.refresh.plist                # remove
 ```
 
+## 6. Email notifications (success or failure)
+
+Every real scheduled run (both success and failure) emails a summary via
+`public/src/notify_run.py`: status, exit code, start/finish/duration, trigger
+reason, commit + changed data files, push state, per-dataset JSON/CSV row
+counts, validation result, market-cap warnings, Firebase release, and — on
+failure — the log tail plus the fact that the run will be retried. The same
+text is always written to `logs/last-run-summary.txt`.
+
+Setup: add these keys to the gitignored root `config.json` (never commit it),
+or export them in the job environment (environment wins):
+
+```json
+{
+  "CMC_API_KEY": "...",
+  "SMTP_HOST": "smtp.gmail.com",
+  "SMTP_PORT": 587,
+  "SMTP_TLS": "starttls",
+  "SMTP_USER": "you@example.com",
+  "SMTP_PASS": "<app password, not the account password>",
+  "EMAIL_FROM": "you@example.com",
+  "EMAIL_TO": "you@example.com,someone-else@example.com"
+}
+```
+
+`SMTP_TLS` accepts `starttls` (default), `ssl` (port 465) or `none` (relay on
+localhost). Gmail needs 2FA plus an App Password; any SMTP provider works.
+`EMAIL_SUBJECT_PREFIX` defaults to `[watchlist-utils]`.
+
+Check the message without sending anything (no credentials needed):
+
+```bash
+python3 public/src/notify_run.py --dry-run --exit-code 0   # success wording
+python3 public/src/notify_run.py --dry-run --exit-code 1   # failure wording
+```
+
+Optional end-to-end test against a throwaway SMTP sink (Python 3.9 only), which
+exercises the delivery path without needing real credentials:
+
+```bash
+python3 -u -m smtpd -n -c DebuggingServer 127.0.0.1:8025 &
+SMTP_HOST=127.0.0.1 SMTP_PORT=8025 SMTP_TLS=none EMAIL_TO=you@example.com \
+  python3 public/src/notify_run.py --exit-code 0
+```
+
+Notification problems never change a run's outcome: if email is not
+configured the script prints a hint and exits 2, and the refresh still counts
+as successful. The wrapper also emails when it refuses to run (for example on
+a non-`main` branch), and returns the refresh's own exit status to launchd.
+
 ## Caveats
 
 - Mac must be **awake + logged in** at some point after the 1st for the
