@@ -11,6 +11,7 @@ Keep changes focused on data correctness, repeatable refreshes, and preserving t
 - `public/src/main.py`: orchestrates all data-preparation jobs.
 - `public/src/prep_*.py`: individual source adapters and output writers.
 - `public/src/notify_run.py`: emails the scheduled-run summary (success or failure); SMTP settings come from the gitignored root `config.json` or environment variables, and the same text is written to `logs/last-run-summary.txt`.
+- `docs/brevo-smtp-email-setup.md`: reusable Brevo/SMTP notification playbook (credential model, verification, troubleshooting, reuse in another project).
 - `public/src/common/wiki.py`: schema-based Wikipedia table selection.
 - `public/src/common/marketcap_live.py`: CompaniesMarketCap HTML scraper.
 - `public/src/common/tickers.py`: ticker aliases used when joining index data to market caps.

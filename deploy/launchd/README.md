@@ -133,6 +133,10 @@ configured the script prints a hint and exits 2, and the refresh still counts
 as successful. The wrapper also emails when it refuses to run (for example on
 a non-`main` branch), and returns the refresh's own exit status to launchd.
 
+For the full reuse playbook — credential model, secret-safe setup, the runnable
+verification steps, a troubleshooting table, and drop-in sender code for another
+project — see [`docs/brevo-smtp-email-setup.md`](../../docs/brevo-smtp-email-setup.md).
+
 ## Caveats
 
 - Mac must be **awake + logged in** at some point after the 1st for the
