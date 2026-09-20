@@ -103,6 +103,15 @@ or export them in the job environment (environment wins):
 localhost). Gmail needs 2FA plus an App Password; any SMTP provider works.
 `EMAIL_SUBJECT_PREFIX` defaults to `[watchlist-utils]`.
 
+Brevo (free relay, `smtp-relay.brevo.com:587`): `SMTP_USER` must be the **login**
+shown on the SMTP tab, which for newer accounts is a generated value like
+`1234567@smtp-brevo.com` rather than the account email. Using the account email
+fails with `535 5.7.8 Authentication failed` even when the key is valid. The key
+*name* in the dashboard is only a label and is never used for authentication,
+and the password must be an **SMTP key** (`xsmtpsib-…`), never the v3 REST API
+key. `EMAIL_FROM` stays a validated sender address (the Brevo account email is
+accepted), not the relay login.
+
 Check the message without sending anything (no credentials needed):
 
 ```bash
