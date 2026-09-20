@@ -10,8 +10,8 @@ Broadcom,AVGO,NASDAQ
 Meta Platforms,META,NASDAQ
 "Tesla, Inc.",TSLA,NASDAQ
 Micron Technology,MU,NASDAQ
-Walmart,WMT,NASDAQ
 Advanced Micro Devices,AMD,NASDAQ
+Walmart,WMT,NASDAQ
 ASML Holding,ASML,NASDAQ
 Intel,INTC,NASDAQ
 Cisco,CSCO,NASDAQ
@@ -20,84 +20,83 @@ Costco,COST,NASDAQ
 Lam Research,LRCX,NASDAQ
 Applied Materials,AMAT,NASDAQ
 "Netflix, Inc.",NFLX,NASDAQ
-Arm Holdings,ARM,NASDAQ
 Palo Alto Networks,PANW,NASDAQ
-Texas Instruments,TXN,NASDAQ
+Arm Holdings,ARM,NASDAQ
 Sandisk,SNDK,NASDAQ
-KLA Corporation,KLAC,NASDAQ
-Linde plc,LIN,NASDAQ
-Marvell Technology,MRVL,NASDAQ
+Texas Instruments,TXN,NASDAQ
 CrowdStrike,CRWD,NASDAQ
+KLA Corporation,KLAC,NASDAQ
+Marvell Technology,MRVL,NASDAQ
+Linde plc,LIN,NASDAQ
 Amgen,AMGN,NASDAQ
-T-Mobile US,TMUS,NASDAQ
-Qualcomm,QCOM,NASDAQ
 Seagate Technology,STX,NASDAQ
-PepsiCo,PEP,NASDAQ
-Analog Devices,ADI,NASDAQ
+Qualcomm,QCOM,NASDAQ
 Gilead Sciences,GILD,NASDAQ
+Analog Devices,ADI,NASDAQ
+T-Mobile US,TMUS,NASDAQ
+PepsiCo,PEP,NASDAQ
 Shopify,SHOP,NASDAQ
 Western Digital,WDC,NASDAQ
 Intuitive Surgical,ISRG,NASDAQ
-Booking Holdings,BKNG,NASDAQ
 Vertex Pharmaceuticals,VRTX,NASDAQ
+Booking Holdings,BKNG,NASDAQ
 Fortinet,FTNT,NASDAQ
-Starbucks,SBUX,NASDAQ
 PDD Holdings,PDD,NASDAQ
-AppLovin,APP,NASDAQ
+Starbucks,SBUX,NASDAQ
 Automatic Data Processing,ADP,NASDAQ
+AppLovin,APP,NASDAQ
 Airbnb,ABNB,NASDAQ
-Constellation Energy,CEG,NASDAQ
 Adobe Inc.,ADBE,NASDAQ
 Mercado Libre,MELI,NASDAQ
-CSX Corporation,CSX,NASDAQ
-Comcast,CMCSA,NASDAQ
-DoorDash,DASH,NASDAQ
+Constellation Energy,CEG,NASDAQ
 Marriott International,MAR,NASDAQ
-Intuit,INTU,NASDAQ
 Monster Beverage,MNST,NASDAQ
+CSX Corporation,CSX,NASDAQ
+DoorDash,DASH,NASDAQ
 Lumentum,LITE,NASDAQ
-Cintas,CTAS,NASDAQ
-Regeneron Pharmaceuticals,REGN,NASDAQ
-Mondelez International,MDLZ,NASDAQ
-Cadence Design Systems,CDNS,NASDAQ
 Datadog,DDOG,NASDAQ
+Intuit,INTU,NASDAQ
+Regeneron Pharmaceuticals,REGN,NASDAQ
+Comcast,CMCSA,NASDAQ
+Cintas,CTAS,NASDAQ
+Cadence Design Systems,CDNS,NASDAQ
+Mondelez International,MDLZ,NASDAQ
 Synopsys,SNPS,NASDAQ
 Ross Stores,ROST,NASDAQ
 Warner Bros. Discovery,WBD,NASDAQ
 O'Reilly Automotive,ORLY,NASDAQ
-American Electric Power,AEP,NASDAQ
-Paccar,PCAR,NASDAQ
 Honeywell Technologies,HON,NASDAQ
+American Electric Power,AEP,NASDAQ
+MicroStrategy,MSTR,NASDAQ
+Paccar,PCAR,NASDAQ
 Nebius Group,NBIS,NASDAQ
 Monolithic Power Systems,MPWR,NASDAQ
-NXP Semiconductors,NXPI,NASDAQ
 Teradyne,TER,NASDAQ
+NXP Semiconductors,NXPI,NASDAQ
 Baker Hughes,BKR,NASDAQ
-Diamondback Energy,FANG,NASDAQ
 Fastenal,FAST,NASDAQ
-MicroStrategy,MSTR,NASDAQ
+Diamondback Energy,FANG,NASDAQ
 Astera Labs,ALAB,NASDAQ
 Honeywell Aerospace,HONA,NASDAQ
-CoreWeave,CRWV,NASDAQ
+"Workday, Inc.",WDAY,NASDAQ
+Autodesk,ADSK,NASDAQ
 Xcel Energy,XEL,NASDAQ
+CoreWeave,CRWV,NASDAQ
 PayPal,PYPL,NASDAQ
 Coca-Cola Europacific Partners,CCEP,NASDAQ
-"Workday, Inc.",WDAY,NASDAQ
 Exelon,EXC,NASDAQ
-Autodesk,ADSK,NASDAQ
 Keurig Dr Pepper,KDP,NASDAQ
-Thomson Reuters,TRI,NASDAQ
 Paychex,PAYX,NASDAQ
+Rocket Lab,RKLB,NASDAQ
+Thomson Reuters,TRI,NASDAQ
+Idexx Laboratories,IDXX,NASDAQ
 Microchip Technology,MCHP,NASDAQ
 Take-Two Interactive,TTWO,NASDAQ
-Rocket Lab,RKLB,NASDAQ
-Idexx Laboratories,IDXX,NASDAQ
-Axon Enterprise,AXON,NASDAQ
 Roper Technologies,ROP,NASDAQ
+Axon Enterprise,AXON,NASDAQ
 Old Dominion Freight Line,ODFL,NASDAQ
-Alnylam Pharmaceuticals,ALNY,NASDAQ
 DexCom,DXCM,NASDAQ
-Kraft Heinz,KHC,NASDAQ
+Alnylam Pharmaceuticals,ALNY,NASDAQ
 GE HealthCare,GEHC,NASDAQ
 Copart,CPRT,NASDAQ
 Ferrovial,FER,NASDAQ
