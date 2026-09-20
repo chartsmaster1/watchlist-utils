@@ -13,7 +13,8 @@
     <string>/Users/tamilla/Desktop/watchlist-utils/scheduled_refresh.sh</string>
   </array>
 
-  <!-- Run once a month: 1st of each month at 05:30 local time. -->
+  <!-- Monthly target: 1st of each month at 05:30 local time.
+       Catch-up below covers a missed occurrence (Mac asleep/off). -->
   <key>StartCalendarInterval</key>
   <dict>
     <key>Day</key>
@@ -23,6 +24,16 @@
     <key>Minute</key>
     <integer>30</integer>
   </dict>
+
+  <!-- Catch-up triggers: the wrapper runs the refresh only when the latest
+       monthly occurrence has passed without a recorded success. -->
+  <!-- Every login / reboot. -->
+  <key>RunAtLoad</key>
+  <true/>
+  <!-- Hourly check: catches a miss while the Mac is awake but was asleep
+       at 05:30 (launchd has no built-in "run if missed"). No-op unless due. -->
+  <key>StartInterval</key>
+  <integer>3600</integer>
 
   <!-- Run from the repo so relative paths (public/src/main.py, public/data) resolve. -->
   <key>WorkingDirectory</key>
