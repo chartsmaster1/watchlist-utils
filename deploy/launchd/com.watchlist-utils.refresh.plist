@@ -13,50 +13,16 @@
     <string>/Users/tamilla/Desktop/watchlist-utils/scheduled_refresh.sh</string>
   </array>
 
-  <!-- Run weekdays (Mon-Fri) at 05:30 local time. -->
+  <!-- Run once a month: 1st of each month at 05:30 local time. -->
   <key>StartCalendarInterval</key>
-  <array>
-    <dict>
-      <key>Hour</key>
-      <integer>5</integer>
-      <key>Minute</key>
-      <integer>30</integer>
-      <key>Weekday</key>
-      <integer>1</integer>
-    </dict>
-    <dict>
-      <key>Hour</key>
-      <integer>5</integer>
-      <key>Minute</key>
-      <integer>30</integer>
-      <key>Weekday</key>
-      <integer>2</integer>
-    </dict>
-    <dict>
-      <key>Hour</key>
-      <integer>5</integer>
-      <key>Minute</key>
-      <integer>30</integer>
-      <key>Weekday</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>Hour</key>
-      <integer>5</integer>
-      <key>Minute</key>
-      <integer>30</integer>
-      <key>Weekday</key>
-      <integer>4</integer>
-    </dict>
-    <dict>
-      <key>Hour</key>
-      <integer>5</integer>
-      <key>Minute</key>
-      <integer>30</integer>
-      <key>Weekday</key>
-      <integer>5</integer>
-    </dict>
-  </array>
+  <dict>
+    <key>Day</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>5</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
 
   <!-- Run from the repo so relative paths (public/src/main.py, public/data) resolve. -->
   <key>WorkingDirectory</key>

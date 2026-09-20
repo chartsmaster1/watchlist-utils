@@ -10,7 +10,7 @@ Files in this repo:
   (firebase lives under nvm here), checks out state, calls
   `./refresh_and_deploy.sh`, and appends to `logs/scheduled-refresh.log`.
 - `deploy/launchd/com.watchlist-utils.refresh.plist` — LaunchAgent that runs
-  the wrapper **Mon–Fri 05:30 local time**.
+  the wrapper **once a month (1st, 05:30 local time)**.
 
 > `refresh_and_deploy.sh` only runs on `main`. Keep this clone on `main`
 > while the schedule is enabled; the refresh commits `public/data`
@@ -56,7 +56,7 @@ tail -100 logs/scheduled-refresh.log
 
 ```bash
 launchctl unload ~/Library/LaunchAgents/com.watchlist-utils.refresh.plist  # pause
-# edit deploy/launchd/*.plist Hour/Minute/Weekday, re-copy, load again
+# edit deploy/launchd/*.plist Day/Hour/Minute, re-copy, load again
 rm ~/Library/LaunchAgents/com.watchlist-utils.refresh.plist                # remove
 ```
 
