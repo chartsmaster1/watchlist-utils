@@ -1,102 +1,102 @@
 ﻿Name,Ticker,Exchange
-Nvidia,NVDA,NASDAQ
 Apple Inc.,AAPL,NASDAQ
-Alphabet Inc. (Class C),GOOG,NASDAQ
-Alphabet Inc. (Class A),GOOGL,NASDAQ
+Nvidia,NVDA,NASDAQ
 Microsoft,MSFT,NASDAQ
+Alphabet Inc. (Class A),GOOGL,NASDAQ
+Alphabet Inc. (Class C),GOOG,NASDAQ
 Amazon,AMZN,NASDAQ
 SpaceX,SPCX,NASDAQ
+"Tesla, Inc.",TSLA,NASDAQ
 Meta Platforms,META,NASDAQ
 Broadcom,AVGO,NASDAQ
-"Tesla, Inc.",TSLA,NASDAQ
 Micron Technology,MU,NASDAQ
-Advanced Micro Devices,AMD,NASDAQ
 Walmart,WMT,NASDAQ
+Advanced Micro Devices,AMD,NASDAQ
 ASML Holding,ASML,NASDAQ
-Intel,INTC,NASDAQ
+Costco,COST,NASDAQ
 Palantir Technologies,PLTR,NASDAQ
 Cisco,CSCO,NASDAQ
-Costco,COST,NASDAQ
+Intel,INTC,NASDAQ
 Applied Materials,AMAT,NASDAQ
-Lam Research,LRCX,NASDAQ
 Palo Alto Networks,PANW,NASDAQ
-"Netflix, Inc.",NFLX,NASDAQ
-Arm Holdings,ARM,NASDAQ
-CrowdStrike,CRWD,NASDAQ
+Lam Research,LRCX,NASDAQ
 Texas Instruments,TXN,NASDAQ
-KLA Corporation,KLAC,NASDAQ
-Marvell Technology,MRVL,NASDAQ
-Sandisk,SNDK,NASDAQ
+"Netflix, Inc.",NFLX,NASDAQ
+CrowdStrike,CRWD,NASDAQ
 Amgen,AMGN,NASDAQ
 Linde plc,LIN,NASDAQ
+Arm Holdings,ARM,NASDAQ
+Gilead Sciences,GILD,NASDAQ
+KLA Corporation,KLAC,NASDAQ
 Shopify,SHOP,NASDAQ
 Analog Devices,ADI,NASDAQ
-Gilead Sciences,GILD,NASDAQ
-Qualcomm,QCOM,NASDAQ
-Seagate Technology,STX,NASDAQ
 PepsiCo,PEP,NASDAQ
+Marvell Technology,MRVL,NASDAQ
+Qualcomm,QCOM,NASDAQ
+Sandisk,SNDK,NASDAQ
 T-Mobile US,TMUS,NASDAQ
 Intuitive Surgical,ISRG,NASDAQ
-Western Digital,WDC,NASDAQ
-Fortinet,FTNT,NASDAQ
+Seagate Technology,STX,NASDAQ
 Vertex Pharmaceuticals,VRTX,NASDAQ
+Western Digital,WDC,NASDAQ
+Starbucks,SBUX,NASDAQ
+Automatic Data Processing,ADP,NASDAQ
 Booking Holdings,BKNG,NASDAQ
 PDD Holdings,PDD,NASDAQ
-Automatic Data Processing,ADP,NASDAQ
-Constellation Energy,CEG,NASDAQ
-Datadog,DDOG,NASDAQ
-Starbucks,SBUX,NASDAQ
-Lumentum,LITE,NASDAQ
-Airbnb,ABNB,NASDAQ
-Synopsys,SNPS,NASDAQ
-Cadence Design Systems,CDNS,NASDAQ
-Mercado Libre,MELI,NASDAQ
 Marriott International,MAR,NASDAQ
+Fortinet,FTNT,NASDAQ
+Airbnb,ABNB,NASDAQ
 Adobe Inc.,ADBE,NASDAQ
-AppLovin,APP,NASDAQ
-Moderna,MRNA,NASDAQ
 CSX Corporation,CSX,NASDAQ
-Monster Beverage,MNST,NASDAQ
-DoorDash,DASH,NASDAQ
-Intuit,INTU,NASDAQ
-Cintas,CTAS,NASDAQ
-Mondelez International,MDLZ,NASDAQ
 Regeneron Pharmaceuticals,REGN,NASDAQ
+Constellation Energy,CEG,NASDAQ
+Monster Beverage,MNST,NASDAQ
+Intuit,INTU,NASDAQ
+Cadence Design Systems,CDNS,NASDAQ
+Synopsys,SNPS,NASDAQ
+Moderna,MRNA,NASDAQ
+Cintas,CTAS,NASDAQ
+Datadog,DDOG,NASDAQ
+Mondelez International,MDLZ,NASDAQ
 Comcast,CMCSA,NASDAQ
+Mercado Libre,MELI,NASDAQ
+DoorDash,DASH,NASDAQ
+AppLovin,APP,NASDAQ
+Lumentum,LITE,NASDAQ
 Ross Stores,ROST,NASDAQ
-O'Reilly Automotive,ORLY,NASDAQ
-Monolithic Power Systems,MPWR,NASDAQ
 American Electric Power,AEP,NASDAQ
+O'Reilly Automotive,ORLY,NASDAQ
 Honeywell Technologies,HON,NASDAQ
-Teradyne,TER,NASDAQ
-MicroStrategy,MSTR,NASDAQ
-Astera Labs,ALAB,NASDAQ
-Fastenal,FAST,NASDAQ
 NXP Semiconductors,NXPI,NASDAQ
-Paccar,PCAR,NASDAQ
-Baker Hughes,BKR,NASDAQ
-Nebius Group,NBIS,NASDAQ
 Diamondback Energy,FANG,NASDAQ
-Honeywell Aerospace,HONA,NASDAQ
+Fastenal,FAST,NASDAQ
+Monolithic Power Systems,MPWR,NASDAQ
+MicroStrategy,MSTR,NASDAQ
+Baker Hughes,BKR,NASDAQ
+Paccar,PCAR,NASDAQ
 Autodesk,ADSK,NASDAQ
-PayPal,PYPL,NASDAQ
+Thomson Reuters,TRI,NASDAQ
 Xcel Energy,XEL,NASDAQ
 Coca-Cola Europacific Partners,CCEP,NASDAQ
-CoreWeave,CRWV,NASDAQ
-"Workday, Inc.",WDAY,NASDAQ
-Thomson Reuters,TRI,NASDAQ
-Rocket Lab,RKLB,NASDAQ
+Honeywell Aerospace,HONA,NASDAQ
 Keurig Dr Pepper,KDP,NASDAQ
+"Workday, Inc.",WDAY,NASDAQ
 Exelon,EXC,NASDAQ
-Microchip Technology,MCHP,NASDAQ
-Idexx Laboratories,IDXX,NASDAQ
-Take-Two Interactive,TTWO,NASDAQ
-Old Dominion Freight Line,ODFL,NASDAQ
-Paychex,PAYX,NASDAQ
+PayPal,PYPL,NASDAQ
 Roper Technologies,ROP,NASDAQ
+Astera Labs,ALAB,NASDAQ
+Idexx Laboratories,IDXX,NASDAQ
+Teradyne,TER,NASDAQ
+Microchip Technology,MCHP,NASDAQ
+Paychex,PAYX,NASDAQ
+Nebius Group,NBIS,NASDAQ
+Old Dominion Freight Line,ODFL,NASDAQ
+Take-Two Interactive,TTWO,NASDAQ
+Rocket Lab,RKLB,NASDAQ
 Axon Enterprise,AXON,NASDAQ
-DexCom,DXCM,NASDAQ
-Alnylam Pharmaceuticals,ALNY,NASDAQ
 GE HealthCare,GEHC,NASDAQ
+DexCom,DXCM,NASDAQ
+CoreWeave,CRWV,NASDAQ
 Copart,CPRT,NASDAQ
+Alnylam Pharmaceuticals,ALNY,NASDAQ
 Ferrovial,FER,NASDAQ
