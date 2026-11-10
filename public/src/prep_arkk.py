@@ -68,6 +68,7 @@ def read_prep_arkk(download=True):
         # Save to CSV
         try:
             df = pd.read_json(file_path)
+            df['Weight'] = df['Weight'].map(lambda v: f'{v:.2f}')
             df.to_csv(data_dir / f'{file_name}.csv', index=False, encoding='utf-8-sig')
             print('ARKK data read and csv write was successfull.')
 

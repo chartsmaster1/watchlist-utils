@@ -78,6 +78,7 @@ def prep_spy_sectors():
         print('S&P 500 sectors data read and json write was successfull.')
 
         try:
+            comps_df['MarketCap'] = comps_df['MarketCap'].round(0).astype('Int64')
             comps_df.drop(columns=['SectorKey']).to_csv(
                 data_dir / 'spysectors.csv', index=False, encoding='utf-8-sig'
             )

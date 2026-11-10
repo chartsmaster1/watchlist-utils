@@ -206,6 +206,8 @@ def read_prep_schd():
     # Save to CSV
     try:
         df = pd.read_json(file_path)
+        df['MarketCap'] = df['MarketCap'].round(0).astype('Int64')
+        df['Weight'] = df['Weight'].map(lambda v: f'{v:.2f}')
         df.to_csv(data_dir / f'{file_name}.csv', index=False, encoding='utf-8-sig')
         print(f'SCHD data read and csv write was successfull. '
               f'({len(res_list)} holdings, N-PORT period {report_date}, filing {accession})')

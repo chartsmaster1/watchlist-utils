@@ -69,7 +69,7 @@ def read_prep_sandp():
 
         try:
             df = pd.read_json(json_file_path)
-            df['MarketCap'] = df['MarketCap'].astype('float')
+            df['MarketCap'] = df['MarketCap'].round(0).astype('Int64')
             df.to_csv(csv_file_path, index=False, encoding='utf-8-sig')
             print('S&P500 data read and csv write was successfull.')
 

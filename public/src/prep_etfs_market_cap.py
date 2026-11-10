@@ -93,6 +93,7 @@ def read_prep_etfs_market_cap():
 
         try:
             df = pd.read_json(file_path)
+            df['MarketCap'] = df['MarketCap'].round(0).astype('Int64')
             df.to_csv(data_dir / 'etfs_market_cap.csv', index=False, encoding='utf-8-sig')
             print('ETFs data saved to CSV successfully.')
 
