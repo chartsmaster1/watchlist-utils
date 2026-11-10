@@ -8,10 +8,10 @@ Walmart,WMT,NASDAQ,Consumer Staples
 JPMorgan Chase,JPM,NYSE,Financials
 Visa,V,NYSE,Financials
 Johnson & Johnson,JNJ,NYSE,Health Care
-Chevron,CVX,NYSE,Energy
-Cisco,CSCO,NASDAQ,Information Technology
 Coca-Cola,KO,NYSE,Consumer Staples
+Chevron,CVX,NYSE,Energy
 Procter & Gamble,PG,NYSE,Consumer Staples
+Cisco,CSCO,NASDAQ,Information Technology
 Merck,MRK,NYSE,Health Care
 UnitedHealth Group,UNH,NYSE,Health Care
 Home Depot,HD,NYSE,Consumer Discretionary
@@ -21,11 +21,11 @@ Amgen,AMGN,NASDAQ,Health Care
 IBM,IBM,NYSE,Information Technology
 American Express,AXP,NYSE,Financials
 Disney,DIS,NYSE,Communication Services
-Salesforce,CRM,NYSE,Information Technology
 McDonald's,MCD,NYSE,Consumer Discretionary
+Salesforce,CRM,NYSE,Information Technology
 Boeing,BA,NYSE,Industrials
 3M,MMM,NYSE,Industrials
-Travelers,TRV,NYSE,Financials
 Sherwin-Williams,SHW,NYSE,Materials
+Travelers,TRV,NYSE,Financials
 Honeywell Technologies,HON,NASDAQ,Industrials
 Nike,NKE,NYSE,Consumer Discretionary
