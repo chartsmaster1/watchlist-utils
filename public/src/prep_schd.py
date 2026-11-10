@@ -29,7 +29,7 @@ def read_prep_schd():
     holdings = nport.fetch_stock_holdings(EDGAR_CIK, accession, primary_doc)
     if len(holdings) < 90:
         raise ValueError(f'SCHD N-PORT lists only {len(holdings)} stocks (expected ~100)')
-    tickers = nport.resolve_tickers(holdings, data_dir)
+    tickers, _ = nport.resolve_tickers(holdings, data_dir)
 
     stocks, sectors = nport.load_enrichment(data_dir)
     res_list, missing_caps, missing_sectors = nport.build_records(

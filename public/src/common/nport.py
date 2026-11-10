@@ -27,6 +27,7 @@ NPORT_NS = {'n': 'http://www.sec.gov/edgar/nport'}
 OPENFIGI_URL = 'https://api.openfigi.com/v3/mapping'
 OPENFIGI_BATCH = 10  # jobs per request without an API key
 CACHE_NAME = 'cusip_tickers.json'
+PLAIN_TICKER_RE = re.compile(r'^[A-Z0-9]+(\.[A-Z])?$')
 
 
 def _filing_series_name(cik, accession, primary_doc):
@@ -99,12 +100,41 @@ def fetch_stock_holdings(cik, accession, primary_doc):
     return holdings
 
 
-def _openfigi_lookup(id_type, id_values, slow):
+def _pick_ticker(data):
+    """Choose the US primary-listing ticker from OpenFIGI result entries.
+
+    OpenFIGI also returns foreign listings and occasional marked
+    tickers (e.g. 'WBD*'); prefer a plain US-listed ticker, then any
+    US entry, then any plain ticker. Returns None if nothing usable.
+    """
+    candidates = []
+    for entry in data or []:
+        raw = entry.get('ticker')
+        if not raw:
+            continue
+        ticker = raw.replace('/', '.').strip().upper().rstrip('*')
+        candidates.append((ticker, entry.get('exchCode')))
+    for want_us, want_plain in ((True, True), (True, False), (False, True)):
+        for ticker, exch in candidates:
+            if want_us and exch != 'US':
+                continue
+            if want_plain and not PLAIN_TICKER_RE.match(ticker):
+                continue
+            return ticker
+    return None
+
+
+def _openfigi_lookup(id_type, id_values, slow, exch_code=None):
     """One batched pass over OpenFIGI; returns {id_value: ticker or None}."""
     results = {}
     for start in range(0, len(id_values), OPENFIGI_BATCH):
         batch = id_values[start:start + OPENFIGI_BATCH]
-        jobs = [{'idType': id_type, 'idValue': value} for value in batch]
+        jobs = []
+        for value in batch:
+            job = {'idType': id_type, 'idValue': value}
+            if exch_code:
+                job['exchCode'] = exch_code
+            jobs.append(job)
         response = requests.post(OPENFIGI_URL, json=jobs, timeout=30,
                                  headers={'Content-Type': 'application/json'})
         response.raise_for_status()
@@ -112,72 +142,76 @@ def _openfigi_lookup(id_type, id_values, slow):
         if len(payload) != len(batch):
             raise ValueError('OpenFIGI returned an unexpected number of results')
         for value, result in zip(batch, payload):
-            data = [d for d in (result.get('data') or []) if d.get('ticker')]
-            chosen = next((d for d in data if d.get('exchCode') == 'US'), None)
-            if chosen is None and data:
-                chosen = data[0]
-            results[value] = (chosen['ticker'].replace('/', '.').strip().upper()
-                              if chosen is not None else None)
+            results[value] = _pick_ticker(result.get('data'))
         # Unauthenticated OpenFIGI allows ~25 requests/minute; pace big
         # first-time resolutions (e.g. Russell 2000) under that budget.
         time.sleep(2.5 if slow else 0.3)
     return results
 
 
-def resolve_tickers(holdings, data_dir):
+def resolve_tickers(holdings, data_dir, allow_unresolved=0):
     """Resolve every holding to a ticker, aligned with the holdings order.
 
     Cache keys are real CUSIPs, or 'ISIN:<isin>' for holdings filed with a
-    placeholder CUSIP (all zeros). Any holding that resolves neither via
-    the cache nor OpenFIGI fails the refresh rather than being dropped.
+    placeholder CUSIP (all zeros). Resolution passes, in order: cache,
+    OpenFIGI by CUSIP, by ISIN, then both again restricted to US
+    exchanges. Returns (tickers, unresolved holdings). Unresolved
+    holdings raise unless the caller allows a small number (used by the
+    Russell 2000: a few recent listings lag in OpenFIGI, and one bad
+    identifier must not block the whole refresh).
     """
     cache_path = data_dir / CACHE_NAME
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
 
-    def cache_key(holding):
+    def real_cusip(holding):
         cusip = holding['CUSIP']
-        if cusip and set(cusip) != {'0'}:
+        return cusip if cusip and set(cusip) != {'0'} else None
+
+    def cache_key(holding):
+        cusip = real_cusip(holding)
+        if cusip:
             return cusip
         return f"ISIN:{holding['ISIN']}" if holding['ISIN'] else None
 
-    tickers = []
-    missing = []
-    for holding in holdings:
-        key = cache_key(holding)
-        ticker = cache.get(key) if key else None
-        tickers.append(ticker)
-        if ticker is None:
-            missing.append(holding)
-
-    if missing:
-        slow = len(missing) > 100
-        cusip_ids = sorted({h['CUSIP'] for h in missing
-                            if h['CUSIP'] and set(h['CUSIP']) != {'0'}})
-        by_cusip = _openfigi_lookup('ID_CUSIP', cusip_ids, slow) if cusip_ids else {}
+    def apply_pass(missing, id_type, slow, exch_code=None):
+        if id_type == 'ID_CUSIP':
+            ids = sorted({real_cusip(h) for h in missing if real_cusip(h)})
+            key_of = real_cusip
+        else:
+            ids = sorted({h['ISIN'] for h in missing if h['ISIN']})
+            key_of = lambda h: h['ISIN']
+        if not ids:
+            return missing
+        found = _openfigi_lookup(id_type, ids, slow, exch_code=exch_code)
         still = []
         for holding in missing:
-            ticker = by_cusip.get(holding['CUSIP'])
-            if ticker:
-                cache[holding['CUSIP']] = ticker
-            else:
-                still.append(holding)
-        isin_ids = sorted({h['ISIN'] for h in still if h['ISIN']})
-        by_isin = _openfigi_lookup('ID_ISIN', isin_ids, slow) if isin_ids else {}
-        for holding in still:
-            ticker = by_isin.get(holding['ISIN'])
+            ticker = found.get(key_of(holding))
             if ticker:
                 key = cache_key(holding)
                 if key:
                     cache[key] = ticker
-        tickers = [t or cache.get(cache_key(h)) for h, t in zip(holdings, tickers)]
+            else:
+                still.append(holding)
+        return still
+
+    missing = [h for h in holdings if not cache.get(cache_key(h) or '')]
+    if missing:
+        slow = len(missing) > 100
+        for id_type, exch_code in (('ID_CUSIP', None), ('ID_ISIN', None),
+                                   ('ID_CUSIP', 'US'), ('ID_ISIN', 'US')):
+            if not missing:
+                break
+            missing = apply_pass(missing, id_type, slow, exch_code)
         cache_path.write_text(json.dumps(cache, indent=0, sort_keys=True))
 
-    unresolved = [h['Name'] for h, t in zip(holdings, tickers) if t is None]
-    if unresolved:
+    tickers = [cache.get(cache_key(h) or '') for h in holdings]
+    unresolved = [h for h, t in zip(holdings, tickers) if t is None]
+    if len(unresolved) > allow_unresolved:
+        names = [h['Name'] for h in unresolved]
         raise ValueError(
-            f"OpenFIGI could not resolve tickers for: {', '.join(unresolved[:10])}"
-            + (f' (+{len(unresolved) - 10} more)' if len(unresolved) > 10 else ''))
-    return tickers
+            f"OpenFIGI could not resolve tickers for: {', '.join(names[:10])}"
+            + (f' (+{len(names) - 10} more)' if len(names) > 10 else ''))
+    return tickers, unresolved
 
 
 def load_enrichment(data_dir):

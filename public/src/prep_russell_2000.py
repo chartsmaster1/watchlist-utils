@@ -34,7 +34,19 @@ def read_prep_russell_2000():
     if len(holdings) < 1500:
         raise ValueError(
             f'Russell 2000 N-PORT lists only {len(holdings)} stocks (expected ~2000)')
-    tickers = nport.resolve_tickers(holdings, data_dir)
+    # A few recent listings lag in OpenFIGI; dropping up to 25 of ~2,000
+    # (with a loud warning) beats blocking the whole refresh on them.
+    # They re-enter automatically once OpenFIGI maps their identifiers.
+    tickers, unresolved = nport.resolve_tickers(holdings, data_dir,
+                                                allow_unresolved=25)
+    if unresolved:
+        dropped = {id(h) for h in unresolved}
+        names = ', '.join(f"{h['Name']} ({h['Weight']}%)" for h in unresolved)
+        print(f'Russell 2000 WARNING: dropping {len(unresolved)} holdings '
+              f'OpenFIGI cannot map yet: {names}')
+        pairs = [(h, t) for h, t in zip(holdings, tickers) if id(h) not in dropped]
+        holdings = [h for h, _ in pairs]
+        tickers = [t for _, t in pairs]
 
     stocks, sectors = nport.load_enrichment(data_dir)
     res_list, missing_caps, missing_sectors = nport.build_records(
