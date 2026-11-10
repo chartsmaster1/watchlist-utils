@@ -79,8 +79,6 @@
       const a  = document.createElement('a');
       a.href        = viewerUrl.toString();
       a.textContent = fileInfo.name;
-      a.target      = '_blank';
-      a.rel         = 'noopener';   // security best practice
       li.appendChild(a);
       jsonLinksEl.appendChild(li);
     });
@@ -94,14 +92,13 @@
           const a  = document.createElement("a");
           a.textContent = fileInfo.name;
           a.href = "#";
-          a.target = "_blank";
-          // Open CSV table view in a new tab using table.html
+          // Open CSV table view in this tab (browser Back returns here)
           a.addEventListener("click", (e) => {
             e.preventDefault();
             const tableUrl = new URL('table.html', window.location.origin);
             tableUrl.searchParams.set('file', fileInfo.csv);
             tableUrl.searchParams.set('name', fileInfo.name);
-            window.open(tableUrl.toString(), "_blank");
+            window.location.href = tableUrl.toString();
           });
           li.appendChild(a);
           csvLinksEl.appendChild(li);
