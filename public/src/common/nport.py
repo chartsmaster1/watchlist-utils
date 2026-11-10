@@ -232,13 +232,25 @@ def load_enrichment(data_dir):
 
 
 def build_records(holdings, tickers, stocks, sectors, fixed_sector=None):
-    """Assemble ranked output records; warn (never drop) on missing data."""
+    """Assemble ranked output records; warn (never silently drop).
+
+    If two holdings resolve to the same ticker (dual share classes that
+    OpenFIGI maps to one symbol), the larger holding wins and the
+    smaller is dropped with a warning — datasets must have unique
+    tickers (validate_data.py enforces it).
+    """
     res_list = []
     missing_caps = []
     missing_sectors = []
+    seen_tickers = set()
     ranked = sorted(zip(holdings, tickers),
                     key=lambda pair: pair[0]['Weight'], reverse=True)
     for holding, ticker in ranked:
+        if ticker in seen_tickers:
+            print(f'Dropping duplicate ticker {ticker} ({holding["Name"]}, '
+                  f'{holding["Weight"]}%) — kept the larger holding')
+            continue
+        seen_tickers.add(ticker)
         record = {
             'Rank': len(res_list) + 1,
             'Name': holding['Name'],
