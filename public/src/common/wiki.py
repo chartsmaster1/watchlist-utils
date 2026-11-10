@@ -20,7 +20,7 @@ WIKI = {
     ),
     "dow": (
         "https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies",
-        {"Company", "Symbol"},
+        {"Company", "Symbol", "Sector"},
     ),
     "russell1000": (
         "https://en.wikipedia.org/wiki/List_of_Russell_1000_companies",

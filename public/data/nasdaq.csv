@@ -1,102 +1,102 @@
-﻿Name,Ticker,Exchange
-Apple Inc.,AAPL,NASDAQ
-Nvidia,NVDA,NASDAQ
-Microsoft,MSFT,NASDAQ
-Alphabet Inc. (Class A),GOOGL,NASDAQ
-Alphabet Inc. (Class C),GOOG,NASDAQ
-Amazon,AMZN,NASDAQ
-SpaceX,SPCX,NASDAQ
-"Tesla, Inc.",TSLA,NASDAQ
-Meta Platforms,META,NASDAQ
-Broadcom,AVGO,NASDAQ
-Micron Technology,MU,NASDAQ
-Walmart,WMT,NASDAQ
-Advanced Micro Devices,AMD,NASDAQ
-ASML Holding,ASML,NASDAQ
-Costco,COST,NASDAQ
-Palantir Technologies,PLTR,NASDAQ
-Cisco,CSCO,NASDAQ
-Intel,INTC,NASDAQ
-Applied Materials,AMAT,NASDAQ
-Palo Alto Networks,PANW,NASDAQ
-Lam Research,LRCX,NASDAQ
-Texas Instruments,TXN,NASDAQ
-"Netflix, Inc.",NFLX,NASDAQ
-CrowdStrike,CRWD,NASDAQ
-Amgen,AMGN,NASDAQ
-Linde plc,LIN,NASDAQ
-Arm Holdings,ARM,NASDAQ
-Gilead Sciences,GILD,NASDAQ
-KLA Corporation,KLAC,NASDAQ
-Shopify,SHOP,NASDAQ
-Analog Devices,ADI,NASDAQ
-PepsiCo,PEP,NASDAQ
-Marvell Technology,MRVL,NASDAQ
-Qualcomm,QCOM,NASDAQ
-Sandisk,SNDK,NASDAQ
-T-Mobile US,TMUS,NASDAQ
-Intuitive Surgical,ISRG,NASDAQ
-Seagate Technology,STX,NASDAQ
-Vertex Pharmaceuticals,VRTX,NASDAQ
-Western Digital,WDC,NASDAQ
-Starbucks,SBUX,NASDAQ
-Automatic Data Processing,ADP,NASDAQ
-Booking Holdings,BKNG,NASDAQ
-PDD Holdings,PDD,NASDAQ
-Marriott International,MAR,NASDAQ
-Fortinet,FTNT,NASDAQ
-Airbnb,ABNB,NASDAQ
-Adobe Inc.,ADBE,NASDAQ
-CSX Corporation,CSX,NASDAQ
-Regeneron Pharmaceuticals,REGN,NASDAQ
-Constellation Energy,CEG,NASDAQ
-Monster Beverage,MNST,NASDAQ
-Intuit,INTU,NASDAQ
-Cadence Design Systems,CDNS,NASDAQ
-Synopsys,SNPS,NASDAQ
-Moderna,MRNA,NASDAQ
-Cintas,CTAS,NASDAQ
-Datadog,DDOG,NASDAQ
-Mondelez International,MDLZ,NASDAQ
-Comcast,CMCSA,NASDAQ
-Mercado Libre,MELI,NASDAQ
-DoorDash,DASH,NASDAQ
-AppLovin,APP,NASDAQ
-Lumentum,LITE,NASDAQ
-Ross Stores,ROST,NASDAQ
-American Electric Power,AEP,NASDAQ
-O'Reilly Automotive,ORLY,NASDAQ
-Honeywell Technologies,HON,NASDAQ
-NXP Semiconductors,NXPI,NASDAQ
-Diamondback Energy,FANG,NASDAQ
-Fastenal,FAST,NASDAQ
-Monolithic Power Systems,MPWR,NASDAQ
-MicroStrategy,MSTR,NASDAQ
-Baker Hughes,BKR,NASDAQ
-Paccar,PCAR,NASDAQ
-Autodesk,ADSK,NASDAQ
-Thomson Reuters,TRI,NASDAQ
-Xcel Energy,XEL,NASDAQ
-Coca-Cola Europacific Partners,CCEP,NASDAQ
-Honeywell Aerospace,HONA,NASDAQ
-Keurig Dr Pepper,KDP,NASDAQ
-"Workday, Inc.",WDAY,NASDAQ
-Exelon,EXC,NASDAQ
-PayPal,PYPL,NASDAQ
-Roper Technologies,ROP,NASDAQ
-Astera Labs,ALAB,NASDAQ
-Idexx Laboratories,IDXX,NASDAQ
-Teradyne,TER,NASDAQ
-Microchip Technology,MCHP,NASDAQ
-Paychex,PAYX,NASDAQ
-Nebius Group,NBIS,NASDAQ
-Old Dominion Freight Line,ODFL,NASDAQ
-Take-Two Interactive,TTWO,NASDAQ
-Rocket Lab,RKLB,NASDAQ
-Axon Enterprise,AXON,NASDAQ
-GE HealthCare,GEHC,NASDAQ
-DexCom,DXCM,NASDAQ
-CoreWeave,CRWV,NASDAQ
-Copart,CPRT,NASDAQ
-Alnylam Pharmaceuticals,ALNY,NASDAQ
-Ferrovial,FER,NASDAQ
+﻿Name,Ticker,Exchange,Sector
+Apple Inc.,AAPL,NASDAQ,Information Technology
+Nvidia,NVDA,NASDAQ,Information Technology
+Microsoft,MSFT,NASDAQ,Information Technology
+Alphabet Inc. (Class A),GOOGL,NASDAQ,Information Technology
+Alphabet Inc. (Class C),GOOG,NASDAQ,Information Technology
+Amazon,AMZN,NASDAQ,Consumer Discretionary
+SpaceX,SPCX,NASDAQ,Communication Services
+"Tesla, Inc.",TSLA,NASDAQ,Consumer Discretionary
+Meta Platforms,META,NASDAQ,Information Technology
+Broadcom,AVGO,NASDAQ,Information Technology
+Micron Technology,MU,NASDAQ,Information Technology
+Walmart,WMT,NASDAQ,Consumer Discretionary
+Advanced Micro Devices,AMD,NASDAQ,Information Technology
+ASML Holding,ASML,NASDAQ,Information Technology
+Costco,COST,NASDAQ,Consumer Discretionary
+Palantir Technologies,PLTR,NASDAQ,Information Technology
+Cisco,CSCO,NASDAQ,Communication Services
+Intel,INTC,NASDAQ,Information Technology
+Applied Materials,AMAT,NASDAQ,Information Technology
+Palo Alto Networks,PANW,NASDAQ,Information Technology
+Lam Research,LRCX,NASDAQ,Information Technology
+Texas Instruments,TXN,NASDAQ,Information Technology
+"Netflix, Inc.",NFLX,NASDAQ,Consumer Discretionary
+CrowdStrike,CRWD,NASDAQ,Information Technology
+Amgen,AMGN,NASDAQ,Health Care
+Linde plc,LIN,NASDAQ,Materials
+Arm Holdings,ARM,NASDAQ,Information Technology
+Gilead Sciences,GILD,NASDAQ,Health Care
+KLA Corporation,KLAC,NASDAQ,Information Technology
+Shopify,SHOP,NASDAQ,Information Technology
+Analog Devices,ADI,NASDAQ,Information Technology
+PepsiCo,PEP,NASDAQ,Consumer Staples
+Marvell Technology,MRVL,NASDAQ,Information Technology
+Qualcomm,QCOM,NASDAQ,Information Technology
+Sandisk,SNDK,NASDAQ,Information Technology
+T-Mobile US,TMUS,NASDAQ,Communication Services
+Intuitive Surgical,ISRG,NASDAQ,Health Care
+Seagate Technology,STX,NASDAQ,Information Technology
+Vertex Pharmaceuticals,VRTX,NASDAQ,Health Care
+Western Digital,WDC,NASDAQ,Information Technology
+Starbucks,SBUX,NASDAQ,Consumer Discretionary
+Automatic Data Processing,ADP,NASDAQ,Industrials
+Booking Holdings,BKNG,NASDAQ,Consumer Discretionary
+PDD Holdings,PDD,NASDAQ,Information Technology
+Marriott International,MAR,NASDAQ,Consumer Discretionary
+Fortinet,FTNT,NASDAQ,Information Technology
+Airbnb,ABNB,NASDAQ,Consumer Discretionary
+Adobe Inc.,ADBE,NASDAQ,Information Technology
+CSX Corporation,CSX,NASDAQ,Industrials
+Regeneron Pharmaceuticals,REGN,NASDAQ,Health Care
+Constellation Energy,CEG,NASDAQ,Utilities
+Monster Beverage,MNST,NASDAQ,Consumer Staples
+Intuit,INTU,NASDAQ,Information Technology
+Cadence Design Systems,CDNS,NASDAQ,Information Technology
+Synopsys,SNPS,NASDAQ,Information Technology
+Moderna,MRNA,NASDAQ,Health Care
+Cintas,CTAS,NASDAQ,Industrials
+Datadog,DDOG,NASDAQ,Information Technology
+Mondelez International,MDLZ,NASDAQ,Consumer Staples
+Comcast,CMCSA,NASDAQ,Communication Services
+Mercado Libre,MELI,NASDAQ,Consumer Discretionary
+DoorDash,DASH,NASDAQ,Information Technology
+AppLovin,APP,NASDAQ,Information Technology
+Lumentum,LITE,NASDAQ,Information Technology
+Ross Stores,ROST,NASDAQ,Consumer Discretionary
+American Electric Power,AEP,NASDAQ,Utilities
+O'Reilly Automotive,ORLY,NASDAQ,Consumer Discretionary
+Honeywell Technologies,HON,NASDAQ,Industrials
+NXP Semiconductors,NXPI,NASDAQ,Information Technology
+Diamondback Energy,FANG,NASDAQ,Energy
+Fastenal,FAST,NASDAQ,Industrials
+Monolithic Power Systems,MPWR,NASDAQ,Information Technology
+MicroStrategy,MSTR,NASDAQ,Information Technology
+Baker Hughes,BKR,NASDAQ,Energy
+Paccar,PCAR,NASDAQ,Consumer Discretionary
+Autodesk,ADSK,NASDAQ,Information Technology
+Thomson Reuters,TRI,NASDAQ,Information Technology
+Xcel Energy,XEL,NASDAQ,Utilities
+Coca-Cola Europacific Partners,CCEP,NASDAQ,Consumer Staples
+Honeywell Aerospace,HONA,NASDAQ,Industrials
+Keurig Dr Pepper,KDP,NASDAQ,Consumer Staples
+"Workday, Inc.",WDAY,NASDAQ,Information Technology
+Exelon,EXC,NASDAQ,Utilities
+PayPal,PYPL,NASDAQ,Industrials
+Roper Technologies,ROP,NASDAQ,Information Technology
+Astera Labs,ALAB,NASDAQ,Information Technology
+Idexx Laboratories,IDXX,NASDAQ,Health Care
+Teradyne,TER,NASDAQ,Information Technology
+Microchip Technology,MCHP,NASDAQ,Information Technology
+Paychex,PAYX,NASDAQ,Industrials
+Nebius Group,NBIS,NASDAQ,Information Technology
+Old Dominion Freight Line,ODFL,NASDAQ,Industrials
+Take-Two Interactive,TTWO,NASDAQ,Consumer Discretionary
+Rocket Lab,RKLB,NASDAQ,Industrials
+Axon Enterprise,AXON,NASDAQ,Industrials
+GE HealthCare,GEHC,NASDAQ,Health Care
+DexCom,DXCM,NASDAQ,Health Care
+CoreWeave,CRWV,NASDAQ,Information Technology
+Copart,CPRT,NASDAQ,Consumer Discretionary
+Alnylam Pharmaceuticals,ALNY,NASDAQ,Health Care
+Ferrovial,FER,NASDAQ,Industrials

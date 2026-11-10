@@ -1,31 +1,31 @@
-﻿Name,Ticker,Exchange
-Apple,AAPL,NASDAQ
-Nvidia,NVDA,NASDAQ
-Microsoft,MSFT,NASDAQ
-Alphabet (Class A),GOOGL,NASDAQ
-Amazon,AMZN,NASDAQ
-Walmart,WMT,NASDAQ
-JPMorgan Chase,JPM,NYSE
-Visa,V,NYSE
-Johnson & Johnson,JNJ,NYSE
-Chevron,CVX,NYSE
-Cisco,CSCO,NASDAQ
-Coca-Cola,KO,NYSE
-Procter & Gamble,PG,NYSE
-Merck,MRK,NYSE
-UnitedHealth Group,UNH,NYSE
-Home Depot,HD,NYSE
-Caterpillar,CAT,NYSE
-Goldman Sachs,GS,NYSE
-Amgen,AMGN,NASDAQ
-IBM,IBM,NYSE
-American Express,AXP,NYSE
-Disney,DIS,NYSE
-Salesforce,CRM,NYSE
-McDonald's,MCD,NYSE
-Boeing,BA,NYSE
-3M,MMM,NYSE
-Travelers,TRV,NYSE
-Sherwin-Williams,SHW,NYSE
-Honeywell Technologies,HON,NASDAQ
-Nike,NKE,NYSE
+﻿Name,Ticker,Exchange,Sector
+Apple,AAPL,NASDAQ,Information Technology
+Nvidia,NVDA,NASDAQ,Information Technology
+Microsoft,MSFT,NASDAQ,Information Technology
+Alphabet (Class A),GOOGL,NASDAQ,Communication Services
+Amazon,AMZN,NASDAQ,Consumer Discretionary
+Walmart,WMT,NASDAQ,Consumer Staples
+JPMorgan Chase,JPM,NYSE,Financials
+Visa,V,NYSE,Financials
+Johnson & Johnson,JNJ,NYSE,Health Care
+Chevron,CVX,NYSE,Energy
+Cisco,CSCO,NASDAQ,Information Technology
+Coca-Cola,KO,NYSE,Consumer Staples
+Procter & Gamble,PG,NYSE,Consumer Staples
+Merck,MRK,NYSE,Health Care
+UnitedHealth Group,UNH,NYSE,Health Care
+Home Depot,HD,NYSE,Consumer Discretionary
+Caterpillar,CAT,NYSE,Industrials
+Goldman Sachs,GS,NYSE,Financials
+Amgen,AMGN,NASDAQ,Health Care
+IBM,IBM,NYSE,Information Technology
+American Express,AXP,NYSE,Financials
+Disney,DIS,NYSE,Communication Services
+Salesforce,CRM,NYSE,Information Technology
+McDonald's,MCD,NYSE,Consumer Discretionary
+Boeing,BA,NYSE,Industrials
+3M,MMM,NYSE,Industrials
+Travelers,TRV,NYSE,Financials
+Sherwin-Williams,SHW,NYSE,Materials
+Honeywell Technologies,HON,NASDAQ,Industrials
+Nike,NKE,NYSE,Consumer Discretionary

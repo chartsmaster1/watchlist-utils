@@ -19,7 +19,7 @@ def sort_by_market_cap(df):
     mc_df['TickerKey'] = mc_df['Ticker']
 
     in_df = df.copy()
-    in_df.columns = ['Name', 'Ticker', 'Exchange']
+    in_df.columns = ['Name', 'Ticker', 'Exchange', 'Sector']
     in_df['TickerKey'] = normalize_tickers(in_df['Ticker'])
     in_df = in_df[in_df['TickerKey'] != '']
 
@@ -44,18 +44,19 @@ def read_prep_dow():
     
     try:
         comps, _table_idx = fetch_by_schema('dow')
-        comps_sorted = sort_by_market_cap(comps[['Company', 'Symbol', 'Exchange']])
+        comps_sorted = sort_by_market_cap(comps[['Company', 'Symbol', 'Exchange', 'Sector']])
 
         report_missing_market_caps(comps_sorted)
 
-        comps_list = comps_sorted[['Name', 'Ticker', 'Exchange']].values.tolist()
-        
+        comps_list = comps_sorted[['Name', 'Ticker', 'Exchange', 'Sector']].values.tolist()
+
         res_list = []
         for item in comps_list:
             d = {
                 'Name': item[0],
                 'Ticker': item[1],
-                'Exchange': item[2]
+                'Exchange': item[2],
+                'Sector': item[3]
             }
             res_list.append(d)
 

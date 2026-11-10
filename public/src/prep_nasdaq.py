@@ -9,6 +9,20 @@ from common.tickers import normalize_tickers, report_missing_market_caps
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
+# The Nasdaq-100 list page classifies by ICB industry, while the other
+# index files (s&p500, dow, russell) use GICS sector names. Map ICB to
+# the equivalent GICS sector so 'Sector' means the same thing in every
+# file; unmapped values pass through unchanged.
+ICB_TO_GICS_SECTOR = {
+    'Technology': 'Information Technology',
+    'Telecommunications': 'Communication Services',
+    'Oil & Gas': 'Energy',
+    'Oil, Gas & Consumable Fuels': 'Energy',
+    'Basic Materials': 'Materials',
+    'Consumer Goods': 'Consumer Staples',
+    'Consumer Services': 'Consumer Discretionary',
+}
+
 
 def sort_by_market_cap(df):
     """
@@ -20,7 +34,7 @@ def sort_by_market_cap(df):
     mc_df['TickerKey'] = mc_df['Ticker']
 
     in_df = df.copy()
-    in_df.columns = ['Name', 'Ticker']
+    in_df.columns = ['Name', 'Ticker', 'Sector']
     in_df['TickerKey'] = normalize_tickers(in_df['Ticker'])
     in_df = in_df[in_df['TickerKey'] != '']
 
@@ -46,19 +60,32 @@ def read_prep_nasdaq():
     
     try:
         comps, _table_idx = fetch_by_schema('nasdaq100')
-        comps_sorted = sort_by_market_cap(comps[['Company', 'Ticker']])
+        icb_col = next(
+            (c for c in comps.columns if str(c).startswith('ICB Industry')),
+            None,
+        )
+        if icb_col is None:
+            raise ValueError(
+                f'Nasdaq-100 table has no ICB Industry column: {list(comps.columns)}'
+            )
+        comps_sorted = sort_by_market_cap(comps[['Company', 'Ticker', icb_col]])
         # print(comps_sorted[comps_sorted['MarketCap'].isnull()])
 
         report_missing_market_caps(comps_sorted)
 
-        comps_list = comps_sorted[['Name', 'Ticker']].values.tolist()
-        
+        comps_sorted['Sector'] = comps_sorted['Sector'].map(
+            lambda s: ICB_TO_GICS_SECTOR.get(str(s).strip(), str(s).strip())
+        )
+
+        comps_list = comps_sorted[['Name', 'Ticker', 'Sector']].values.tolist()
+
         res_list = []
         for item in comps_list:
             d = {
                 'Name': item[0],
                 'Ticker': item[1],
-                'Exchange': 'NASDAQ'
+                'Exchange': 'NASDAQ',
+                'Sector': item[2]
             }
             res_list.append(d)
 
