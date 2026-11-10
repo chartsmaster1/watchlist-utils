@@ -28,6 +28,8 @@ OPENFIGI_URL = 'https://api.openfigi.com/v3/mapping'
 OPENFIGI_BATCH = 10  # jobs per request without an API key
 CACHE_NAME = 'cusip_tickers.json'
 PLAIN_TICKER_RE = re.compile(r'^[A-Z0-9]+(\.[A-Z])?$')
+CUSIP_RE = re.compile(r'^[0-9A-Z]{9}$')
+CURRENCY_SUFFIX_RE = re.compile(r'(EUR|GBP|CHF|JPY|AUD|CAD|SEK|NOK|DKK|HKD|SGD|USD)$')
 
 
 def _filing_series_name(cik, accession, primary_doc):
@@ -103,23 +105,35 @@ def fetch_stock_holdings(cik, accession, primary_doc):
 def _pick_ticker(data):
     """Choose the US primary-listing ticker from OpenFIGI result entries.
 
-    OpenFIGI also returns foreign listings and occasional marked
-    tickers (e.g. 'WBD*'); prefer a plain US-listed ticker, then any
-    US entry, then any plain ticker. Returns None if nothing usable.
+    OpenFIGI also returns foreign listings, whose tickers are often the
+    home ticker plus a currency suffix ('OKEEUR', 'XOMAGBP'), and
+    occasional marked tickers ('WBD*'). Prefer a plain US-listed
+    ticker; otherwise the shortest plain candidate, counting a
+    currency-stripped form as a candidate too. None if nothing usable.
     """
-    candidates = []
+    raw_candidates = []
     for entry in data or []:
         raw = entry.get('ticker')
         if not raw:
             continue
         ticker = raw.replace('/', '.').strip().upper().rstrip('*')
-        candidates.append((ticker, entry.get('exchCode')))
-    for want_us, want_plain in ((True, True), (True, False), (False, True)):
-        for ticker, exch in candidates:
-            if want_us and exch != 'US':
-                continue
-            if want_plain and not PLAIN_TICKER_RE.match(ticker):
-                continue
+        raw_candidates.append((ticker, entry.get('exchCode')))
+    for ticker, exch in raw_candidates:
+        if exch == 'US' and PLAIN_TICKER_RE.match(ticker):
+            return ticker
+    plain = []
+    for ticker, _ in raw_candidates:
+        if PLAIN_TICKER_RE.match(ticker):
+            plain.append(ticker)
+        match = CURRENCY_SUFFIX_RE.search(ticker)
+        if match and len(ticker) - len(match.group(1)) >= 2:
+            stripped = ticker[:len(ticker) - len(match.group(1))]
+            if PLAIN_TICKER_RE.match(stripped):
+                plain.append(stripped)
+    if plain:
+        return min(plain, key=len)
+    for ticker, exch in raw_candidates:
+        if exch == 'US':
             return ticker
     return None
 
@@ -164,8 +178,14 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
 
     def real_cusip(holding):
+        # Filings use placeholders for some foreign issuers ('N/A',
+        # all-zero CUSIPs). Those must never become lookup or cache
+        # keys — a shared placeholder once mapped 112 unrelated
+        # Russell 2000 holdings to a single ticker.
         cusip = holding['CUSIP']
-        return cusip if cusip and set(cusip) != {'0'} else None
+        if cusip and CUSIP_RE.match(cusip) and len(set(cusip)) > 1:
+            return cusip
+        return None
 
     def cache_key(holding):
         cusip = real_cusip(holding)
