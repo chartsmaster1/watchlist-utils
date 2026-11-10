@@ -36,6 +36,7 @@ python3 public/src/prep_companies_market_cap.py
 python3 public/src/prep_etfs_market_cap.py
 python3 public/src/prep_coins_market_cap.py
 python3 public/src/prep_arkk.py
+python3 public/src/prep_schd.py
 python3 public/src/prep_dow.py
 python3 public/src/prep_nasdaq.py
 python3 public/src/prep_sandp.py
@@ -60,6 +61,7 @@ It runs the company market-cap job, index jobs, sectors, ETFs, coins, Russell, a
 - ETF rankings and market caps: `https://8marketcap.com/etfs/`; writes `etfs_market_cap.json` and `etfs_market_cap.csv`.
 - Cryptocurrency listings: CoinMarketCap API; requires a local root `config.json` containing `CMC_API_KEY` and writes `coins.json` and `coins.csv`.
 - ARKK holdings: ARK Invest CSV at `https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv`; `prep_arkk.py` downloads and validates it, then writes `arkk_holdings.csv`, `arkk.json`, and `arkk.csv`.
+- SCHD holdings: SEC EDGAR Form N-PORT filings of Schwab Strategic Trust (CIK 0001454889); `prep_schd.py` selects the Schwab U.S. Dividend Equity ETF series, keeps common-stock holdings, resolves CUSIP -> ticker via the OpenFIGI mapping API, enriches MarketCap from `stocks.json` and Sector from `s&p500.json`/`russell_1000.json`, and writes `schd.json` and `schd.csv`. N-PORT becomes public ~60 days after period end, so the list lags the live fund.
 - S&P sector groupings: derived from `s&p500.json`; writes `spysectors.json` and `spysectors.csv`.
 
 ## Safe editing rules

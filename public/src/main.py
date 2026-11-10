@@ -12,6 +12,7 @@ import prep_coins_market_cap
 import prep_etfs_market_cap
 import prep_russell_1000
 import prep_arkk
+import prep_schd
 
 
 def main():
@@ -26,6 +27,7 @@ def main():
         ('coins', prep_coins_market_cap.read_prep_coins),
         ('Russell 1000', prep_russell_1000.read_prep_russell),
         ('ARKK', prep_arkk.read_prep_arkk),
+        ('SCHD', prep_schd.read_prep_schd),
     ]
     failures = []
     for name, job in jobs:

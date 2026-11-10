@@ -14,6 +14,7 @@ LIST_FILES = {
     'etfs_market_cap.json': 'Ticker',
     'nasdaq.json': 'Ticker',
     'russell_1000.json': 'Ticker',
+    'schd.json': 'Ticker',
     's&p500.json': 'Ticker',
     'stocks.json': 'Ticker',
     'spysectors.json': 'Ticker',
