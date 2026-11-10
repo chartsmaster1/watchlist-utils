@@ -3,7 +3,9 @@
 # Schwab's own holdings page blocks automated downloads, so the fund's
 # official monthly N-PORT filing on EDGAR is the durable source.
 # N-PORT holdings carry CUSIPs, not tickers; CUSIP -> ticker resolution
-# uses the OpenFIGI mapping API (US composite listing).
+# uses the OpenFIGI mapping API (US composite listing). A holding filed
+# with a placeholder CUSIP (000000000 — Schwab does this for Accenture)
+# falls back to its ISIN, which N-PORT also reports.
 # Note: N-PORT-P filings become public ~60 days after period end, so
 # this list lags the live fund. SCHD reconstitutes annually (March)
 # and reweights quarterly, so constituents are stable between refreshes.
@@ -86,11 +88,14 @@ def fetch_holdings(accession, primary_doc):
         if text(sec, 'assetCat') != 'EC':
             continue  # stocks only: skip the money-market fund (STIV) and futures (DE)
         cusip = text(sec, 'cusip')
-        if not cusip:
-            raise ValueError(f"SCHD holding without CUSIP: {text(sec, 'name')}")
+        isin_el = sec.find('n:identifiers/n:isin', NPORT_NS)
+        isin = isin_el.get('value') if isin_el is not None else None
+        if not cusip and not isin:
+            raise ValueError(f"SCHD holding without CUSIP or ISIN: {text(sec, 'name')}")
         holdings.append({
             'Name': text(sec, 'name'),
             'CUSIP': cusip,
+            'ISIN': isin,
             'Weight': round(float(text(sec, 'pctVal')), 2),
         })
     if len(holdings) < 90:
@@ -98,28 +103,54 @@ def fetch_holdings(accession, primary_doc):
     return holdings
 
 
-def map_cusips_to_tickers(cusips):
-    """Resolve CUSIPs to tickers via OpenFIGI; fail loudly on any miss."""
-    mapping = {}
-    for start in range(0, len(cusips), OPENFIGI_BATCH):
-        batch = cusips[start:start + OPENFIGI_BATCH]
-        jobs = [{'idType': 'ID_CUSIP', 'idValue': cusip} for cusip in batch]
+def _openfigi_lookup(id_type, id_values):
+    """One batched pass over OpenFIGI; returns {id_value: ticker or None}."""
+    results = {}
+    for start in range(0, len(id_values), OPENFIGI_BATCH):
+        batch = id_values[start:start + OPENFIGI_BATCH]
+        jobs = [{'idType': id_type, 'idValue': value} for value in batch]
         response = requests.post(OPENFIGI_URL, json=jobs, timeout=30,
                                  headers={'Content-Type': 'application/json'})
         response.raise_for_status()
-        results = response.json()
-        if len(results) != len(batch):
+        payload = response.json()
+        if len(payload) != len(batch):
             raise ValueError('OpenFIGI returned an unexpected number of results')
-        for cusip, result in zip(batch, results):
+        for value, result in zip(batch, payload):
             data = [d for d in (result.get('data') or []) if d.get('ticker')]
             chosen = next((d for d in data if d.get('exchCode') == 'US'), None)
             if chosen is None and data:
                 chosen = data[0]
-            if chosen is None:
-                raise ValueError(f'OpenFIGI has no ticker for CUSIP {cusip}')
-            mapping[cusip] = chosen['ticker'].replace('/', '.').strip().upper()
+            results[value] = (chosen['ticker'].replace('/', '.').strip().upper()
+                              if chosen is not None else None)
         time.sleep(0.3)
-    return mapping
+    return results
+
+
+def resolve_tickers(holdings):
+    """Resolve every holding to a ticker, aligned with the holdings order.
+
+    Primary key is the CUSIP. Holdings whose CUSIP is a placeholder
+    (all zeros, as Schwab files Accenture) or unresolvable fall back to
+    their ISIN. Any holding that resolves neither way fails the refresh
+    rather than being silently dropped.
+    """
+    by_cusip = _openfigi_lookup(
+        'ID_CUSIP',
+        sorted({h['CUSIP'] for h in holdings
+                if h['CUSIP'] and set(h['CUSIP']) != {'0'}}))
+    tickers = [by_cusip.get(h['CUSIP']) for h in holdings]
+
+    missing = [h for h, t in zip(holdings, tickers) if t is None]
+    if missing:
+        by_isin = _openfigi_lookup(
+            'ID_ISIN', sorted({h['ISIN'] for h in missing if h['ISIN']}))
+        tickers = [t or by_isin.get(h['ISIN'])
+                   for h, t in zip(holdings, tickers)]
+
+    unresolved = [h['Name'] for h, t in zip(holdings, tickers) if t is None]
+    if unresolved:
+        raise ValueError(f"OpenFIGI could not resolve tickers for: {', '.join(unresolved)}")
+    return tickers
 
 
 def read_prep_schd():
@@ -130,7 +161,7 @@ def read_prep_schd():
 
     accession, primary_doc, report_date = find_schd_filing()
     holdings = fetch_holdings(accession, primary_doc)
-    tickers = map_cusips_to_tickers([h['CUSIP'] for h in holdings])
+    tickers = resolve_tickers(holdings)
 
     stocks = {}
     for row in json.loads((data_dir / 'stocks.json').read_text()):
@@ -144,8 +175,8 @@ def read_prep_schd():
     res_list = []
     missing_caps = []
     missing_sectors = []
-    for holding in sorted(holdings, key=lambda h: h['Weight'], reverse=True):
-        ticker = tickers[holding['CUSIP']]
+    ranked = sorted(zip(holdings, tickers), key=lambda pair: pair[0]['Weight'], reverse=True)
+    for holding, ticker in ranked:
         record = {
             'Rank': len(res_list) + 1,
             'Name': holding['Name'],
