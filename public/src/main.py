@@ -13,6 +13,9 @@ import prep_etfs_market_cap
 import prep_russell_1000
 import prep_arkk
 import prep_schd
+import prep_qqq
+import prep_russell_2000
+import prep_spdr
 
 
 def main():
@@ -28,6 +31,9 @@ def main():
         ('Russell 1000', prep_russell_1000.read_prep_russell),
         ('ARKK', prep_arkk.read_prep_arkk),
         ('SCHD', prep_schd.read_prep_schd),
+        ('QQQ', prep_qqq.read_prep_qqq),
+        ('Russell 2000', prep_russell_2000.read_prep_russell_2000),
+        ('SPDR ETFs', prep_spdr.read_prep_spdr),
     ]
     failures = []
     for name, job in jobs:

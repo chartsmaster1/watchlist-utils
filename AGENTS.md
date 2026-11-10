@@ -37,6 +37,9 @@ python3 public/src/prep_etfs_market_cap.py
 python3 public/src/prep_coins_market_cap.py
 python3 public/src/prep_arkk.py
 python3 public/src/prep_schd.py
+python3 public/src/prep_qqq.py
+python3 public/src/prep_russell_2000.py
+python3 public/src/prep_spdr.py
 python3 public/src/prep_dow.py
 python3 public/src/prep_nasdaq.py
 python3 public/src/prep_sandp.py
@@ -62,6 +65,8 @@ It runs the company market-cap job, index jobs, sectors, ETFs, coins, Russell, a
 - Cryptocurrency listings: CoinMarketCap API; requires a local root `config.json` containing `CMC_API_KEY` and writes `coins.json` and `coins.csv`.
 - ARKK holdings: ARK Invest CSV at `https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv`; `prep_arkk.py` downloads and validates it, then writes `arkk_holdings.csv`, `arkk.json`, and `arkk.csv`.
 - SCHD holdings: SEC EDGAR Form N-PORT filings of Schwab Strategic Trust (CIK 0001454889); `prep_schd.py` selects the Schwab U.S. Dividend Equity ETF series, keeps common-stock holdings, resolves CUSIP -> ticker via the OpenFIGI mapping API, enriches MarketCap from `stocks.json` and Sector from `s&p500.json`/`russell_1000.json`, and writes `schd.json` and `schd.csv`. N-PORT becomes public ~60 days after period end, so the list lags the live fund.
+- QQQ and Russell 2000 holdings: SEC EDGAR Form N-PORT filings via the shared machinery in `public/src/common/nport.py`; `prep_qqq.py` reads the Invesco QQQ Trust, Series 1 (CIK 0001067839, quarterly filings) and `prep_russell_2000.py` reads the iShares Russell 2000 ETF series of iShares Trust (CIK 0001100663). Only fiscal quarter-end N-PORT filings are public, so both lists lag the live funds by a few months. CUSIP -> ticker resolution uses OpenFIGI with a persistent cache at `public/data/cusip_tickers.json` (the workflow commits it back with the data); the first Russell 2000 run resolves ~2,000 identifiers slowly under the free rate limit, later runs resolve only new ones.
+- SPDR ETF holdings (SPY, DIA, and the 11 Select Sector SPDRs XLK/XLF/XLV/XLE/XLY/XLP/XLI/XLB/XLRE/XLU/XLC): State Street official daily holdings XLSX files from ssga.com; `prep_spdr.py` downloads each fund's file, keeps plain US stock tickers with positive weight (dropping cash and futures rows), enriches MarketCap from `stocks.json` and writes `<ticker>.json` and `<ticker>.csv`. Sector comes from the other datasets, or from the fund's own GICS sector for the sector funds. Requires `openpyxl`.
 - S&P sector groupings: derived from `s&p500.json`; writes `spysectors.json` and `spysectors.csv`.
 
 ## Safe editing rules
