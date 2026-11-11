@@ -26,7 +26,6 @@ Run commands from the repository root unless a command explicitly says otherwise
 ```bash
 python3 -m pip install -r requirements.txt
 python3 -m py_compile public/src/*.py public/src/common/*.py
-python3 public/src/test.py
 ```
 
 Individual refresh commands:
@@ -99,7 +98,7 @@ After editing a preparer:
 2. Run the narrowest affected refresh command from the repository root.
 3. Verify the output JSON parses, is non-empty, has the expected fields, and has no blank or literal `"nan"` tickers.
 4. For ranked files, check ordering and whether missing values are intentionally at the end.
-5. Run `python3 public/src/test.py` when shared code, orchestration, or multiple preparers changed.
+5. Run the narrowest affected refresh command (see above) when shared code, orchestration, or multiple preparers changed.
 6. Run `git diff --check` and inspect `git status --short` before reporting completion.
 7. When touching scheduled-run notifications, run `python3 public/src/notify_run.py --dry-run --exit-code 0` (and `--exit-code 1`) to confirm the email renders without sending.
 
