@@ -16,6 +16,7 @@ import prep_schd
 import prep_qqq
 import prep_russell_2000
 import prep_spdr
+import prep_berkshire
 
 
 def main():
@@ -34,6 +35,7 @@ def main():
         ('QQQ', prep_qqq.read_prep_qqq),
         ('Russell 2000', prep_russell_2000.read_prep_russell_2000),
         ('SPDR ETFs', prep_spdr.read_prep_spdr),
+        ('Berkshire Hathaway', prep_berkshire.read_prep_berkshire),
     ]
     failures = []
     for name, job in jobs:

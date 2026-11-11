@@ -1,5 +1,7 @@
 # source: State Street (SSGA) official daily holdings spreadsheets for
-# the SPDR ETFs: SPY, DIA and the 11 Select Sector SPDRs. Each fund's
+# the SPDR ETFs: SPY, DIA, MDY (S&P MidCap 400), SPSM (S&P SmallCap
+# 600 — the SLY file is no longer published at the standard URL)
+# and the 11 Select Sector SPDRs. Each fund's
 # XLSX downloads with a plain request from ssga.com:
 #   https://www.ssga.com/us/en/intermediary/etfs/library-content/
 #   products/fund-data/etfs/us/holdings-daily-us-en-<ticker>.xlsx
@@ -35,6 +37,8 @@ TICKER_RE = re.compile(r'^[A-Z]+(\.[A-Z])?$')
 FUNDS = [
     ('spy', 'spy', 'SPY', None, 480),
     ('dia', 'dia', 'DIA', None, 30),
+    ('mdy', 'mdy', 'MDY', None, 380),
+    ('spsm', 'spsm', 'SPSM', None, 550),
     ('xlk', 'xlk', 'XLK', 'Information Technology', 10),
     ('xlf', 'xlf', 'XLF', 'Financials', 10),
     ('xlv', 'xlv', 'XLV', 'Health Care', 10),
