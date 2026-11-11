@@ -168,8 +168,9 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
 
     Cache keys are real CUSIPs, or 'ISIN:<isin>' for holdings filed with a
     placeholder CUSIP (all zeros). Resolution passes, in order: cache,
-    OpenFIGI by CUSIP, by ISIN, then both again restricted to US
-    exchanges. Returns (tickers, unresolved holdings). Unresolved
+    OpenFIGI by CUSIP, by CINS (letter-leading identifiers), by ISIN,
+    then all three again restricted to US exchanges. Returns (tickers,
+    unresolved holdings). Unresolved
     holdings raise unless the caller allows a small number (used by the
     Russell 2000: a few recent listings lag in OpenFIGI, and one bad
     identifier must not block the whole refresh).
@@ -194,8 +195,14 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
         return f"ISIN:{holding['ISIN']}" if holding['ISIN'] else None
 
     def apply_pass(missing, id_type, slow, exch_code=None):
-        if id_type == 'ID_CUSIP':
-            ids = sorted({real_cusip(h) for h in missing if real_cusip(h)})
+        if id_type in ('ID_CUSIP', 'ID_CINS'):
+            # Letter-leading identifiers are CINS numbers, not CUSIPs;
+            # OpenFIGI rejects them under the wrong idType (13F tables
+            # carry no ISINs, so Chubb Ltd. once failed every pass).
+            want_letter = id_type == 'ID_CINS'
+            ids = sorted({real_cusip(h) for h in missing
+                          if real_cusip(h)
+                          and real_cusip(h)[0].isalpha() == want_letter})
             key_of = real_cusip
         else:
             ids = sorted({h['ISIN'] for h in missing if h['ISIN']})
@@ -217,8 +224,9 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
     missing = [h for h in holdings if not cache.get(cache_key(h) or '')]
     if missing:
         slow = len(missing) > 100
-        for id_type, exch_code in (('ID_CUSIP', None), ('ID_ISIN', None),
-                                   ('ID_CUSIP', 'US'), ('ID_ISIN', 'US')):
+        for id_type, exch_code in (('ID_CUSIP', None), ('ID_CINS', None),
+                                   ('ID_ISIN', None), ('ID_CUSIP', 'US'),
+                                   ('ID_CINS', 'US'), ('ID_ISIN', 'US')):
             if not missing:
                 break
             missing = apply_pass(missing, id_type, slow, exch_code)
