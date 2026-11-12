@@ -21,7 +21,7 @@ def main():
     # Market-cap data must exist before index preparers sort against it.
     # SPDR runs second so fresh spy.json/dia.json exist before the jobs
     # that enrich sectors from them (SCHD/QQQ/Russell 2000/Berkshire)
-    # and before the sectors job, which is derived from spy.json.
+    # and before the sectors job, which is built from the sector SPDR lists.
     jobs = [
         ('companies', prep_companies_market_cap.read_prep_companies_market_cap),
         ('SPDR ETFs', prep_spdr.read_prep_spdr),
