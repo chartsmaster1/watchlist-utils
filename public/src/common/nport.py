@@ -253,6 +253,12 @@ def load_enrichment(data_dir):
     for ticker in list(stocks):
         if '-' in ticker:
             stocks.setdefault(ticker.replace('-', '.'), stocks[ticker])
+    # Alphabet is listed once, as GOOG; its A-class twin GOOGL is the
+    # same company with the same market cap. Alias it explicitly — a
+    # general "drop the trailing letter" rule is unsafe (CCL is Carnival,
+    # CC is Chemours, different companies).
+    if 'GOOG' in stocks:
+        stocks.setdefault('GOOGL', stocks['GOOG'])
     sectors = {}
     for fname in ('spy.json', 'russell_1000.json', 'nasdaq.json',
                   'dia.json', 'schd.json'):
