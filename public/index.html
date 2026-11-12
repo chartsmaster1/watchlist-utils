@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Watchlist101 Data</title>
+  <link rel="icon" href="/favicon.ico">
   <style>
     :root { --blue: #1a73e8; --ink: #1f2430; --muted: #6b7280; --line: #e5e7eb; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: #f7f8fa; }
     .wrap { max-width: 960px; margin: 0 auto; padding: 32px 16px 48px; }
     header { margin-bottom: 20px; }
-    h1 { margin: 0 0 6px; font-size: 28px; }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .brand img { display: block; border-radius: 10px; }
+    h1 { margin: 0; font-size: 28px; }
     .sub { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
     .meta { font-size: 13px; color: var(--muted); }
     .meta b { color: var(--ink); font-weight: 600; }
@@ -43,7 +46,10 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>Watchlist101 Data</h1>
+      <div class="brand">
+        <img src="/logo.png" alt="Watchlist101 logo" width="44" height="44">
+        <h1>Watchlist101 Data</h1>
+      </div>
       <p class="sub">Holdings lists behind <a href="https://watchlist101.com">watchlist101.com</a> — refreshed monthly, downloaded by code from the source.</p>
       <p class="meta">Last updated <b id="updated">—</b> <span class="sep">·</span> <span id="count"></span> datasets <span class="sep">·</span> <a href="https://github.com/chartsmaster1/watchlist-utils">Source on GitHub</a></p>
     </header>
