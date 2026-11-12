@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-11-12T18:15:28Z",
+  "datasets": [
+    {
+      "file": "arkk.json",
+      "rows": 39
+    },
+    {
+      "file": "berkshire.json",
+      "rows": 29
+    },
+    {
+      "file": "coins.json",
+      "rows": 1000
+    },
+    {
+      "file": "dia.json",
+      "rows": 30
+    },
+    {
+      "file": "etfs_market_cap.json",
+      "rows": 2271
+    },
+    {
+      "file": "mdy.json",
+      "rows": 399
+    },
+    {
+      "file": "nasdaq.json",
+      "rows": 101
+    },
+    {
+      "file": "qqq.json",
+      "rows": 102
+    },
+    {
+      "file": "russell_1000.json",
+      "rows": 1029
+    },
+    {
+      "file": "russell_2000.json",
+      "rows": 1988
+    },
+    {
+      "file": "schd.json",
+      "rows": 99
+    },
+    {
+      "file": "spsm.json",
+      "rows": 603
+    },
+    {
+      "file": "spy.json",
+      "rows": 503
+    },
+    {
+      "file": "spysectors.json",
+      "rows": 503
+    },
+    {
+      "file": "stocks.json",
+      "rows": 4000
+    },
+    {
+      "file": "xlb.json",
+      "rows": 24
+    },
+    {
+      "file": "xlc.json",
+      "rows": 22
+    },
+    {
+      "file": "xle.json",
+      "rows": 21
+    },
+    {
+      "file": "xlf.json",
+      "rows": 76
+    },
+    {
+      "file": "xli.json",
+      "rows": 83
+    },
+    {
+      "file": "xlk.json",
+      "rows": 76
+    },
+    {
+      "file": "xlp.json",
+      "rows": 33
+    },
+    {
+      "file": "xlre.json",
+      "rows": 30
+    },
+    {
+      "file": "xlu.json",
+      "rows": 31
+    },
+    {
+      "file": "xlv.json",
+      "rows": 60
+    },
+    {
+      "file": "xly.json",
+      "rows": 47
+    }
+  ]
+}

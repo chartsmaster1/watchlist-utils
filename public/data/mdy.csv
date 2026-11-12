@@ -1,401 +1,400 @@
 ﻿Rank,Name,Ticker,MarketCap,Sector,Weight
-1,TechnipFMC plc,FTI,25340268544,Energy,0.73
-2,United Therapeutics Corporation,UTHR,25191659520,Health Care,0.73
-3,ATI Inc,ATI,25218881536,Industrials,0.72
-4,US Foods Holding Corp.,USFD,23664398336,Consumer Staples,0.69
-5,Tenet Healthcare Corporation,THC,23307745280,Health Care,0.67
-6,Royal Gold Inc.,RGLD,22320570368,Materials,0.67
-7,Roivant Sciences Ltd.,ROIV,29985976320,Health Care,0.64
-8,XPO Inc.,XPO,22054258688,Industrials,0.64
-9,Reliance Inc.,RS,22144194560,Materials,0.63
-10,Entegris Inc.,ENTG,22865756160,Information Technology,0.61
-11,Woodward Inc.,WWD,19770607616,Industrials,0.57
-12,ITT Inc.,ITT,19198515200,Industrials,0.56
-13,SharkNinja Inc.,SN,32144758784,Consumer Discretionary,0.54
-14,TD SYNNEX Corporation,SNX,19096342528,Information Technology,0.54
-15,nVent Electric plc,NVT,18311485440,Industrials,0.53
-16,Permian Resources Corporation Class A,PR,18670036992,Energy,0.52
-17,East West Bancorp Inc.,EWBC,17832669184,Financials,0.52
-18,Reinsurance Group of America Incorporated,RGA,17939509248,Financials,0.52
-19,RB Global Inc.,RBA,17272451072,Industrials,0.51
-20,Toast Inc. Class A,TOST,19626178560,Information Technology,0.51
-21,Curtiss-Wright Corporation,CW,17385656320,Industrials,0.51
-22,Exelixis Inc.,EXEL,17049041920,Health Care,0.50
-23,Performance Food Group Co,PFGC,17618221056,Consumer Staples,0.50
-24,Jones Lang LaSalle Incorporated,JLL,17069904896,Real Estate,0.50
-25,Neurocrine Biosciences Inc.,NBIX,17350391808,Health Care,0.50
-26,Ovintiv Inc,OVV,17029373952,Energy,0.49
-27,APi Group Corporation,APG,18719877120,Industrials,0.47
-28,Talen Energy Corp,TLN,16507656192,Utilities,0.46
-29,Nutanix Inc. Class A,NTNX,16145752064,Information Technology,0.46
-30,Burlington Stores Inc.,BURL,15640669184,Consumer Discretionary,0.46
-31,Jazz Pharmaceuticals Public Limited Company,JAZZ,15892246528,Health Care,0.46
-32,Lattice Semiconductor Corporation,LSCC,16830988288,Information Technology,0.46
-33,MACOM Technology Solutions Holdings Inc.,MTSI,18535606272,Information Technology,0.45
-34,Coeur Mining Inc.,CDE,15078185984,Materials,0.45
-35,TransUnion,TRU,15732750336,Industrials,0.45
-36,Carlisle Companies Incorporated,CSL,15359158272,Industrials,0.45
-37,Lincoln Electric Holdings Inc.,LECO,15699021824,Industrials,0.45
-38,RBC Bearings Incorporated,RBC,15658703872,Industrials,0.45
-39,Pinnacle Financial Partners Inc.,PNFP,15257985024,Financials,0.45
-40,WESCO International Inc.,WCC,15889482752,Industrials,0.45
-41,HF Sinclair Corporation,DINO,17295282176,Energy,0.44
-42,Nextpower Inc.,NXT,14945755136,Industrials,0.44
-43,Medpace Holdings Inc.,MEDP,18236141568,Health Care,0.43
-44,Manhattan Associates Inc.,MANH,14975903744,Information Technology,0.43
-45,W. P. Carey Inc.,WPC,15033641984,Real Estate,0.43
-46,DocuSign Inc.,DOCU,14769966080,Information Technology,0.43
-47,RenaissanceRe Holdings Ltd.,RNR,14448319488,Financials,0.43
-48,Omega Healthcare Investors Inc.,OHI,15186014208,Real Estate,0.43
-49,Carpenter Technology Corporation,CRS,14862219264,Materials,0.42
-50,Clean Harbors Inc.,CLH,15226532864,Industrials,0.42
-51,Sun Communities Inc.,SUI,14646020096,Real Estate,0.42
-52,Somnigroup International Inc.,SGI,14293916672,Consumer Discretionary,0.42
-53,MKS Inc.,MKSI,14958324736,Information Technology,0.42
-54,CACI International Inc Class A,CACI,14283300864,Industrials,0.41
-55,Aramark,ARMK,14064395264,Consumer Discretionary,0.41
-56,Lamar Advertising Company Class A,LAMR,16440270848,Real Estate,0.41
-57,Toll Brothers Inc.,TOL,13959349248,Consumer Discretionary,0.41
-58,Annaly Capital Management Inc.,NLY,14189412352,Financials,0.41
-59,Equitable Holdings Inc.,EQH,14875259904,Financials,0.41
-60,BJ's Wholesale Club Holdings Inc.,BJ,14099246080,Consumer Staples,0.41
-61,Encompass Health Corporation,EHC,14053264384,Health Care,0.41
-62,Five Below Inc.,FIVE,13833427968,Consumer Discretionary,0.40
-63,Glaukos Corp,GKOS,14586108928,,0.40
-64,RPM International Inc.,RPM,13607843840,Materials,0.39
-65,Elanco Animal Health Inc.,ELAN,13225423872,Health Care,0.39
-66,Crown Holdings Inc.,CCK,13261157376,Materials,0.38
-67,American Healthcare REIT Inc.,AHR,13687396352,Real Estate,0.37
-68,Guidewire Software Inc.,GWRE,12911949824,Information Technology,0.37
-69,Essential Utilities Inc.,WTRG,12875465728,Utilities,0.37
-70,Penumbra Inc.,PEN,12658323456,Health Care,0.37
-71,Dynatrace Inc.,DT,12582499328,Information Technology,0.36
-72,Fabrinet,FN,12768654336,Information Technology,0.36
-73,Texas Roadhouse Inc.,TXRH,12352585728,Consumer Discretionary,0.36
-74,BrightSpring Health Services Inc.,BTSG,14471155712,,0.36
-75,Mueller Industries Inc.,MLI,12053983232,Industrials,0.35
-76,Equity LifeStyle Properties Inc.,ELS,12546809856,Real Estate,0.35
-77,DT Midstream Inc.,DTM,12188787712,Energy,0.35
-78,Coca-Cola Consolidated Inc.,COKE,14187513856,Consumer Staples,0.35
-79,Regal Rexnord Corporation,RRX,12124690432,Industrials,0.35
-80,Range Resources Corporation,RRC,12068962304,Energy,0.35
-81,Unum Group,UNM,12515573760,Financials,0.34
-82,Halozyme Therapeutics Inc.,HALO,11510449152,Health Care,0.34
-83,BWX Technologies Inc.,BWXT,11382598656,Industrials,0.33
-84,Antero Resources Corporation,AR,11655811072,Energy,0.33
-85,SEI Investments Company,SEIC,13052729344,Financials,0.33
-86,Gaming and Leisure Properties Inc.,GLPI,11740830720,Real Estate,0.33
-87,Evercore Inc. Class A,EVR,11238886400,Financials,0.33
-88,MasTec Inc.,MTZ,14872475648,Industrials,0.33
-89,Graco Inc.,GGG,11704979456,Industrials,0.33
-90,Fidelity National Financial Inc. - FNF Group,FNF,11792439296,Financials,0.32
-91,First Horizon Corporation,FHN,11070007296,Financials,0.32
-92,Watsco Inc.,WSO,12978965504,Industrials,0.32
-93,American Financial Group Inc.,AFG,13446866944,Financials,0.32
-94,BioMarin Pharmaceutical Inc.,BMRN,11229452288,Health Care,0.32
-95,Stifel Financial Corp,SF,10890555392,Financials,0.32
-96,Carlyle Group Inc,CG,14425565184,Financials,0.32
-97,Applied Industrial Technologies Inc.,AIT,10976586752,Industrials,0.32
-98,Repligen Corporation,RGEN,10602711040,Health Care,0.32
-99,Flowserve Corporation,FLS,10812754944,Industrials,0.31
-100,Ryder System Inc.,R,10873033728,Industrials,0.31
-101,Molina Healthcare Inc.,MOH,10809707520,Health Care,0.31
-102,Ensign Group Inc.,ENSG,10951709696,Health Care,0.31
-103,EastGroup Properties Inc.,EGP,10648720384,Real Estate,0.31
-104,CNH Industrial NV,CNH,19976730624,Industrials,0.31
-105,Semtech Corporation,SMTC,10794042368,Information Technology,0.30
-106,Alcoa Corporation,AA,10769970176,Materials,0.30
-107,Avantor Inc.,AVTR,10465774592,Health Care,0.30
-108,OGE Energy Corp.,OGE,10592638976,Utilities,0.30
-109,Booz Allen Hamilton Holding Corporation Class A,BAH,10347144192,Industrials,0.30
-110,New York Times Company Class A,NYT,11625117696,Communication Services,0.30
-111,Wintrust Financial Corporation,WTFC,10412831744,Financials,0.30
-112,Tetra Tech Inc.,TTEK,10093271040,Industrials,0.30
-113,Crane Company,CR,12122408960,Industrials,0.30
-114,GameStop Corp. Class A,GME,12625136640,Consumer Discretionary,0.30
-115,Affiliated Managers Group Inc.,AMG,9961715712,Financials,0.30
-116,Allison Transmission Holdings Inc.,ALSN,10734905344,Industrials,0.30
-117,AGNC Investment Corp.,AGNC,10621756416,Financials,0.30
-118,American Homes 4 Rent Class A,AMH,13268452352,Real Estate,0.30
-119,Solstice Advanced Materials Inc.,SOLS,10474971136,Materials,0.30
-120,Ally Financial Inc,ALLY,11421673472,Financials,0.30
-121,SiTime Corporation,SITM,13998887936,Information Technology,0.30
-122,BorgWarner Inc.,BWA,10239509504,Consumer Discretionary,0.30
-123,SouthState Bank Corporation,SSB,10127307776,Financials,0.30
-124,Toro Company,TTC,10227904512,Industrials,0.29
-125,Service Corporation International,SCI,10352062464,Consumer Discretionary,0.29
-126,Donaldson Company Inc.,DCI,10174833664,Industrials,0.29
-127,Knight-Swift Transportation Holdings Inc. Class A,KNX,10230534144,Industrials,0.29
-128,Dick's Sporting Goods Inc.,DKS,13061088256,Consumer Discretionary,0.29
-129,Arrow Electronics Inc.,ARW,9933034496,Information Technology,0.28
-130,Acuity Inc.,AYI,9893998592,Industrials,0.28
-131,Watts Water Technologies Inc. Class A,WTS,12031479808,Industrials,0.28
-132,Cullen/Frost Bankers Inc.,CFR,9815195648,Financials,0.28
-133,HubSpot Inc.,HUBS,10187773952,Information Technology,0.28
-134,UMB Financial Corporation,UMBF,10194364416,,0.28
-135,Moog Inc. Class A,MOG.A,,,0.28
-136,Littelfuse Inc.,LFUS,9976735744,Information Technology,0.28
-137,Owens Corning,OC,9505244160,Industrials,0.28
-138,Onto Innovation Inc.,ONTO,10333233152,Information Technology,0.28
-139,Zions Bancorporation NA,ZION,9538893824,Financials,0.28
-140,Hecla Mining Company,HL,9230153728,Materials,0.28
-141,CubeSmart,CUBE,10165849088,Real Estate,0.27
-142,Voya Financial Inc.,VOYA,9319636992,Financials,0.27
-143,Corebridge Financial Inc.,CRBG,15807055872,Financials,0.27
-144,Primerica Inc.,PRI,9046476800,Financials,0.27
-145,American Airlines Group Inc.,AAL,9220335616,Industrials,0.27
-146,Maplebear Inc.,CART,13854692352,Consumer Staples,0.27
-147,Brixmor Property Group Inc.,BRX,9302834176,Real Estate,0.27
-148,CareTrust REIT Inc.,CTRE,9762659328,,0.26
-149,AptarGroup Inc.,ATR,9105510400,Materials,0.26
-150,AECOM,ACM,9203724288,Industrials,0.26
-151,Saia Inc.,SAIA,9072112640,Industrials,0.26
-152,Advanced Drainage Systems Inc.,WMS,9538784256,Industrials,0.26
-153,Old Republic International Corporation,ORI,9678654464,Financials,0.26
-154,Core & Main Inc. Class A,CNM,8595066880,Industrials,0.26
-155,Advanced Energy Industries Inc.,AEIS,9154193408,Information Technology,0.26
-156,Sterling Infrastructure Inc.,STRL,9111870464,Industrials,0.26
-157,Prosperity Bancshares Inc.(R),PB,8728006656,Financials,0.25
-158,Rambus Inc.,RMBS,8964469760,Information Technology,0.25
-159,Fox Corporation Class A,FOXA,,Communication Services,0.25
-160,Columbia Banking System Inc.,COLB,8656809984,Financials,0.25
-161,Hanover Insurance Group Inc.,THG,8575644672,Financials,0.25
-162,Murphy USA Inc.,MUSA,9710603264,Consumer Discretionary,0.25
-163,Agree Realty Corporation,ADC,9104011264,Real Estate,0.25
-164,Pinterest Inc. Class A,PINS,10888046592,Communication Services,0.25
-165,HealthEquity Inc,HQY,8570959360,,0.25
-166,Oshkosh Corp,OSK,8572830720,Industrials,0.25
-167,Kinsale Capital Group Inc.,KNSL,8857776128,Financials,0.25
-168,IDACORP Inc.,IDA,8731526144,Utilities,0.25
-169,Cognex Corporation,CGNX,8539293696,Information Technology,0.25
-170,Old National Bancorp,ONB,9494275072,,0.25
-171,Rexford Industrial Realty Inc.,REXR,8245528064,Real Estate,0.24
-172,Globus Medical Inc Class A,GMED,9965814784,Health Care,0.24
-173,Brinker International Inc.,EAT,8232101376,,0.24
-174,Sanmina Corporation,SANM,8501344768,Information Technology,0.24
-175,Simpson Manufacturing Co. Inc.,SSD,8201537536,Industrials,0.24
-176,Valmont Industries Inc.,VMI,8200307200,Industrials,0.24
-177,Krystal Biotech Inc.,KRYS,9071694848,,0.24
-178,Darling Ingredients Inc,DAR,8402903552,Consumer Staples,0.23
-179,Corteva Inc,CTVA,51807772672,Materials,0.23
-180,Autoliv Inc.,ALV,8591839232,,0.23
-181,UGI Corporation,UGI,8105764864,Utilities,0.23
-182,Houlihan Lokey Inc. Class A,HLI,10114301952,Financials,0.23
-183,NNN REIT Inc.,NNN,8022739456,Real Estate,0.23
-184,Axalta Coating Systems Ltd.,AXTA,7959481344,Materials,0.23
-185,Hyatt Hotels Corporation Class A,H,17803419648,Consumer Discretionary,0.23
-186,Viper Energy Inc.,VNOM,21151045632,Energy,0.23
-187,Cytokinetics Incorporated,CYTK,8044768256,,0.23
-188,Western Alliance Bancorp,WAL,8053349888,Financials,0.23
-189,DigitalOcean Holdings Inc.,DOCN,10108786688,Information Technology,0.22
-190,Crocs Inc.,CROX,7293144064,Consumer Discretionary,0.22
-191,Viavi Solutions Inc,VIAV,7859671040,Information Technology,0.22
-192,TTM Technologies Inc.,TTMI,7894206976,Information Technology,0.22
-193,Paylocity Holding Corp.,PCTY,9292599296,Information Technology,0.22
-194,Chord Energy Corporation,CHRD,7611844608,Energy,0.22
-195,Commerce Bancshares Inc.,CBSH,7860641792,Financials,0.22
-196,InterDigital Inc.,IDCC,7648712704,,0.22
-197,SPX Technologies Inc.,SPXC,7645568000,Industrials,0.22
-198,Silicon Laboratories Inc.,SLAB,7396948480,,0.21
-199,Jefferies Financial Group Inc.,JEF,10939164672,Financials,0.21
-200,Cleveland-Cliffs Inc,CLF,7494633472,Materials,0.21
-201,FirstCash Holdings Inc.,FCFS,7883826176,,0.21
-202,First Industrial Realty Trust Inc.,FR,7584266752,Real Estate,0.21
-203,Bentley Systems Incorporated Class B,BSY,13354159104,Information Technology,0.21
-204,STAG Industrial Inc.,STAG,7303899136,Real Estate,0.21
-205,Chemed Corporation,CHE,7201912320,Health Care,0.21
-206,Commercial Metals Company,CMC,7178326528,,0.20
-207,National Fuel Gas Company,NFG,7220558336,Utilities,0.20
-208,Bio-Rad Laboratories Inc. Class A,BIO,10155043840,Health Care,0.20
-209,e.l.f. Beauty Inc.,ELF,6814398976,Consumer Staples,0.20
-210,Avnet Inc.,AVT,7069733888,Information Technology,0.20
-211,Corcept Therapeutics Incorporated.,CORT,7947759104,Health Care,0.20
-212,Commvault Systems Inc.,CVLT,6749350400,,0.20
-213,Timken Company,TKR,7608093696,Industrials,0.20
-214,V.F. Corporation,VFC,8065664512,Consumer Discretionary,0.20
-215,Bruker Corporation,BRKR,9088508928,Health Care,0.20
-216,Arrowhead Pharmaceuticals Inc.,ARWR,6811996160,Health Care,0.20
-217,First American Financial Corporation,FAF,6824363520,Financials,0.20
-218,Kratos Defense & Security Solutions Inc.,KTOS,6833386496,Industrials,0.20
-219,Abercrombie & Fitch Co. Class A,ANF,6364519936,,0.20
-220,Valley National Bancorp,VLY,7883640832,,0.20
-221,Fluor Corporation,FLR,6518169088,,0.19
-222,Lithia Motors Inc.,LAD,6581002240,Consumer Discretionary,0.19
-223,ExlService Holdings Inc.,EXLS,6606054912,Industrials,0.19
-224,FormFactor Inc.,FORM,7155013632,Information Technology,0.19
-225,Churchill Downs Incorporated,CHDN,6839753728,Consumer Discretionary,0.19
-226,Southwest Gas Holdings Inc.,SWX,6739699200,,0.19
-227,Genpact Limited,G,7277718528,Industrials,0.19
-228,Black Hills Corporation,BKH,6669901824,,0.19
-229,Lantheus Holdings Inc,LNTH,6639550976,,0.19
-230,Healthcare Realty Trust Incorporated Class A,HR,6651798528,Real Estate,0.19
-231,GATX Corporation,GATX,6584608256,,0.19
-232,United Bankshares Inc.,UBSI,6477890560,,0.19
-233,Macy's Inc.,M,6438004224,Consumer Discretionary,0.19
-234,AGCO Corporation,AGCO,7894180864,Industrials,0.19
-235,Antero Midstream Corp.,AM,9511252992,Energy,0.19
-236,Dycom Industries Inc.,DY,6826630656,Industrials,0.19
-237,Kirby Corporation,KEX,6626359808,Industrials,0.19
-238,Terex Corporation,TEX,6523696128,,0.19
-239,PBF Energy Inc. Class A,PBF,8212826112,,0.19
-240,Science Applications International Corp.,SAIC,6432753664,Industrials,0.19
-241,F.N.B. Corporation,FNB,6353731584,Financials,0.19
-242,UL Solutions Inc. Class A,ULS,16420766720,Industrials,0.18
-243,MSA Safety Inc.,MSA,6821978624,Industrials,0.18
-244,Glacier Bancorp Inc.,GBCI,6270258688,,0.18
-245,GXO Logistics Inc,GXO,6313572352,Industrials,0.18
-246,Duolingo Inc. Class A,DUOL,7551470080,Consumer Discretionary,0.18
-247,RLI Corp.,RLI,6378221056,Financials,0.18
-248,NOV Inc.,NOV,6408311808,Energy,0.18
-249,StandardAero Inc.,SARO,9436653568,Industrials,0.18
-250,H&R Block Inc.,HRB,6218048512,Consumer Discretionary,0.18
-251,CAVA Group Inc.,CAVA,6917717504,Consumer Discretionary,0.18
-252,Hexcel Corporation,HXL,6123906560,Industrials,0.18
-253,Selective Insurance Group Inc.,SIGI,6223185920,,0.18
-254,Weatherford International plc,WFRD,6232444928,Energy,0.18
-255,Qualys Inc.,QLYS,6234123776,,0.17
-256,Cirrus Logic Inc.,CRUS,6107104256,Information Technology,0.17
-257,Wyndham Hotels & Resorts Inc.,WH,5999968768,Consumer Discretionary,0.17
-258,Nexstar Media Group Inc.,NXST,6518647296,Communication Services,0.17
-259,SiriusXM Holdings Inc.,SIRI,10781034496,Communication Services,0.17
-260,Celsius Holdings Inc.,CELH,8158113792,Consumer Staples,0.17
-261,Fortune Brands Innovations Inc.,FBIN,5882316288,Industrials,0.17
-262,Rayonier Inc.,RYN,6396891648,Real Estate,0.17
-263,Matador Resources Company,MTDR,6413228544,Energy,0.17
-264,Sensata Technologies Holding PLC,ST,5832685568,Industrials,0.17
-265,Vontier Corp,VNT,5792735744,Information Technology,0.17
-266,TXNM Energy Inc.,TXNM,6465483264,,0.17
-267,Essent Group Ltd.,ESNT,5716860416,,0.17
-268,Ingredion Incorporated,INGR,5792117760,Consumer Staples,0.17
-269,WEX Inc.,WEX,5947078144,Financials,0.17
-270,MGIC Investment Corporation,MTG,5550684672,Financials,0.17
-271,Hancock Whitney Corporation,HWC,5151030784,,0.17
-272,Eagle Materials Inc.,EXP,5620711424,Materials,0.17
-273,Ollie's Bargain Outlet Holdings Inc,OLLI,5655108608,Consumer Discretionary,0.17
-274,Vornado Realty Trust,VNO,7156622336,Real Estate,0.16
-275,Middleby Corporation,MIDD,6204732416,Industrials,0.16
-276,Home BancShares Inc.,HOMB,6005742592,,0.16
-277,Ormat Technologies Inc.,ORA,5683491840,,0.16
-278,Vail Resorts Inc.,MTN,5519968768,Consumer Discretionary,0.16
-279,Haemonetics Corporation,HAE,5498654720,,0.16
-280,New Jersey Resources Corporation,NJR,5594942464,,0.16
-281,Trex Company Inc.,TREX,5417079808,Industrials,0.16
-282,Floor & Decor Holdings Inc. Class A,FND,5277378048,Consumer Discretionary,0.16
-283,CNX Resources Corporation,CNX,5189430784,,0.16
-284,EnerSys,ENS,5514733568,,0.16
-285,MP Materials Corp Class A,MP,6562043904,Materials,0.16
-286,Sabra Health Care REIT Inc.,SBRA,5469754880,,0.16
-287,AppFolio Inc Class A,APPF,7839803904,Information Technology,0.16
-288,Lear Corporation,LEA,5284497920,Consumer Discretionary,0.16
-289,Portland General Electric Company,POR,5503707648,,0.16
-290,CNO Financial Group Inc.,CNO,5311051776,,0.15
-291,FTI Consulting Inc.,FCN,5426309120,Industrials,0.15
-292,Chewy Inc. Class A,CHWY,9320693760,Consumer Discretionary,0.15
-293,NewMarket Corporation,NEU,6436641280,Materials,0.15
-294,UiPath Inc. Class A,PATH,6699974144,Information Technology,0.15
-295,Spire Inc.,SR,5267247104,,0.15
-296,NorthWestern Energy Group Inc.,NWE,5260262400,,0.15
-297,Valaris Ltd.,VAL,5575583232,,0.15
-298,AAON Inc.,AAON,6319104000,Industrials,0.15
-299,Kite Realty Group Trust,KRG,5252612096,,0.15
-300,ONE Gas Inc.,OGS,5204886528,,0.15
-301,Bank OZK,OZK,5416927744,Financials,0.15
-302,ESAB Corporation,ESAB,5321662976,Industrials,0.15
-303,Brunswick Corporation,BC,5006041088,Consumer Discretionary,0.15
-304,Ryan Specialty Holdings Inc. Class A,RYAN,11888457728,Financials,0.15
-305,LivaNova Plc,LIVN,4973236736,,0.14
-306,Associated Banc-Corp,ASB,5734593536,,0.14
-307,Landstar System Inc.,LSTR,4994991104,Industrials,0.14
-308,MSC Industrial Direct Co. Inc. Class A,MSM,6747908096,Industrials,0.14
-309,Sonoco Products Company,SON,4932416000,Materials,0.14
-310,Travel + Leisure Co.,TNL,4790247424,Consumer Discretionary,0.14
-311,KBR Inc.,KBR,4631983104,Industrials,0.14
-312,Cousins Properties Incorporated,CUZ,4861395456,Real Estate,0.14
-313,Louisiana-Pacific Corporation,LPX,5308172800,Materials,0.14
-314,Gap Inc.,GAP,7503130624,Consumer Discretionary,0.14
-315,Brink's Company,BCO,4833265664,,0.14
-316,AutoNation Inc.,AN,5989080064,Consumer Discretionary,0.14
-317,Option Care Health Inc,OPCH,4746403840,,0.14
-318,Morningstar Inc.,MORN,9189254144,Financials,0.14
-319,Warner Music Group Corp. Class A,WMG,16674123776,,0.14
-320,EPR Properties,EPR,4608024576,Real Estate,0.14
-321,Murphy Oil Corporation,MUR,5115429376,,0.13
-322,Novanta Inc,NOVT,4456927744,,0.13
-323,AeroVironment Inc.,AVAV,6270766592,Industrials,0.13
-324,Federated Hermes Inc. Class B,FHI,4782575616,,0.13
-325,Sotera Health Company,SHC,4671778304,Health Care,0.13
-326,Alaska Air Group Inc.,ALK,4577030144,Industrials,0.13
-327,Wingstop Inc.,WING,4453768192,Consumer Discretionary,0.13
-328,Planet Fitness Inc. Class A,PLNT,4571802112,Consumer Discretionary,0.13
-329,Dropbox Inc. Class A,DBX,7064751616,Information Technology,0.13
-330,Synaptics Incorporated,SYNA,4684886016,,0.13
-331,Dutch Bros Inc. Class A,BROS,4797923328,Consumer Discretionary,0.13
-332,Mattel Inc.,MAT,4540877312,Consumer Discretionary,0.13
-333,Valvoline Inc.,VVV,4563240960,Materials,0.13
-334,Sprouts Farmers Market Inc.,SFM,4632697856,Consumer Staples,0.13
-335,UFP Industries Inc.,UFPI,4391375872,,0.13
-336,Bath & Body Works Inc.,BBWI,4346263040,Consumer Discretionary,0.13
-337,Albertsons Companies Inc. Class A,ACI,6168071680,Consumer Staples,0.13
-338,Texas Capital Bancshares Inc.,TXCP,,,0.13
-339,BILL Holdings Inc.,BILL,4640260608,Information Technology,0.13
-340,PVH Corp.,PVH,4285051136,Consumer Discretionary,0.12
-341,Amkor Technology Inc.,AMKR,9159064576,Information Technology,0.12
-342,Avient Corporation,AVNT,4267557632,,0.12
-343,Kilroy Realty Corporation,KRC,4232042240,Real Estate,0.12
-344,Envista Holdings Corp.,NVST,4045502976,Health Care,0.12
-345,Thor Industries Inc.,THO,4060964352,Consumer Discretionary,0.12
-346,Starwood Property Trust Inc.,STWD,4322609664,Financials,0.12
-347,Doximity Inc. Class A,DOCS,5904461312,Health Care,0.12
-348,Belden Inc.,BDC,4038836992,,0.12
-349,Gentex Corporation,GNTX,3989494272,Consumer Discretionary,0.12
-350,Exponent Inc.,EXPO,4155846400,,0.12
-351,Hims & Hers Health Inc. Class A,HIMS,4639022080,,0.12
-352,Vicor Corporation,VICR,7491533312,Industrials,0.12
-353,Graham Holdings Co. Class B,GHC,5166022144,,0.12
-354,First Financial Bankshares Inc,FFIN,4320595968,,0.12
-355,Boyd Gaming Corporation,BYD,5463927296,Consumer Discretionary,0.11
-356,Allegro MicroSystems Inc.,ALGM,5900706304,Information Technology,0.11
-357,Dolby Laboratories Inc. Class A,DLB,6044915712,Information Technology,0.11
-358,Hamilton Lane Incorporated Class A,HLNE,6518551040,Financials,0.11
-359,Universal Display Corporation,OLED,4066550272,Information Technology,0.11
-360,Penske Automotive Group Inc.,PAG,14026330112,Consumer Discretionary,0.11
-361,Kyndryl Holdings Incorporation,KD,3713970176,Information Technology,0.11
-362,Cabot Corporation,CBT,3705121024,,0.11
-363,Silgan Holdings Inc.,SLGN,4464536576,Materials,0.11
-364,COPT Defense Properties,CDP,3827196416,,0.11
-365,International Bancshares Corporation,IBOC,4222049024,,0.11
-366,Polaris Inc.,PII,3776753408,,0.10
-367,Harley-Davidson Inc.,HOG,3403846144,,0.10
-368,Independence Realty Trust Inc.,IRT,3624752384,,0.10
-369,Ashland Inc.,ASH,3525860608,,0.10
-370,MAXIMUS Inc.,MMS,3462418688,,0.10
-371,Knife River Corporation,KNF,3320376320,,0.10
-372,Park Hotels & Resorts Inc.,PK,3326271744,,0.10
-373,Graphic Packaging Holding Company,GPK,3286599680,Materials,0.10
-374,YETI Holdings Inc.,YETI,,Consumer Discretionary,0.09
-375,IES Holdings Inc.,IESC,7447132160,Industrials,0.09
-376,Flagstar Bank National Association,FLG,4125623040,,0.09
-377,SLM Corp,SLM,,Financials,0.09
-378,KB Home,KBH,,,0.09
-379,Post Holdings Inc.,POST,3595007488,Consumer Staples,0.09
-380,Grand Canyon Education Inc.,LOPE,,Consumer Discretionary,0.09
-381,Scotts Miracle-Gro Company Class A,SMG,3755789824,Materials,0.08
-382,Parsons Corporation,PSN,5400424448,Industrials,0.08
-383,Crane NXT Co.,CXT,3317059584,,0.08
-384,Pegasystems Inc.,PEGA,5101556736,Information Technology,0.08
-385,Hilton Grand Vacations Inc.,HGV,3454483712,,0.08
-386,Brighthouse Financial Inc.,BHF,,Financials,0.07
-387,Choice Hotels International Inc.,CHH,5256013824,Consumer Discretionary,0.07
-388,Euronet Worldwide Inc.,EEFT,,Financials,0.07
-389,Shift4 Payments Inc. Class A,FOUR,,Information Technology,0.07
-390,Avis Budget Group Inc.,CAR,4473768448,Industrials,0.06
+1,TechnipFMC plc,FTI,25484138496,Energy,0.74
+2,United Therapeutics Corporation,UTHR,25275557888,Health Care,0.73
+3,ATI Inc,ATI,26109198336,Industrials,0.73
+4,US Foods Holding Corp.,USFD,23462590464,Consumer Staples,0.68
+5,Tenet Healthcare Corporation,THC,23123499008,Health Care,0.68
+6,Entegris Inc.,ENTG,23391389696,Information Technology,0.68
+7,Royal Gold Inc.,RGLD,21909682176,Materials,0.65
+8,Roivant Sciences Ltd.,ROIV,29380966400,Health Care,0.65
+9,XPO Inc.,XPO,22035329024,Industrials,0.63
+10,Reliance Inc.,RS,22217295872,Materials,0.63
+11,Woodward Inc.,WWD,19814301696,Industrials,0.57
+12,TD SYNNEX Corporation,SNX,19544109056,Information Technology,0.55
+13,ITT Inc.,ITT,19003166720,Industrials,0.55
+14,nVent Electric plc,NVT,18715883520,Industrials,0.54
+15,SharkNinja Inc.,SN,31287990272,Consumer Discretionary,0.54
+16,Permian Resources Corporation Class A,PR,19215208448,Energy,0.54
+17,East West Bancorp Inc.,EWBC,17917630464,Financials,0.51
+18,Reinsurance Group of America Incorporated,RGA,17905362944,Financials,0.51
+19,Neurocrine Biosciences Inc.,NBIX,17425801216,Health Care,0.51
+20,RB Global Inc.,RBA,17268824064,Industrials,0.51
+21,Curtiss-Wright Corporation,CW,17369153536,Industrials,0.51
+22,Toast Inc. Class A,TOST,19509981184,Information Technology,0.50
+23,Performance Food Group Co,PFGC,17560629248,Consumer Staples,0.50
+24,Exelixis Inc.,EXEL,17127124992,Health Care,0.50
+25,Ovintiv Inc,OVV,17479460864,Energy,0.50
+26,Lattice Semiconductor Corporation,LSCC,16865123328,Information Technology,0.50
+27,MACOM Technology Solutions Holdings Inc.,MTSI,18683383808,Information Technology,0.50
+28,Jones Lang LaSalle Incorporated,JLL,16742841344,Real Estate,0.49
+29,APi Group Corporation,APG,18630574080,Industrials,0.49
+30,Talen Energy Corp,TLN,16800446464,Utilities,0.48
+31,Nutanix Inc. Class A,NTNX,16530304000,Information Technology,0.47
+32,Burlington Stores Inc.,BURL,16017247232,Consumer Discretionary,0.46
+33,Jazz Pharmaceuticals Public Limited Company,JAZZ,15653463040,Health Care,0.46
+34,WESCO International Inc.,WCC,15964190720,Industrials,0.46
+35,Carlisle Companies Incorporated,CSL,15274713088,Industrials,0.45
+36,HF Sinclair Corporation,DINO,17609279488,Energy,0.45
+37,Lincoln Electric Holdings Inc.,LECO,15438527488,Industrials,0.45
+38,TransUnion,TRU,15517259776,Industrials,0.45
+39,RBC Bearings Incorporated,RBC,15630525440,Industrials,0.45
+40,Coeur Mining Inc.,CDE,14914681856,Materials,0.44
+41,Pinnacle Financial Partners Inc.,PNFP,15122732032,Financials,0.44
+42,DocuSign Inc.,DOCU,14961541120,Information Technology,0.44
+43,MKS Inc.,MKSI,14965763072,Information Technology,0.44
+44,Nextpower Inc.,NXT,14772684800,Industrials,0.44
+45,Carpenter Technology Corporation,CRS,14927613952,Materials,0.43
+46,Manhattan Associates Inc.,MANH,14863844352,Information Technology,0.43
+47,Medpace Holdings Inc.,MEDP,18349285376,Health Care,0.43
+48,W. P. Carey Inc.,WPC,15057803264,Real Estate,0.42
+49,RenaissanceRe Holdings Ltd.,RNR,14361439232,Financials,0.42
+50,Omega Healthcare Investors Inc.,OHI,15044401152,Real Estate,0.42
+51,Glaukos Corp,GKOS,14671500288,,0.42
+52,Clean Harbors Inc.,CLH,15410295808,Industrials,0.42
+53,Sun Communities Inc.,SUI,14562254848,Real Estate,0.41
+54,Somnigroup International Inc.,SGI,14008406016,Consumer Discretionary,0.41
+55,CACI International Inc Class A,CACI,14236892160,Industrials,0.41
+56,Equitable Holdings Inc.,EQH,14923261952,Financials,0.41
+57,Aramark,ARMK,14238388224,Consumer Discretionary,0.41
+58,Lamar Advertising Company Class A,LAMR,16165495808,Real Estate,0.41
+59,BJ's Wholesale Club Holdings Inc.,BJ,13966299136,Consumer Staples,0.41
+60,Toll Brothers Inc.,TOL,13735892992,Consumer Discretionary,0.40
+61,Encompass Health Corporation,EHC,13877622784,Health Care,0.40
+62,Five Below Inc.,FIVE,13662210048,Consumer Discretionary,0.40
+63,Annaly Capital Management Inc.,NLY,14130322432,Financials,0.40
+64,RPM International Inc.,RPM,13352776704,Materials,0.39
+65,Elanco Animal Health Inc.,ELAN,13337884672,Health Care,0.38
+66,Fabrinet,FN,12582208512,Information Technology,0.38
+67,Guidewire Software Inc.,GWRE,13326758912,Information Technology,0.38
+68,Crown Holdings Inc.,CCK,13089354752,Materials,0.38
+69,American Healthcare REIT Inc.,AHR,13618935808,Real Estate,0.37
+70,Dynatrace Inc.,DT,13044480000,Information Technology,0.37
+71,Essential Utilities Inc.,WTRG,12852556800,Utilities,0.37
+72,Penumbra Inc.,PEN,12653594624,Health Care,0.36
+73,Texas Roadhouse Inc.,TXRH,12317882368,Consumer Discretionary,0.35
+74,BrightSpring Health Services Inc.,BTSG,14432353280,,0.35
+75,Mueller Industries Inc.,MLI,12006029312,Industrials,0.35
+76,Regal Rexnord Corporation,RRX,12130018304,Industrials,0.35
+77,DT Midstream Inc.,DTM,12329059328,Energy,0.35
+78,Range Resources Corporation,RRC,12229041152,Energy,0.35
+79,Equity LifeStyle Properties Inc.,ELS,12436132864,Real Estate,0.34
+80,Coca-Cola Consolidated Inc.,COKE,13955870720,Consumer Staples,0.34
+81,MasTec Inc.,MTZ,14968440832,Industrials,0.34
+82,Graco Inc.,GGG,11695356928,Industrials,0.34
+83,Antero Resources Corporation,AR,12009017344,Energy,0.34
+84,Unum Group,UNM,12251330560,Financials,0.34
+85,Semtech Corporation,SMTC,11088950272,Information Technology,0.33
+86,Halozyme Therapeutics Inc.,HALO,11563464704,Health Care,0.33
+87,BWX Technologies Inc.,BWXT,11454066688,Industrials,0.33
+88,SEI Investments Company,SEIC,12996043776,Financials,0.33
+89,Evercore Inc. Class A,EVR,11318837248,Financials,0.33
+90,Gaming and Leisure Properties Inc.,GLPI,11763284992,Real Estate,0.33
+91,BioMarin Pharmaceutical Inc.,BMRN,11039631360,Health Care,0.32
+92,Fidelity National Financial Inc. - FNF Group,FNF,11620795392,Financials,0.32
+93,First Horizon Corporation,FHN,11060589568,Financials,0.32
+94,Watsco Inc.,WSO,12945472512,Industrials,0.32
+95,American Financial Group Inc.,AFG,13309489152,Financials,0.32
+96,Applied Industrial Technologies Inc.,AIT,11019856896,Industrials,0.32
+97,Stifel Financial Corp,SF,10845037568,Financials,0.32
+98,SiTime Corporation,SITM,14396598272,Information Technology,0.31
+99,Molina Healthcare Inc.,MOH,10878920704,Health Care,0.31
+100,Repligen Corporation,RGEN,10714257408,Health Care,0.31
+101,Carlyle Group Inc,CG,14170746880,Financials,0.31
+102,Alcoa Corporation,AA,10801646592,Materials,0.31
+103,Flowserve Corporation,FLS,10698630144,Industrials,0.31
+104,Ryder System Inc.,R,10742515712,Industrials,0.31
+105,CNH Industrial NV,CNH,19759941632,Industrials,0.31
+106,Ensign Group Inc.,ENSG,10854281216,Health Care,0.31
+107,Allison Transmission Holdings Inc.,ALSN,10452980736,Industrials,0.31
+108,Solstice Advanced Materials Inc.,SOLS,10357062656,Materials,0.31
+109,Avantor Inc.,AVTR,10574193664,Health Care,0.30
+110,EastGroup Properties Inc.,EGP,10653318144,Real Estate,0.30
+111,Crane Company,CR,12204821504,Industrials,0.30
+112,Onto Innovation Inc.,ONTO,10390661120,Information Technology,0.30
+113,OGE Energy Corp.,OGE,10605041664,Utilities,0.30
+114,New York Times Company Class A,NYT,11564354560,Communication Services,0.30
+115,Ally Financial Inc,ALLY,11379671040,Financials,0.30
+116,Wintrust Financial Corporation,WTFC,10392586240,Financials,0.30
+117,Booz Allen Hamilton Holding Corporation Class A,BAH,10253654016,Industrials,0.30
+118,BorgWarner Inc.,BWA,10276659200,Consumer Discretionary,0.30
+119,GameStop Corp. Class A,GME,12766397440,Consumer Discretionary,0.30
+120,Affiliated Managers Group Inc.,AMG,9801732096,Financials,0.30
+121,American Homes 4 Rent Class A,AMH,13225651200,Real Estate,0.29
+122,Service Corporation International,SCI,10262364160,Consumer Discretionary,0.29
+123,Toro Company,TTC,10133714944,Industrials,0.29
+124,SouthState Bank Corporation,SSB,10097337344,Financials,0.29
+125,Donaldson Company Inc.,DCI,10148195328,Industrials,0.29
+126,Knight-Swift Transportation Holdings Inc. Class A,KNX,10080779264,Industrials,0.29
+127,HubSpot Inc.,HUBS,10657214464,Information Technology,0.29
+128,Littelfuse Inc.,LFUS,10170945536,Information Technology,0.29
+129,Arrow Electronics Inc.,ARW,10117569536,Information Technology,0.29
+130,AGNC Investment Corp.,AGNC,10623539200,Financials,0.29
+131,Acuity Inc.,AYI,10006555648,Industrials,0.28
+132,Watts Water Technologies Inc. Class A,WTS,12038156288,Industrials,0.28
+133,Moog Inc. Class A,MOG.A,,,0.28
+134,Dick's Sporting Goods Inc.,DKS,13095324672,Consumer Discretionary,0.28
+135,Cullen/Frost Bankers Inc.,CFR,9819548672,Financials,0.28
+136,UMB Financial Corporation,UMBF,10154868736,,0.28
+137,Zions Bancorporation NA,ZION,9556287488,Financials,0.28
+138,Owens Corning,OC,9253036032,Industrials,0.28
+139,Tetra Tech Inc.,TTEK,10052303872,Industrials,0.28
+140,CubeSmart,CUBE,10124337152,Real Estate,0.27
+141,Corebridge Financial Inc.,CRBG,15864057856,Financials,0.27
+142,Hecla Mining Company,HL,9126094848,Materials,0.27
+143,Maplebear Inc.,CART,13873623040,Consumer Staples,0.27
+144,Voya Financial Inc.,VOYA,9217812480,Financials,0.27
+145,American Airlines Group Inc.,AAL,9084565504,Industrials,0.27
+146,Sterling Infrastructure Inc.,STRL,9343232000,Industrials,0.27
+147,Brixmor Property Group Inc.,BRX,9282887680,Real Estate,0.27
+148,Advanced Energy Industries Inc.,AEIS,9243051008,Information Technology,0.27
+149,Rambus Inc.,RMBS,9110120448,Information Technology,0.27
+150,CareTrust REIT Inc.,CTRE,9790358528,,0.26
+151,Primerica Inc.,PRI,8911130624,Financials,0.26
+152,AptarGroup Inc.,ATR,8994738176,Materials,0.26
+153,Advanced Drainage Systems Inc.,WMS,9259339776,Industrials,0.26
+154,Saia Inc.,SAIA,8862951424,Industrials,0.26
+155,AECOM,ACM,9076958208,Industrials,0.26
+156,Old Republic International Corporation,ORI,9657071616,Financials,0.25
+157,Murphy USA Inc.,MUSA,9581369344,Consumer Discretionary,0.25
+158,Pinterest Inc. Class A,PINS,11054363648,Communication Services,0.25
+159,Prosperity Bancshares Inc.(R),PB,8689698816,Financials,0.25
+160,Oshkosh Corp,OSK,8625405952,Industrials,0.25
+161,Cognex Corporation,CGNX,8623482880,Information Technology,0.25
+162,Columbia Banking System Inc.,COLB,8636978176,Financials,0.25
+163,Agree Realty Corporation,ADC,9075312640,Real Estate,0.25
+164,Hanover Insurance Group Inc.,THG,8533881344,Financials,0.25
+165,HealthEquity Inc,HQY,8568477184,,0.25
+166,Core & Main Inc. Class A,CNM,8311024640,Industrials,0.25
+167,Brinker International Inc.,EAT,8214653952,,0.25
+168,Darling Ingredients Inc,DAR,8542344704,Consumer Staples,0.25
+169,Sanmina Corporation,SANM,8885905408,Information Technology,0.24
+170,DigitalOcean Holdings Inc.,DOCN,10802609152,Information Technology,0.24
+171,Old National Bancorp,ONB,9473471488,,0.24
+172,Kinsale Capital Group Inc.,KNSL,8806002688,Financials,0.24
+173,IDACORP Inc.,IDA,8630534144,Utilities,0.24
+174,Globus Medical Inc Class A,GMED,9743600640,Health Care,0.24
+175,Rexford Industrial Realty Inc.,REXR,8219396096,Real Estate,0.24
+176,TTM Technologies Inc.,TTMI,8137097728,Information Technology,0.24
+177,Simpson Manufacturing Co. Inc.,SSD,8095318528,Industrials,0.24
+178,Krystal Biotech Inc.,KRYS,9113774080,,0.24
+179,Valmont Industries Inc.,VMI,8119919616,Industrials,0.24
+180,Viavi Solutions Inc,VIAV,8012143616,Information Technology,0.23
+181,Cytokinetics Incorporated,CYTK,7854618624,,0.23
+182,Corteva Inc,CTVA,51807772672,Materials,0.23
+183,Autoliv Inc.,ALV,8601919488,,0.23
+184,UGI Corporation,UGI,8060721152,Utilities,0.23
+185,Viper Energy Inc.,VNOM,21534900224,Energy,0.23
+186,NNN REIT Inc.,NNN,8002374144,Real Estate,0.23
+187,Axalta Coating Systems Ltd.,AXTA,7881312256,Materials,0.23
+188,Houlihan Lokey Inc. Class A,HLI,9950826496,Financials,0.23
+189,Hyatt Hotels Corporation Class A,H,17713297408,Consumer Discretionary,0.23
+190,Chord Energy Corporation,CHRD,7815269888,Energy,0.22
+191,InterDigital Inc.,IDCC,7607507456,,0.22
+192,Western Alliance Bancorp,WAL,7981828608,Financials,0.22
+193,SPX Technologies Inc.,SPXC,7615506432,Industrials,0.22
+194,Crocs Inc.,CROX,7251991552,Consumer Discretionary,0.22
+195,Paylocity Holding Corp.,PCTY,9274412032,Information Technology,0.22
+196,Commerce Bancshares Inc.,CBSH,7863473152,Financials,0.22
+197,Cleveland-Cliffs Inc,CLF,7654397440,Materials,0.21
+198,FormFactor Inc.,FORM,7301313024,Information Technology,0.21
+199,Silicon Laboratories Inc.,SLAB,7391940608,,0.21
+200,FirstCash Holdings Inc.,FCFS,7742296576,,0.21
+201,First Industrial Realty Trust Inc.,FR,7579470848,Real Estate,0.21
+202,Jefferies Financial Group Inc.,JEF,10812847104,Financials,0.21
+203,Chemed Corporation,CHE,7126420480,Health Care,0.21
+204,National Fuel Gas Company,NFG,7332957184,Utilities,0.21
+205,STAG Industrial Inc.,STAG,7296029184,Real Estate,0.21
+206,Commercial Metals Company,CMC,7152953344,,0.21
+207,Avnet Inc.,AVT,7163481600,Information Technology,0.20
+208,Bentley Systems Incorporated Class B,BSY,13349622784,Information Technology,0.20
+209,Corcept Therapeutics Incorporated.,CORT,8197289472,Health Care,0.20
+210,Timken Company,TKR,7663692800,Industrials,0.20
+211,Bio-Rad Laboratories Inc. Class A,BIO,10080416768,Health Care,0.20
+212,e.l.f. Beauty Inc.,ELF,6728635392,Consumer Staples,0.20
+213,Arrowhead Pharmaceuticals Inc.,ARWR,6650260480,Health Care,0.20
+214,Bruker Corporation,BRKR,9225959424,Health Care,0.20
+215,Commvault Systems Inc.,CVLT,6842835968,,0.20
+216,V.F. Corporation,VFC,7941667840,Consumer Discretionary,0.20
+217,Kratos Defense & Security Solutions Inc.,KTOS,6602751488,Industrials,0.20
+218,Lithia Motors Inc.,LAD,6518411264,Consumer Discretionary,0.20
+219,PBF Energy Inc. Class A,PBF,8528726016,,0.20
+220,Dycom Industries Inc.,DY,6816677376,Industrials,0.20
+221,Valley National Bancorp,VLY,7911129600,,0.20
+222,First American Financial Corporation,FAF,6631394816,Financials,0.20
+223,Fluor Corporation,FLR,6439335936,,0.19
+224,Kirby Corporation,KEX,6691879936,Industrials,0.19
+225,Abercrombie & Fitch Co. Class A,ANF,6450449408,,0.19
+226,Genpact Limited,G,7235912192,Industrials,0.19
+227,Southwest Gas Holdings Inc.,SWX,6749121536,,0.19
+228,AGCO Corporation,AGCO,7824195584,Industrials,0.19
+229,ExlService Holdings Inc.,EXLS,6566834176,Industrials,0.19
+230,Antero Midstream Corp.,AM,9680731136,Energy,0.19
+231,Lantheus Holdings Inc,LNTH,6654593536,,0.19
+232,Black Hills Corporation,BKH,6720408064,,0.19
+233,Duolingo Inc. Class A,DUOL,7607965696,Consumer Discretionary,0.19
+234,GATX Corporation,GATX,6565762560,,0.19
+235,Healthcare Realty Trust Incorporated Class A,HR,6644856320,Real Estate,0.19
+236,Churchill Downs Incorporated,CHDN,6821588480,Consumer Discretionary,0.19
+237,Terex Corporation,TEX,6512455680,,0.19
+238,United Bankshares Inc.,UBSI,6442918912,,0.19
+239,Macy's Inc.,M,6415804416,Consumer Discretionary,0.19
+240,Science Applications International Corp.,SAIC,6280036864,Industrials,0.18
+241,F.N.B. Corporation,FNB,6348468736,Financials,0.18
+242,NOV Inc.,NOV,6386921472,Energy,0.18
+243,MSA Safety Inc.,MSA,6758995968,Industrials,0.18
+244,UL Solutions Inc. Class A,ULS,16537871360,Industrials,0.18
+245,StandardAero Inc.,SARO,9251202048,Industrials,0.18
+246,Qualys Inc.,QLYS,6310225920,,0.18
+247,Glacier Bancorp Inc.,GBCI,6240958464,,0.18
+248,GXO Logistics Inc,GXO,6200780800,Industrials,0.18
+249,RLI Corp.,RLI,6358948864,Financials,0.18
+250,H&R Block Inc.,HRB,6171250688,Consumer Discretionary,0.18
+251,Weatherford International plc,WFRD,6267230720,Energy,0.18
+252,CAVA Group Inc.,CAVA,6750046720,Consumer Discretionary,0.18
+253,Hexcel Corporation,HXL,6106117120,Industrials,0.18
+254,Selective Insurance Group Inc.,SIGI,6164808192,,0.18
+255,Matador Resources Company,MTDR,6577194496,Energy,0.18
+256,Cirrus Logic Inc.,CRUS,6087159296,Information Technology,0.17
+257,Nexstar Media Group Inc.,NXST,6386733568,Communication Services,0.17
+258,Celsius Holdings Inc.,CELH,8133408256,Consumer Staples,0.17
+259,Wyndham Hotels & Resorts Inc.,WH,5886796800,Consumer Discretionary,0.17
+260,SiriusXM Holdings Inc.,SIRI,10787764224,Communication Services,0.17
+261,Rayonier Inc.,RYN,6367221760,Real Estate,0.17
+262,Vontier Corp,VNT,5770160128,Information Technology,0.17
+263,TXNM Energy Inc.,TXNM,6470438912,,0.17
+264,Fortune Brands Innovations Inc.,FBIN,5706972160,Industrials,0.17
+265,Sensata Technologies Holding PLC,ST,5789016576,Industrials,0.17
+266,Ingredion Incorporated,INGR,5797724160,Consumer Staples,0.17
+267,WEX Inc.,WEX,5835915264,Financials,0.17
+268,Essent Group Ltd.,ESNT,5706743808,,0.17
+269,Ollie's Bargain Outlet Holdings Inc,OLLI,5634317824,Consumer Discretionary,0.17
+270,Ormat Technologies Inc.,ORA,5637056512,,0.16
+271,MGIC Investment Corporation,MTG,5523826688,Financials,0.16
+272,Hancock Whitney Corporation,HWC,5186012160,,0.16
+273,Home BancShares Inc.,HOMB,6000773632,,0.16
+274,Vornado Realty Trust,VNO,7152548864,Real Estate,0.16
+275,Eagle Materials Inc.,EXP,5577241600,Materials,0.16
+276,Middleby Corporation,MIDD,6170815488,Industrials,0.16
+277,New Jersey Resources Corporation,NJR,5580737024,,0.16
+278,Trex Company Inc.,TREX,5347622912,Industrials,0.16
+279,Vail Resorts Inc.,MTN,5462999552,Consumer Discretionary,0.16
+280,MP Materials Corp Class A,MP,6762595840,Materials,0.16
+281,Haemonetics Corporation,HAE,5577889792,,0.16
+282,Floor & Decor Holdings Inc. Class A,FND,5080896512,Consumer Discretionary,0.16
+283,UiPath Inc. Class A,PATH,6876645888,Information Technology,0.16
+284,AppFolio Inc Class A,APPF,7837144576,Information Technology,0.16
+285,Lear Corporation,LEA,5241366528,Consumer Discretionary,0.16
+286,Portland General Electric Company,POR,5464404480,,0.16
+287,Chewy Inc. Class A,CHWY,9186046976,Consumer Discretionary,0.15
+288,CNX Resources Corporation,CNX,5242289152,,0.15
+289,CNO Financial Group Inc.,CNO,5261723136,,0.15
+290,Sabra Health Care REIT Inc.,SBRA,5425221632,,0.15
+291,FTI Consulting Inc.,FCN,5403960320,Industrials,0.15
+292,NewMarket Corporation,NEU,6375390208,Materials,0.15
+293,EnerSys,ENS,5288965120,,0.15
+294,Valaris Ltd.,VAL,5656831488,,0.15
+295,AAON Inc.,AAON,6500109312,Industrials,0.15
+296,NorthWestern Energy Group Inc.,NWE,5283641344,,0.15
+297,Spire Inc.,SR,5232665600,,0.15
+298,ONE Gas Inc.,OGS,5204572160,,0.15
+299,Kite Realty Group Trust,KRG,5224154112,,0.15
+300,Bank OZK,OZK,5439561216,Financials,0.15
+301,Brunswick Corporation,BC,4939242496,Consumer Discretionary,0.15
+302,Ryan Specialty Holdings Inc. Class A,RYAN,11736398848,Financials,0.14
+303,Associated Banc-Corp,ASB,5722523136,,0.14
+304,ESAB Corporation,ESAB,5170575360,Industrials,0.14
+305,LivaNova Plc,LIVN,4988110848,,0.14
+306,Landstar System Inc.,LSTR,4977294336,Industrials,0.14
+307,MSC Industrial Direct Co. Inc. Class A,MSM,6731153920,Industrials,0.14
+308,Sonoco Products Company,SON,4865180672,Materials,0.14
+309,Travel + Leisure Co.,TNL,4726377472,Consumer Discretionary,0.14
+310,Louisiana-Pacific Corporation,LPX,5306424320,Materials,0.14
+311,Cousins Properties Incorporated,CUZ,4876211712,Real Estate,0.14
+312,Murphy Oil Corporation,MUR,5253762048,,0.14
+313,AutoNation Inc.,AN,5848512512,Consumer Discretionary,0.14
+314,Brink's Company,BCO,4859428352,,0.14
+315,Morningstar Inc.,MORN,9178864640,Financials,0.14
+316,Option Care Health Inc,OPCH,4743408128,,0.14
+317,Amkor Technology Inc.,AMKR,9217300480,Information Technology,0.14
+318,Gap Inc.,GAP,7529475584,Consumer Discretionary,0.14
+319,Dropbox Inc. Class A,DBX,7229449216,Information Technology,0.14
+320,Sprouts Farmers Market Inc.,SFM,4690029056,Consumer Staples,0.14
+321,Warner Music Group Corp. Class A,WMG,16679354368,,0.13
+322,AeroVironment Inc.,AVAV,6186912256,Industrials,0.13
+323,Sotera Health Company,SHC,4678632960,Health Care,0.13
+324,Novanta Inc,NOVT,4515551744,,0.13
+325,Synaptics Incorporated,SYNA,4679224320,,0.13
+326,Federated Hermes Inc. Class B,FHI,4727866880,,0.13
+327,Planet Fitness Inc. Class A,PLNT,4524077568,Consumer Discretionary,0.13
+328,Mattel Inc.,MAT,4506617344,Consumer Discretionary,0.13
+329,Valvoline Inc.,VVV,4507125248,Materials,0.13
+330,Alaska Air Group Inc.,ALK,4473275904,Industrials,0.13
+331,KBR Inc.,KBR,4466780160,Industrials,0.13
+332,EPR Properties,EPR,4575833088,Real Estate,0.13
+333,Wingstop Inc.,WING,4362858496,Consumer Discretionary,0.13
+334,Dutch Bros Inc. Class A,BROS,4762056192,Consumer Discretionary,0.13
+335,UFP Industries Inc.,UFPI,4337053696,,0.13
+336,Hims & Hers Health Inc. Class A,HIMS,4750367232,,0.13
+337,BILL Holdings Inc.,BILL,4693508096,Information Technology,0.13
+338,Bath & Body Works Inc.,BBWI,4309160448,Consumer Discretionary,0.13
+339,Texas Capital Bancshares Inc.,TXCP,,,0.12
+340,Albertsons Companies Inc. Class A,ACI,6057461248,Consumer Staples,0.12
+341,PVH Corp.,PVH,4249986304,Consumer Discretionary,0.12
+342,Avient Corporation,AVNT,4179022848,,0.12
+343,Doximity Inc. Class A,DOCS,6025779712,Health Care,0.12
+344,Kilroy Realty Corporation,KRC,4266828800,Real Estate,0.12
+345,Vicor Corporation,VICR,7607366144,Industrials,0.12
+346,Gentex Corporation,GNTX,3965881600,Consumer Discretionary,0.12
+347,Starwood Property Trust Inc.,STWD,4350630400,Financials,0.12
+348,Exponent Inc.,EXPO,4113287168,,0.12
+349,Thor Industries Inc.,THO,4018247424,Consumer Discretionary,0.12
+350,Belden Inc.,BDC,4044897280,,0.12
+351,Allegro MicroSystems Inc.,ALGM,5905928192,Information Technology,0.12
+352,Envista Holdings Corp.,NVST,4021451264,Health Care,0.12
+353,Graham Holdings Co. Class B,GHC,5097841664,,0.11
+354,First Financial Bankshares Inc,FFIN,4326322176,,0.11
+355,Boyd Gaming Corporation,BYD,5455800832,Consumer Discretionary,0.11
+356,Hamilton Lane Incorporated Class A,HLNE,6357344768,Financials,0.11
+357,Dolby Laboratories Inc. Class A,DLB,6048662016,Information Technology,0.11
+358,Universal Display Corporation,OLED,4048540672,Information Technology,0.11
+359,Penske Automotive Group Inc.,PAG,13992514560,Consumer Discretionary,0.11
+360,Kyndryl Holdings Incorporation,KD,3772783872,Information Technology,0.11
+361,Cabot Corporation,CBT,3697933824,,0.11
+362,COPT Defense Properties,CDP,3801708800,,0.11
+363,Silgan Holdings Inc.,SLGN,4337718272,Materials,0.11
+364,International Bancshares Corporation,IBOC,4179477504,,0.11
+365,Polaris Inc.,PII,3721250560,,0.10
+366,Harley-Davidson Inc.,HOG,3311539200,,0.10
+367,Independence Realty Trust Inc.,IRT,3618707200,,0.10
+368,Ashland Inc.,ASH,3473884928,,0.10
+369,MAXIMUS Inc.,MMS,3406658048,,0.10
+370,IES Holdings Inc.,IESC,7451796480,Industrials,0.10
+371,Knife River Corporation,KNF,3244596992,,0.09
+372,Park Hotels & Resorts Inc.,PK,3308084480,,0.09
+373,Graphic Packaging Holding Company,GPK,3242185984,Materials,0.09
+374,SLM Corp,SLM,,Financials,0.09
+375,Flagstar Bank National Association,FLG,4107702784,,0.09
+376,YETI Holdings Inc.,YETI,,Consumer Discretionary,0.09
+377,KB Home,KBH,,,0.09
+378,Grand Canyon Education Inc.,LOPE,,Consumer Discretionary,0.09
+379,Post Holdings Inc.,POST,3532808448,Consumer Staples,0.09
+380,Scotts Miracle-Gro Company Class A,SMG,3689127680,Materials,0.08
+381,Crane NXT Co.,CXT,3279640576,,0.08
+382,Parsons Corporation,PSN,5247920640,Industrials,0.08
+383,Pegasystems Inc.,PEGA,5254418432,Information Technology,0.08
+384,Hilton Grand Vacations Inc.,HGV,3336199936,,0.07
+385,Brighthouse Financial Inc.,BHF,,Financials,0.07
+386,Choice Hotels International Inc.,CHH,5304082944,Consumer Discretionary,0.07
+387,Euronet Worldwide Inc.,EEFT,,Financials,0.07
+388,Shift4 Payments Inc. Class A,FOUR,,Information Technology,0.07
+389,Avis Budget Group Inc.,CAR,4467054592,Industrials,0.06
+390,Marzetti Company,MZTI,,,0.06
 391,Visteon Corporation,VC,,,0.06
-392,Marzetti Company,MZTI,,,0.06
-393,Westlake Corporation,WLK,8256380928,Materials,0.06
-394,RH,RH,,,0.06
-395,Whirlpool Corporation,WHR,,Consumer Discretionary,0.06
-396,DENTSPLY SIRONA Inc.,XRAY,,,0.06
-397,IPG Photonics Corporation,IPGP,,Information Technology,0.05
-398,Greif Inc Class A,GEF,4165264384,,0.05
-399,Columbia Sportswear Company,COLM,3652974080,Consumer Discretionary,0.04
-400,Pilgrim's Pride Corporation,PPC,6640944128,Consumer Staples,0.03
+392,Westlake Corporation,WLK,8059435520,Materials,0.06
+393,RH,RH,,,0.06
+394,Whirlpool Corporation,WHR,,Consumer Discretionary,0.06
+395,DENTSPLY SIRONA Inc.,XRAY,,,0.06
+396,IPG Photonics Corporation,IPGP,,Information Technology,0.05
+397,Greif Inc Class A,GEF,4076581376,,0.05
+398,Columbia Sportswear Company,COLM,3614945536,Consumer Discretionary,0.04
+399,Pilgrim's Pride Corporation,PPC,6405213184,Consumer Staples,0.03

@@ -1,7 +1,7 @@
 ﻿Name,Ticker,Exchange,Sector
 Apple Inc.,AAPL,NASDAQ,Information Technology
-Microsoft,MSFT,NASDAQ,Information Technology
 Nvidia,NVDA,NASDAQ,Information Technology
+Microsoft,MSFT,NASDAQ,Information Technology
 Alphabet Inc. (Class A),GOOGL,NASDAQ,Information Technology
 Alphabet Inc. (Class C),GOOG,NASDAQ,Information Technology
 Amazon,AMZN,NASDAQ,Consumer Discretionary
@@ -36,59 +36,59 @@ T-Mobile US,TMUS,NASDAQ,Communication Services
 Intuitive Surgical,ISRG,NASDAQ,Health Care
 Marvell Technology,MRVL,NASDAQ,Information Technology
 Vertex Pharmaceuticals,VRTX,NASDAQ,Health Care
-AppLovin,APP,NASDAQ,Information Technology
 Sandisk,SNDK,NASDAQ,Information Technology
+AppLovin,APP,NASDAQ,Information Technology
+Seagate Technology,STX,NASDAQ,Information Technology
 Starbucks,SBUX,NASDAQ,Consumer Discretionary
 Automatic Data Processing,ADP,NASDAQ,Industrials
-Seagate Technology,STX,NASDAQ,Information Technology
 Booking Holdings,BKNG,NASDAQ,Consumer Discretionary
 Western Digital,WDC,NASDAQ,Information Technology
 Marriott International,MAR,NASDAQ,Consumer Discretionary
 PDD Holdings,PDD,NASDAQ,Information Technology
 Airbnb,ABNB,NASDAQ,Consumer Discretionary
 Regeneron Pharmaceuticals,REGN,NASDAQ,Health Care
-CSX Corporation,CSX,NASDAQ,Industrials
-Constellation Energy,CEG,NASDAQ,Utilities
 Moderna,MRNA,NASDAQ,Health Care
+Constellation Energy,CEG,NASDAQ,Utilities
+CSX Corporation,CSX,NASDAQ,Industrials
 Fortinet,FTNT,NASDAQ,Information Technology
 Adobe Inc.,ADBE,NASDAQ,Information Technology
-Cintas,CTAS,NASDAQ,Industrials
 Intuit,INTU,NASDAQ,Information Technology
+Cintas,CTAS,NASDAQ,Industrials
 Cadence Design Systems,CDNS,NASDAQ,Information Technology
 Monster Beverage,MNST,NASDAQ,Consumer Staples
 Comcast,CMCSA,NASDAQ,Communication Services
 Synopsys,SNPS,NASDAQ,Information Technology
 Mondelez International,MDLZ,NASDAQ,Consumer Staples
-Ross Stores,ROST,NASDAQ,Consumer Discretionary
 DoorDash,DASH,NASDAQ,Information Technology
+Ross Stores,ROST,NASDAQ,Consumer Discretionary
 Mercado Libre,MELI,NASDAQ,Consumer Discretionary
 O'Reilly Automotive,ORLY,NASDAQ,Consumer Discretionary
 Honeywell Technologies,HON,NASDAQ,Industrials
-Monolithic Power Systems,MPWR,NASDAQ,Information Technology
 American Electric Power,AEP,NASDAQ,Utilities
-NXP Semiconductors,NXPI,NASDAQ,Information Technology
+Monolithic Power Systems,MPWR,NASDAQ,Information Technology
 Datadog,DDOG,NASDAQ,Information Technology
+NXP Semiconductors,NXPI,NASDAQ,Information Technology
 Fastenal,FAST,NASDAQ,Industrials
-Paccar,PCAR,NASDAQ,Consumer Discretionary
 Lumentum,LITE,NASDAQ,Information Technology
+Paccar,PCAR,NASDAQ,Consumer Discretionary
 Idexx Laboratories,IDXX,NASDAQ,Health Care
 Autodesk,ADSK,NASDAQ,Information Technology
 Honeywell Aerospace,HONA,NASDAQ,Industrials
 Xcel Energy,XEL,NASDAQ,Utilities
 Coca-Cola Europacific Partners,CCEP,NASDAQ,Consumer Staples
 Diamondback Energy,FANG,NASDAQ,Energy
+MicroStrategy,MSTR,NASDAQ,Information Technology
 Keurig Dr Pepper,KDP,NASDAQ,Consumer Staples
 PayPal,PYPL,NASDAQ,Industrials
 Baker Hughes,BKR,NASDAQ,Energy
-MicroStrategy,MSTR,NASDAQ,Information Technology
-Exelon,EXC,NASDAQ,Utilities
-Roper Technologies,ROP,NASDAQ,Information Technology
 Thomson Reuters,TRI,NASDAQ,Information Technology
+Roper Technologies,ROP,NASDAQ,Information Technology
+Exelon,EXC,NASDAQ,Utilities
 "Workday, Inc.",WDAY,NASDAQ,Information Technology
 Rocket Lab,RKLB,NASDAQ,Industrials
 Take-Two Interactive,TTWO,NASDAQ,Consumer Discretionary
-Paychex,PAYX,NASDAQ,Industrials
 Teradyne,TER,NASDAQ,Information Technology
+Paychex,PAYX,NASDAQ,Industrials
 Astera Labs,ALAB,NASDAQ,Information Technology
 GE HealthCare,GEHC,NASDAQ,Health Care
 Old Dominion Freight Line,ODFL,NASDAQ,Industrials
