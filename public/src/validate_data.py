@@ -10,7 +10,6 @@ DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
 LIST_FILES = {
     'arkk.json': 'Ticker',
     'coins.json': 'Ticker',
-    'dow.json': 'Ticker',
     'etfs_market_cap.json': 'Ticker',
     'nasdaq.json': 'Ticker',
     'russell_1000.json': 'Ticker',
@@ -33,7 +32,6 @@ LIST_FILES = {
     'xlre.json': 'Ticker',
     'xlu.json': 'Ticker',
     'xlc.json': 'Ticker',
-    's&p500.json': 'Ticker',
     'stocks.json': 'Ticker',
     'spysectors.json': 'Ticker',
 }

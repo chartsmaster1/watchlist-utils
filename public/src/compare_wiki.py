@@ -18,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common.wiki import LEGACY, WIKI, _download
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-CHECKED_IN = {"sp500": "s&p500.json", "nasdaq100": "nasdaq.json",
-              "dow": "dow.json", "russell1000": "russell_1000.json"}
+CHECKED_IN = {"sp500": "spy.json", "nasdaq100": "nasdaq.json",
+              "dow": "dia.json", "russell1000": "russell_1000.json"}
 # ticker column per legacy prep script (Symbol vs Ticker differs per page)
 TICK_COL = {"sp500": "Symbol", "nasdaq100": "Ticker",
             "dow": "Symbol", "russell1000": "Symbol"}

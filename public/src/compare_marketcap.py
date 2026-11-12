@@ -48,7 +48,7 @@ def main():
 
     # coverage check: do live top-N cover all index constituents?
     idx_tickers = set()
-    for fn in ["s&p500.json", "dow.json", "nasdaq.json", "russell_1000.json"]:
+    for fn in ["spy.json", "dia.json", "nasdaq.json", "russell_1000.json"]:
         p = DATA / fn
         if p.exists():
             idx_tickers |= {r["Ticker"] for r in json.load(open(p))}

@@ -38,7 +38,7 @@ _TICKER_RE = re.compile(r'^[A-Z]{1,5}(\.[A-Z])?$')
 _JUNK_NAME_WORDS = ('CASH', 'EMINI', 'FUTURE', 'COLLATERAL', 'TREASURY', 'SWAP')
 
 # Local datasets that carry a Sector column, for enriching IWB-only rows.
-SECTOR_SOURCES = ('s&p500.json', 'nasdaq.json', 'dow.json', 'schd.json', 'russell_1000.json')
+SECTOR_SOURCES = ('spy.json', 'nasdaq.json', 'dia.json', 'schd.json', 'russell_1000.json')
 
 
 def _ticker_key(ticker):

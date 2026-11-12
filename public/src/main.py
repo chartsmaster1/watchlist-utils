@@ -3,9 +3,7 @@ import logging
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 # local scripts
-import prep_dow
 import prep_nasdaq
-import prep_sandp
 import prep_sandp_sectors
 import prep_companies_market_cap
 import prep_coins_market_cap
@@ -21,12 +19,13 @@ import prep_berkshire
 
 def main():
     # Market-cap data must exist before index preparers sort against it.
+    # SPDR runs second so fresh spy.json/dia.json exist before the jobs
+    # that enrich sectors from them (SCHD/QQQ/Russell 2000/Berkshire)
+    # and before the sectors job, which is derived from spy.json.
     jobs = [
         ('companies', prep_companies_market_cap.read_prep_companies_market_cap),
-        ('dow', prep_dow.read_prep_dow),
+        ('SPDR ETFs', prep_spdr.read_prep_spdr),
         ('nasdaq', prep_nasdaq.read_prep_nasdaq),
-        ('s&p 500', prep_sandp.read_prep_sandp),
-        ('s&p sectors', prep_sandp_sectors.prep_spy_sectors),
         ('ETFs', prep_etfs_market_cap.read_prep_etfs_market_cap),
         ('coins', prep_coins_market_cap.read_prep_coins),
         ('Russell 1000', prep_russell_1000.read_prep_russell),
@@ -34,7 +33,7 @@ def main():
         ('SCHD', prep_schd.read_prep_schd),
         ('QQQ', prep_qqq.read_prep_qqq),
         ('Russell 2000', prep_russell_2000.read_prep_russell_2000),
-        ('SPDR ETFs', prep_spdr.read_prep_spdr),
+        ('s&p sectors', prep_sandp_sectors.prep_spy_sectors),
         ('Berkshire Hathaway', prep_berkshire.read_prep_berkshire),
     ]
     failures = []

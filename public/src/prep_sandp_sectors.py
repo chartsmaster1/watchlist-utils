@@ -1,4 +1,4 @@
-# *** Run this script after prep_sandp.py ***
+# *** Run this script after prep_spdr.py (sectors are derived from spy.json) ***
 import json
 import pandas as pd
 import logging
@@ -42,7 +42,7 @@ def prep_spy_sectors():
     # comps_df = pd.read_html(url)[0]
     # comps_grp = comps_df.groupby('GICS Sector')
     
-    comps_df  = pd.read_json(data_dir / 's&p500.json', orient='records')
+    comps_df  = pd.read_json(data_dir / 'spy.json', orient='records')
     comps_df['SectorKey'] = comps_df['Sector'].map(sector_map)
     # print(comps_df.head())
 

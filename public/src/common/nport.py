@@ -248,8 +248,8 @@ def load_enrichment(data_dir):
     for row in json.loads((data_dir / 'stocks.json').read_text()):
         stocks[row['Ticker']] = row
     sectors = {}
-    for fname in ('s&p500.json', 'russell_1000.json', 'nasdaq.json',
-                  'dow.json', 'schd.json'):
+    for fname in ('spy.json', 'russell_1000.json', 'nasdaq.json',
+                  'dia.json', 'schd.json'):
         path = data_dir / fname
         if not path.exists():
             continue
