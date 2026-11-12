@@ -3,181 +3,188 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Market Benchmarks Holdings</title>
-
-  <!-- Firebase (compat) -->
-  <script defer src="/__/firebase/11.5.0/firebase-app-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-database-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-firestore-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-functions-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-messaging-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-storage-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-analytics-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-remote-config-compat.js"></script>
-  <script defer src="/__/firebase/11.5.0/firebase-performance-compat.js"></script>
-  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-  <!-- Papa Parse for CSV → JSON -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
+  <title>Watchlist101 Data</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 16px; }
-    h1, h2 { color: #333; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 4px; }
-    a { color: #1a73e8; text-decoration: none; cursor: pointer; }
+    :root { --blue: #1a73e8; --ink: #1f2430; --muted: #6b7280; --line: #e5e7eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: #f7f8fa; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 32px 16px 48px; }
+    header { margin-bottom: 20px; }
+    h1 { margin: 0 0 6px; font-size: 28px; }
+    .sub { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
+    .meta { font-size: 13px; color: var(--muted); }
+    .meta b { color: var(--ink); font-weight: 600; }
+    .meta a { color: var(--blue); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    #filter { width: 100%; padding: 10px 12px; margin: 16px 0 12px; font-size: 15px; border: 1px solid #d1d5db; border-radius: 8px; background: #fff; }
+    #filter:focus { outline: 2px solid #bfdbfe; border-color: var(--blue); }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    thead th { text-align: left; padding: 10px 14px; background: #f3f4f6; border-bottom: 1px solid var(--line); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+    tbody td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #f9fafb; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    th.num { text-align: right; }
+    td.src { color: var(--muted); font-size: 14px; white-space: nowrap; }
+    td.files { white-space: nowrap; }
+    a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    pre { background: #f5f5f5; padding: 12px; overflow: auto; }
-    table { border-collapse: collapse; margin-top: 8px; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
-    #csv-output { margin-top: 16px; }
+    .sep { color: #d1d5db; margin: 0 6px; }
+    .empty { padding: 24px; text-align: center; color: var(--muted); }
+    footer { margin-top: 20px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+    footer a { color: var(--blue); }
+    @media (max-width: 640px) {
+      td.src { display: none; }
+      thead th.src { display: none; }
+    }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <h1>Watchlist101 Data</h1>
+      <p class="sub">Holdings lists behind <a href="https://watchlist101.com">watchlist101.com</a> — refreshed monthly, downloaded by code from the source.</p>
+      <p class="meta">Last updated <b id="updated">—</b> <span class="sep">·</span> <span id="count"></span> datasets <span class="sep">·</span> <a href="https://github.com/chartsmaster1/watchlist-utils">Source on GitHub</a></p>
+    </header>
 
-  <h1>Watchlist101 Data Browser</h1>
+    <input id="filter" type="search" placeholder="Filter datasets…" autocomplete="off">
 
-  <section>
-    <h2>JSON Files (click to view)</h2>
-    <ul id="json-links"></ul>
-  </section>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>Dataset</th><th class="num">Holdings</th><th class="src">Source</th><th>Files</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div id="empty" class="empty" hidden>No datasets match your filter.</div>
+    </div>
 
-  <section>
-    <h2>CSV Files (click to view inline)</h2>
-    <ul id="csv-links"></ul>
-  </section>
-
-  <section id="csv-output"></section>
+    <footer>
+      Counts and last-updated come from the refresh job itself, so they always match the files on this page.
+      JSON opens in the viewer; CSV opens as a table. Nothing here is fetched by hand.
+    </footer>
+  </div>
 
   <script>
+    // Display order follows the app menu (most followed first).
     const fileMap = [
-      { name: "NASDAQ 100", json: "nasdaq.json", csv: "nasdaq.csv" },
-      { name: "Cryptocurrencies", json: "coins.json", csv: "coins.csv" },
-      { name: "S&P 500 Sectors", json: "spysectors.json", csv: "spysectors.csv" },
-      { name: "Stocks by Market Cap", json: "stocks.json", csv: "CompaniesMarketCap.csv" },
-      { name: "ETFs by Market Cap", json: "etfs_market_cap.json", csv: "etfs_market_cap.csv" },
-      { name: "ARKK Holdings", json: "arkk.json", csv: "arkk.csv" },
-      { name: "SCHD Holdings", json: "schd.json", csv: "schd.csv" },
-      { name: "SPDR S&P 500 (SPY)", json: "spy.json", csv: "spy.csv" },
-      { name: "Invesco QQQ", json: "qqq.json", csv: "qqq.csv" },
-      { name: "SPDR Dow Jones (DIA)", json: "dia.json", csv: "dia.csv" },
-      { name: "S&P MidCap 400 (MDY)", json: "mdy.json", csv: "mdy.csv" },
-      { name: "S&P SmallCap 600 (SPSM)", json: "spsm.json", csv: "spsm.csv" },
-      { name: "Berkshire Hathaway Portfolio", json: "berkshire.json", csv: "berkshire.csv" },
-      { name: "Russell 1000", json: "russell_1000.json", csv: "russell_1000.csv" },
-      { name: "Russell 2000", json: "russell_2000.json", csv: "russell_2000.csv" },
-      { name: "Technology SPDR (XLK)", json: "xlk.json", csv: "xlk.csv" },
-      { name: "Financials SPDR (XLF)", json: "xlf.json", csv: "xlf.csv" },
-      { name: "Health Care SPDR (XLV)", json: "xlv.json", csv: "xlv.csv" },
-      { name: "Energy SPDR (XLE)", json: "xle.json", csv: "xle.csv" },
-      { name: "Consumer Discretionary SPDR (XLY)", json: "xly.json", csv: "xly.csv" },
-      { name: "Consumer Staples SPDR (XLP)", json: "xlp.json", csv: "xlp.csv" },
-      { name: "Industrials SPDR (XLI)", json: "xli.json", csv: "xli.csv" },
-      { name: "Materials SPDR (XLB)", json: "xlb.json", csv: "xlb.csv" },
-      { name: "Real Estate SPDR (XLRE)", json: "xlre.json", csv: "xlre.csv" },
-      { name: "Utilities SPDR (XLU)", json: "xlu.json", csv: "xlu.csv" },
-      { name: "Communication Services SPDR (XLC)", json: "xlc.json", csv: "xlc.csv" }
+      { name: "SPDR S&P 500 (SPY)", json: "spy.json", csv: "spy.csv", source: "SSGA daily holdings" },
+      { name: "Invesco QQQ", json: "qqq.json", csv: "qqq.csv", source: "SEC N-PORT (EDGAR)" },
+      { name: "SPDR Dow Jones (DIA)", json: "dia.json", csv: "dia.csv", source: "SSGA daily holdings" },
+      { name: "NASDAQ 100", json: "nasdaq.json", csv: "nasdaq.csv", source: "Wikipedia" },
+      { name: "Russell 2000", json: "russell_2000.json", csv: "russell_2000.csv", source: "SEC N-PORT (EDGAR)" },
+      { name: "SCHD Holdings", json: "schd.json", csv: "schd.csv", source: "SEC N-PORT (EDGAR)" },
+      { name: "Berkshire Hathaway Portfolio", json: "berkshire.json", csv: "berkshire.csv", source: "SEC 13F (EDGAR)" },
+      { name: "ETFs by Market Cap", json: "etfs_market_cap.json", csv: "etfs_market_cap.csv", source: "8marketcap.com" },
+      { name: "Cryptocurrencies", json: "coins.json", csv: "coins.csv", source: "CoinMarketCap API" },
+      { name: "Russell 1000", json: "russell_1000.json", csv: "russell_1000.csv", source: "Wikipedia + IWB" },
+      { name: "S&P MidCap 400 (MDY)", json: "mdy.json", csv: "mdy.csv", source: "SSGA daily holdings" },
+      { name: "S&P SmallCap 600 (SPSM)", json: "spsm.json", csv: "spsm.csv", source: "SSGA daily holdings" },
+      { name: "ARKK Holdings", json: "arkk.json", csv: "arkk.csv", source: "ARK daily CSV" },
+      { name: "S&P 500 Sectors", json: "spysectors.json", csv: "spysectors.csv", source: "Sector SPDR lists" },
+      { name: "Technology SPDR (XLK)", json: "xlk.json", csv: "xlk.csv", source: "SSGA daily holdings" },
+      { name: "Financials SPDR (XLF)", json: "xlf.json", csv: "xlf.csv", source: "SSGA daily holdings" },
+      { name: "Health Care SPDR (XLV)", json: "xlv.json", csv: "xlv.csv", source: "SSGA daily holdings" },
+      { name: "Energy SPDR (XLE)", json: "xle.json", csv: "xle.csv", source: "SSGA daily holdings" },
+      { name: "Consumer Discretionary SPDR (XLY)", json: "xly.json", csv: "xly.csv", source: "SSGA daily holdings" },
+      { name: "Consumer Staples SPDR (XLP)", json: "xlp.json", csv: "xlp.csv", source: "SSGA daily holdings" },
+      { name: "Industrials SPDR (XLI)", json: "xli.json", csv: "xli.csv", source: "SSGA daily holdings" },
+      { name: "Materials SPDR (XLB)", json: "xlb.json", csv: "xlb.csv", source: "SSGA daily holdings" },
+      { name: "Real Estate SPDR (XLRE)", json: "xlre.json", csv: "xlre.csv", source: "SSGA daily holdings" },
+      { name: "Utilities SPDR (XLU)", json: "xlu.json", csv: "xlu.csv", source: "SSGA daily holdings" },
+      { name: "Communication Services SPDR (XLC)", json: "xlc.json", csv: "xlc.csv", source: "SSGA daily holdings" },
+      { name: "Stocks by Market Cap", json: "stocks.json", csv: "CompaniesMarketCap.csv", source: "companiesmarketcap.com" }
     ];
 
     const dataPath = "/data/";
+    const rowsEl = document.getElementById("rows");
+    const emptyEl = document.getElementById("empty");
+    const updatedEl = document.getElementById("updated");
+    document.getElementById("count").textContent = fileMap.length;
 
-    const jsonLinksEl = document.getElementById("json-links");
-    const csvLinksEl  = document.getElementById("csv-links");
-    const csvOutput   = document.getElementById("csv-output");
+    const fmt = n => n == null ? "—" : n.toLocaleString("en-US");
 
-    // JSON viewer links
-    fileMap.forEach(fileInfo => {
-      const viewerUrl = new URL('viewer.html', window.location.origin);
-      viewerUrl.searchParams.set('file', `data/${fileInfo.json}`);
-      viewerUrl.searchParams.set('name', fileInfo.name);
-
-      const li = document.createElement('li');
-      const a  = document.createElement('a');
-      a.href        = viewerUrl.toString();
-      a.textContent = fileInfo.name;
-      li.appendChild(a);
-      jsonLinksEl.appendChild(li);
-    });
-
-    fileMap.forEach(fileInfo => {
-      // Check if CSV file exists before showing link
-      fetch(dataPath + fileInfo.csv)
-        .then(res => {
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const li = document.createElement("li");
-          const a  = document.createElement("a");
-          a.textContent = fileInfo.name;
-          a.href = "#";
-          // Open CSV table view in this tab (browser Back returns here)
-          a.addEventListener("click", (e) => {
-            e.preventDefault();
-            const tableUrl = new URL('table.html', window.location.origin);
-            tableUrl.searchParams.set('file', fileInfo.csv);
-            tableUrl.searchParams.set('name', fileInfo.name);
-            window.location.href = tableUrl.toString();
-          });
-          li.appendChild(a);
-          csvLinksEl.appendChild(li);
-        })
-        .catch(() => {
-          // Optionally skip or show as unavailable
-        });
-    });
-    
-    // Fetch and show CSV as HTML table
-    function fetchAndDisplayTable(fileName, displayName) {
-      csvOutput.innerHTML = '<p>Loading CSV…</p>';
-      fetch(dataPath + fileName)
-        .then(res => {
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          return res.text();
-        })
-        .then(csvText => {
-          const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-          displayTable(parsed.meta.fields, parsed.data, displayName || fileName);
-        })
-        .catch(err => {
-          csvOutput.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
-        });
+    function jsonUrl(info) {
+      const u = new URL("viewer.html", window.location.origin);
+      u.searchParams.set("file", "data/" + info.json);
+      u.searchParams.set("name", info.name);
+      return u.toString();
     }
 
-    function displayTable(headers, rows, title) {
-      csvOutput.innerHTML = '';
-      const h2 = document.createElement('h2');
-      h2.textContent = title;
-      csvOutput.appendChild(h2);
-
-      if (!rows.length) {
-        csvOutput.appendChild(document.createTextNode('No data.'));
-        return;
-      }
-
-      const table = document.createElement('table');
-      const thead = document.createElement('thead');
-      const headerRow = document.createElement('tr');
-      headers.forEach(col => {
-        const th = document.createElement('th'); th.textContent = col;
-        headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
-
-      const tbody = document.createElement('tbody');
-      rows.forEach(r => {
-        const tr = document.createElement('tr');
-        headers.forEach(col => {
-          const td = document.createElement('td');
-          td.textContent = r[col];
-          tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-      });
-      table.appendChild(tbody);
-      csvOutput.appendChild(table);
+    function csvUrl(info) {
+      const u = new URL("table.html", window.location.origin);
+      u.searchParams.set("file", info.csv);
+      u.searchParams.set("name", info.name);
+      return u.toString();
     }
 
+    // Render rows immediately; counts fill in once the manifest loads.
+    const rowByFile = {};
+    fileMap.forEach(info => {
+      const tr = document.createElement("tr");
+      tr.dataset.name = info.name.toLowerCase();
+
+      const nameTd = document.createElement("td");
+      nameTd.textContent = info.name;
+
+      const countTd = document.createElement("td");
+      countTd.className = "num";
+      countTd.textContent = "—";
+
+      const srcTd = document.createElement("td");
+      srcTd.className = "src";
+      srcTd.textContent = info.source;
+
+      const filesTd = document.createElement("td");
+      filesTd.className = "files";
+      const jsonA = document.createElement("a");
+      jsonA.href = jsonUrl(info);
+      jsonA.textContent = "JSON";
+      filesTd.appendChild(jsonA);
+      // CSV link appears only if the file exists (same check as before).
+      fetch(dataPath + info.csv).then(res => {
+        if (!res.ok) return;
+        const sep = document.createElement("span");
+        sep.className = "sep";
+        sep.textContent = "·";
+        const csvA = document.createElement("a");
+        csvA.href = csvUrl(info);
+        csvA.textContent = "CSV";
+        filesTd.appendChild(sep);
+        filesTd.appendChild(csvA);
+      }).catch(() => {});
+
+      tr.append(nameTd, countTd, srcTd, filesTd);
+      rowsEl.appendChild(tr);
+      rowByFile[info.json] = countTd;
+    });
+
+    // Manifest (written by the monthly refresh): row counts + refresh date.
+    fetch(dataPath + "manifest.json")
+      .then(res => { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
+      .then(manifest => {
+        if (manifest.generatedAt) {
+          const d = new Date(manifest.generatedAt);
+          if (!isNaN(d)) updatedEl.textContent = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        }
+        (manifest.datasets || []).forEach(ds => {
+          const cell = rowByFile[ds.file];
+          if (cell && ds.rows != null) cell.textContent = fmt(ds.rows);
+        });
+      })
+      .catch(() => { /* counts stay "—" until the next refresh writes the manifest */ });
+
+    document.getElementById("filter").addEventListener("input", e => {
+      const q = e.target.value.trim().toLowerCase();
+      let visible = 0;
+      rowsEl.querySelectorAll("tr").forEach(tr => {
+        const show = !q || tr.dataset.name.includes(q);
+        tr.hidden = !show;
+        if (show) visible++;
+      });
+      emptyEl.hidden = visible !== 0;
+    });
   </script>
-
 </body>
 </html>

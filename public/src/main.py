@@ -1,5 +1,9 @@
 
+import json
 import logging
+from datetime import datetime, timezone
+from pathlib import Path
+
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 # local scripts
@@ -46,6 +50,45 @@ def main():
 
     if failures:
         raise RuntimeError(f'Data refresh failed for: {", ".join(failures)}')
+
+    write_manifest()
+
+
+DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
+MANIFEST_EXCLUDE = {'cusip_tickers.json', 'manifest.json'}
+
+
+def count_rows(data):
+    # Sector grouping file: rows are the holdings inside each sector.
+    if isinstance(data, list):
+        if data and all(isinstance(row, dict) and isinstance(row.get('Comps'), list) for row in data):
+            return sum(len(row['Comps']) for row in data)
+        return len(data)
+    if isinstance(data, dict):
+        return len(data)
+    return None
+
+
+def write_manifest():
+    # Row counts + refresh date for the data-site index page.
+    # Runs only after a fully successful refresh, so the manifest
+    # always matches the committed data. Committed with the data
+    # (the workflow does `git add public/data`).
+    datasets = []
+    for path in sorted(DATA_DIR.glob('*.json')):
+        if path.name in MANIFEST_EXCLUDE:
+            continue
+        with path.open() as data_file:
+            rows = count_rows(json.load(data_file))
+        if rows is not None:
+            datasets.append({'file': path.name, 'rows': rows})
+    manifest = {
+        'generatedAt': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'datasets': datasets,
+    }
+    with (DATA_DIR / 'manifest.json').open('w') as manifest_file:
+        json.dump(manifest, manifest_file, indent=2)
+    print(f'manifest.json: {len(datasets)} datasets')
 
 
 if __name__ == '__main__':
