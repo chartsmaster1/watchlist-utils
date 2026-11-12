@@ -247,6 +247,12 @@ def load_enrichment(data_dir):
     stocks = {}
     for row in json.loads((data_dir / 'stocks.json').read_text()):
         stocks[row['Ticker']] = row
+    # companiesmarketcap.com spells some class tickers with a hyphen
+    # (BRK-B, BF-B) while funds file them with a dot (BRK.B, BF.B):
+    # index both spellings so lookups find them.
+    for ticker in list(stocks):
+        if '-' in ticker:
+            stocks.setdefault(ticker.replace('-', '.'), stocks[ticker])
     sectors = {}
     for fname in ('spy.json', 'russell_1000.json', 'nasdaq.json',
                   'dia.json', 'schd.json'):
@@ -257,6 +263,17 @@ def load_enrichment(data_dir):
             if row.get('Sector'):
                 sectors.setdefault(row['Ticker'], row['Sector'])
     return stocks, sectors
+
+
+def _company_key(name):
+    """Filed name with the share-class suffix stripped, for matching
+    sibling classes of the same company (GOOGL/GOOG, FOXA/FOX)."""
+    key = ''.join(ch for ch in (name or '').upper() if ch.isalnum())
+    for suffix in ('CLASSA', 'CLASSB', 'CLASSC', 'CLA', 'CLB', 'CLC'):
+        if key.endswith(suffix):
+            key = key[:-len(suffix)]
+            break
+    return key
 
 
 def build_records(holdings, tickers, stocks, sectors, fixed_sector=None):
@@ -296,6 +313,23 @@ def build_records(holdings, tickers, stocks, sectors, fixed_sector=None):
             missing_sectors.append(ticker)
         record['Weight'] = holding['Weight']
         res_list.append(record)
+    # The source lists each company once (GOOG, not GOOGL), so a class row
+    # has no lookup hit although its sibling in this same dataset does.
+    # Fill the missing cap from that sibling — it is the same company.
+    by_name = {}
+    for r in res_list:
+        if r.get('MarketCap'):
+            by_name.setdefault(_company_key(r['Name']), r['MarketCap'])
+    filled = []
+    for r in res_list:
+        if 'MarketCap' not in r:
+            mc = by_name.get(_company_key(r['Name']))
+            if mc:
+                r['MarketCap'] = mc
+                filled.append(r['Ticker'])
+    if filled:
+        print(f"Filled market cap from sibling share class: {', '.join(filled)}")
+        missing_caps = [t for t in missing_caps if t not in filled]
     return res_list, missing_caps, missing_sectors
 
 
