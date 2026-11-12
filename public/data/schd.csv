@@ -1,81 +1,81 @@
 ﻿Rank,Name,Ticker,MarketCap,Sector,Weight
-1,Merck & Co Inc,MRK,364979617792,Health Care,4.76
-2,Amgen Inc,AMGN,251648262144,Health Care,4.70
-3,Abbott Laboratories,ABT,191310266368,Health Care,4.68
-4,Coca-Cola Co/The,KO,416897368064,Consumer Staples,4.16
-5,Chevron Corp,CVX,412143779840,Energy,4.01
-6,Verizon Communications Inc,VZ,191936348160,Communication Services,3.96
-7,ConocoPhillips,COP,160312819712,Energy,3.93
-8,Home Depot Inc/The,HD,350189060096,Consumer Discretionary,3.87
-9,Procter & Gamble Co/The,PG,390917292032,Consumer Staples,3.82
-10,UnitedHealth Group Inc,UNH,362996662272,Health Care,3.82
-11,PepsiCo Inc,PEP,195703259136,Consumer Staples,3.64
-12,Bristol-Myers Squibb Co,BMY,128368590848,Health Care,3.32
-13,Texas Instruments Inc,TXN,274749702144,Information Technology,3.12
-14,Accenture PLC,ACN,152711544832,Information Technology,2.84
-15,Altria Group Inc,MO,126986772480,Consumer Staples,2.78
-16,Automatic Data Processing Inc,ADP,120575320064,Industrials,2.78
-17,Lockheed Martin Corp,LMT,139323523072,Industrials,2.77
-18,Blackstone Inc,BX,151247781888,Financials,2.59
-19,QUALCOMM Inc,QCOM,185677103104,Information Technology,2.52
-20,Comcast Corp,CMCSA,87887405056,Communication Services,2.31
-21,SLB Ltd,SLB,73653878784,Energy,2.19
-22,United Parcel Service Inc,UPS,94555676672,Industrials,1.89
-23,EOG Resources Inc,EOG,78555545600,Energy,1.88
-24,Target Corp,TGT,73496125440,Consumer Staples,1.78
-25,ONEOK Inc,OKE,55082455040,Energy,1.47
-26,Fastenal Co,FAST,62918012928,Industrials,1.38
-27,Devon Energy Corp,DVN,49474998272,Energy,1.36
-28,Ford Motor Co,F,49036709888,Consumer Discretionary,1.33
-29,Fifth Third Bancorp,FITB,48968560640,Financials,1.19
-30,Paychex Inc,PAYX,41364930560,Industrials,1.00
-31,Archer-Daniels-Midland Co,ADM,32981202944,Consumer Staples,0.95
-32,Kimberly-Clark Corp,KMB,67970678784,Consumer Staples,0.87
-33,Ares Management Corp,ARES,46278017024,Financials,0.74
-34,Cincinnati Financial Corp,CINF,29150074880,Financials,0.64
-35,Hershey Co/The,HSY,34960535552,Consumer Staples,0.64
-36,Regions Financial Corp,RF,24361920512,Financials,0.62
-37,Darden Restaurants Inc,DRI,25871329280,Consumer Discretionary,0.60
-38,T Rowe Price Group Inc,TROW,23657846784,Financials,0.58
-39,General Mills Inc,GIS,18500173824,Consumer Staples,0.54
-40,Principal Financial Group Inc,PFG,24633544704,Financials,0.53
-41,Broadridge Financial Solutions Inc,BR,21824980992,Industrials,0.51
-42,Snap-on Inc,SNA,19254241280,Industrials,0.49
-43,East West Bancorp Inc,EWBC,17916260352,Financials,0.42
-44,Best Buy Co Inc,BBY,21832652800,Consumer Discretionary,0.38
-45,HF Sinclair Corp,DINO,16717220864,Energy,0.38
-46,APA Corp,APA,15149309952,Energy,0.37
-47,Fidelity National Financial Inc,FNF,11846076416,Financials,0.29
-48,Watsco Inc,WSO,12879311872,Industrials,0.26
-49,Skyworks Solutions Inc,SWKS,19450542080,Information Technology,0.25
-50,American Financial Group Inc/OH,AFG,13310731264,Financials,0.24
-51,Old Republic International Corp,ORI,9719420928,Financials,0.23
-52,Booz Allen Hamilton Holding Corp,BAH,10411456512,Industrials,0.22
-53,Columbia Banking System Inc,COLB,8727535616,Financials,0.21
-54,Autoliv Inc,ALV,8707769344,,0.20
-55,Erie Indemnity Co,ERIE,14227550208,Financials,0.16
-56,Macy's Inc,M,6550309888,Consumer Discretionary,0.14
-57,MSC Industrial Direct Co Inc,MSM,6662463488,Industrials,0.13
-58,Nexstar Media Group Inc,NXST,6367315968,Communication Services,0.13
-59,Bank OZK,OZK,5471895040,Financials,0.12
-60,Moelis & Co,MC,4207326208,,0.12
-61,Murphy Oil Corp,MUR,4977097216,,0.12
-62,Vail Resorts Inc,MTN,5590153728,Consumer Discretionary,0.12
-63,Federated Hermes Inc,FHI,4844677120,,0.11
-64,Korn Ferry,KFY,4145381632,,0.11
-65,Robert Half Inc,RHI,4403110912,Industrials,0.11
-66,Penske Automotive Group Inc,PAG,14014839808,Consumer Discretionary,0.10
-67,CVB Financial Corp,CVBF,3977481216,,0.09
-68,Clearway Energy Inc,CWEN,7112773632,Utilities,0.09
+1,Merck & Co Inc,MRK,362834853888,Health Care,4.76
+2,Amgen Inc,AMGN,253206069248,Health Care,4.70
+3,Abbott Laboratories,ABT,189283909632,Health Care,4.68
+4,Coca-Cola Co/The,KO,419736616960,Consumer Staples,4.16
+5,Chevron Corp,CVX,416163364864,Energy,4.01
+6,Verizon Communications Inc,VZ,193138278400,Communication Services,3.96
+7,ConocoPhillips,COP,162996715520,Energy,3.93
+8,Home Depot Inc/The,HD,350498324480,Consumer Discretionary,3.87
+9,Procter & Gamble Co/The,PG,388622680064,Consumer Staples,3.82
+10,UnitedHealth Group Inc,UNH,361043361792,Health Care,3.82
+11,PepsiCo Inc,PEP,196152967168,Consumer Staples,3.64
+12,Bristol-Myers Squibb Co,BMY,128593444864,Health Care,3.32
+13,Texas Instruments Inc,TXN,283095171072,Information Technology,3.12
+14,Accenture PLC,ACN,149846474752,Information Technology,2.84
+15,Altria Group Inc,MO,128733380608,Consumer Staples,2.78
+16,Automatic Data Processing Inc,ADP,120938487808,Industrials,2.78
+17,Lockheed Martin Corp,LMT,140924370944,Industrials,2.77
+18,Blackstone Inc,BX,150605905920,Financials,2.59
+19,QUALCOMM Inc,QCOM,188929900544,Information Technology,2.52
+20,Comcast Corp,CMCSA,88846180352,Communication Services,2.31
+21,SLB Ltd,SLB,75218468864,Energy,2.19
+22,United Parcel Service Inc,UPS,95747727360,Industrials,1.89
+23,EOG Resources Inc,EOG,79727321088,Energy,1.88
+24,Target Corp,TGT,73914081280,Consumer Staples,1.78
+25,ONEOK Inc,OKE,55586811904,Energy,1.47
+26,Fastenal Co,FAST,63663763456,Industrials,1.38
+27,Devon Energy Corp,DVN,51230158848,Energy,1.36
+28,Ford Motor Co,F,48916914176,Consumer Discretionary,1.33
+29,Fifth Third Bancorp,FITB,49158332416,Financials,1.19
+30,Paychex Inc,PAYX,41069469696,Industrials,1.00
+31,Archer-Daniels-Midland Co,ADM,33752188928,Consumer Staples,0.95
+32,Kimberly-Clark Corp,KMB,66804695040,Consumer Staples,0.87
+33,Ares Management Corp,ARES,45773443072,Financials,0.74
+34,Cincinnati Financial Corp,CINF,29133189120,Financials,0.64
+35,Hershey Co/The,HSY,35458969600,Consumer Staples,0.64
+36,Regions Financial Corp,RF,24310988800,Financials,0.62
+37,Darden Restaurants Inc,DRI,25903009792,Consumer Discretionary,0.60
+38,T Rowe Price Group Inc,TROW,23613048832,Financials,0.58
+39,General Mills Inc,GIS,18291646464,Consumer Staples,0.54
+40,Principal Financial Group Inc,PFG,24357457920,Financials,0.53
+41,Broadridge Financial Solutions Inc,BR,21812539392,Industrials,0.51
+42,Snap-on Inc,SNA,19330066432,Industrials,0.49
+43,East West Bancorp Inc,EWBC,17908037632,Financials,0.42
+44,Best Buy Co Inc,BBY,22054965248,Consumer Discretionary,0.38
+45,HF Sinclair Corp,DINO,17219956736,Energy,0.38
+46,APA Corp,APA,15693236224,Energy,0.37
+47,Fidelity National Financial Inc,FNF,11843395584,Financials,0.29
+48,Watsco Inc,WSO,12948780032,Industrials,0.26
+49,Skyworks Solutions Inc,SWKS,20582660096,Information Technology,0.25
+50,American Financial Group Inc/OH,AFG,13339696128,Financials,0.24
+51,Old Republic International Corp,ORI,9582730240,Financials,0.23
+52,Booz Allen Hamilton Holding Corp,BAH,10348335104,Industrials,0.22
+53,Columbia Banking System Inc,COLB,8687928320,Financials,0.21
+54,Autoliv Inc,ALV,8739452928,,0.20
+55,Erie Indemnity Co,ERIE,14232255488,Financials,0.16
+56,Macy's Inc,M,6490239488,Consumer Discretionary,0.14
+57,MSC Industrial Direct Co Inc,MSM,6750141952,Industrials,0.13
+58,Nexstar Media Group Inc,NXST,6464402432,Communication Services,0.13
+59,Bank OZK,OZK,5440638976,Financials,0.12
+60,Moelis & Co,MC,4157107200,,0.12
+61,Murphy Oil Corp,MUR,5150550016,,0.12
+62,Vail Resorts Inc,MTN,5515861504,Consumer Discretionary,0.12
+63,Federated Hermes Inc,FHI,4781096960,,0.11
+64,Korn Ferry,KFY,4149746176,,0.11
+65,Robert Half Inc,RHI,4321230848,Industrials,0.11
+66,Penske Automotive Group Inc,PAG,14066711552,Consumer Discretionary,0.10
+67,CVB Financial Corp,CVBF,3953047296,,0.09
+68,Clearway Energy Inc,CWEN,7038874624,Utilities,0.09
 69,Artisan Partners Asset Management Inc,APAM,,,0.07
 70,Banner Corp,BANR,,,0.06
 71,Marzetti Company/The,MZTI,,,0.06
 72,City Holding Co,CHCO,,,0.05
-73,Cohen & Steers Inc,CNS,3789063168,,0.05
+73,Cohen & Steers Inc,CNS,3740201984,,0.05
 74,Federal Agricultural Mortgage Corp,AGM,,,0.05
 75,German American Bancorp Inc,GABC,,,0.05
 76,Insperity Inc,NSP,,,0.05
-77,Interparfums Inc,IPAR,4341658624,,0.05
+77,Interparfums Inc,IPAR,4265753344,,0.05
 78,National Bank Holdings Corp,NBHC,,,0.05
 79,OFG Bancorp,OFG,,,0.05
 80,Western Union Co/The,WU,,Information Technology,0.05
@@ -84,7 +84,7 @@
 83,Lakeland Financial Corp,LKFN,,,0.04
 84,S&T Bancorp Inc,STBA,,,0.04
 85,Buckle Inc/The,BKE,,,0.03
-86,CNA Financial Corp,CNA,13032788992,Financials,0.03
+86,CNA Financial Corp,CNA,13057144832,Financials,0.03
 87,Preferred Bank/Los Angeles CA,PFBC,,,0.03
 88,Virtus Investment Partners Inc,VRTS,,,0.03
 89,Wendy's Co/The,WEN,,,0.03
