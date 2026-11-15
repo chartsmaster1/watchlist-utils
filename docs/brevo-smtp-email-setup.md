@@ -7,6 +7,15 @@ Status in this repo: implemented and working. `public/src/notify_run.py` emails 
 summary of every scheduled refresh (success or failure), and
 `/Users/tamilla/watchlist-utils/config.json` holds live Brevo credentials.
 
+In GitHub Actions the same script runs as the final step of
+`.github/workflows/refresh-data.yml`, with the settings as repo secrets
+(`SMTP_HOST`, `SMTP_USER`, `SMTP_PASS`, `EMAIL_FROM`, `EMAIL_TO`) instead of
+`config.json`; environment wins over `config.json` either way. Datasets that
+failed to populate are listed in the email from `refresh-failures.json`
+(written by `main.py`, appended by `validate_data.py`) — a failed dataset
+never fails the run, it only gets reported. A notification problem never
+fails the run either (`continue-on-error` on the workflow step).
+
 ## 1. How it is wired here
 
 | Piece | Role |

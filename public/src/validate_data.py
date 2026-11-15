@@ -3,10 +3,15 @@
 import csv
 import json
 import math
+import subprocess
 from pathlib import Path
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
+# Failure report shared with main.py: it writes the report after the
+# refresh jobs, validation appends its own failures here, and the
+# workflow's notify step (notify_run.py) emails the combined list.
+REPORT_PATH = DATA_DIR.parent.parent / 'refresh-failures.json'
 LIST_FILES = {
     'arkk.json': 'Ticker',
     'coins.json': 'Ticker',
@@ -35,6 +40,45 @@ LIST_FILES = {
     'stocks.json': 'Ticker',
     'spysectors.json': 'Ticker',
 }
+
+
+def short_error(e):
+    # One line, so the email stays readable.
+    text = str(e).splitlines()[0][:300] if str(e) else type(e).__name__
+    return text
+
+
+def record_failure(job, error):
+    """Append a validation failure to the shared failure report."""
+    try:
+        report = json.loads(REPORT_PATH.read_text())
+        if not isinstance(report, dict):
+            report = {}
+    except (OSError, ValueError):
+        report = {}
+    report.setdefault('failures', []).append({'job': job, 'error': error})
+    REPORT_PATH.write_text(json.dumps(report, indent=2) + '\n')
+
+
+def restore_file(filename):
+    """Put the previous good version of a file back so a bad write is
+    never committed or deployed. Returns True when the file is back on
+    disk. A file that was never committed has no previous version, so
+    the bad file is removed instead so it cannot ship."""
+    try:
+        result = subprocess.run(
+            ['git', 'checkout', '--', f'public/data/{filename}'],
+            cwd=str(DATA_DIR.parent.parent), capture_output=True, text=True, timeout=60,
+        )
+    except (OSError, subprocess.SubprocessError):
+        result = None
+    if result is not None and result.returncode == 0:
+        return True
+    try:
+        (DATA_DIR / filename).unlink()
+    except OSError:
+        pass
+    return False
 
 
 def reject_constant(value):
@@ -80,40 +124,62 @@ def validate_etf_groups():
     if not json_path.exists():
         print('etfgrouped.json: missing (ETF groups job did not produce it), skipping')
         return
-    with json_path.open() as data_file:
-        groups = json.load(data_file, parse_constant=reject_constant)
-    if not isinstance(groups, list) or not groups:
-        raise ValueError('etfgrouped.json must contain a non-empty list of groups')
-    csv_rows = []
-    for group in groups:
-        if not isinstance(group, dict) or not group.get('Name') \
-                or not isinstance(group.get('Items'), list) or not group['Items']:
-            raise ValueError('etfgrouped.json has a group without a name or items')
-        tickers = group['Items']
-        if any(not t or not isinstance(t, str) or t == 'nan' for t in tickers):
-            raise ValueError(f"etfgrouped.json group {group['Name']} has a blank ticker")
-        if len(tickers) != len(set(tickers)):
-            raise ValueError(f"etfgrouped.json group {group['Name']} has duplicate tickers")
-        csv_rows += [(group['Name'], t) for t in tickers]
-    if not csv_path.exists():
-        raise ValueError('etfgrouped.json exists but etfgrouped.csv is missing')
-    with csv_path.open(newline='') as data_file:
-        rows = list(csv.DictReader(data_file))
-    if [(r['Group'], r['Ticker']) for r in rows] != csv_rows:
-        raise ValueError('etfgrouped.csv does not match etfgrouped.json')
+    try:
+        with json_path.open() as data_file:
+            groups = json.load(data_file, parse_constant=reject_constant)
+        if not isinstance(groups, list) or not groups:
+            raise ValueError('etfgrouped.json must contain a non-empty list of groups')
+        csv_rows = []
+        for group in groups:
+            if not isinstance(group, dict) or not group.get('Name') \
+                    or not isinstance(group.get('Items'), list) or not group['Items']:
+                raise ValueError('etfgrouped.json has a group without a name or items')
+            tickers = group['Items']
+            if any(not t or not isinstance(t, str) or t == 'nan' for t in tickers):
+                raise ValueError(f"etfgrouped.json group {group['Name']} has a blank ticker")
+            if len(tickers) != len(set(tickers)):
+                raise ValueError(f"etfgrouped.json group {group['Name']} has duplicate tickers")
+            csv_rows += [(group['Name'], t) for t in tickers]
+        if not csv_path.exists():
+            raise ValueError('etfgrouped.json exists but etfgrouped.csv is missing')
+        with csv_path.open(newline='') as data_file:
+            rows = list(csv.DictReader(data_file))
+        if [(r['Group'], r['Ticker']) for r in rows] != csv_rows:
+            raise ValueError('etfgrouped.csv does not match etfgrouped.json')
+    except Exception as e:
+        # A bad groups file must not block the other datasets: record it,
+        # put the previous good files back, and carry on.
+        error = short_error(e)
+        print(f'etfgrouped.json: FAILED validation: {error} (restoring previous files)')
+        record_failure('etfgrouped.json', error)
+        restore_file('etfgrouped.json')
+        restore_file('etfgrouped.csv')
+        return
     print(f"etfgrouped.json: {len(groups)} groups, {len(csv_rows)} tickers (CSV: {len(rows)})")
 
 
 def main():
+    # A dataset that fails validation is recorded and its previous good
+    # files are restored — it never blocks the other datasets from
+    # updating. This exits 0 even with failures; the failures are
+    # reported by the workflow's notify step (notify_run.py).
     for filename, ticker_field in LIST_FILES.items():
-        count = validate_json(filename, ticker_field)
         csv_name = 'CompaniesMarketCap.csv' if filename == 'stocks.json' else filename.replace('.json', '.csv')
-        csv_count = validate_csv(csv_name)
-        counts_match = count == csv_count
-        if filename == 'stocks.json':
-            counts_match = csv_count >= count
-        if filename not in {'spysectors.json'} and not counts_match:
-            raise ValueError(f'{filename} has {count} rows but {csv_name} has {csv_count}')
+        try:
+            count = validate_json(filename, ticker_field)
+            csv_count = validate_csv(csv_name)
+            counts_match = count == csv_count
+            if filename == 'stocks.json':
+                counts_match = csv_count >= count
+            if filename not in {'spysectors.json'} and not counts_match:
+                raise ValueError(f'{filename} has {count} rows but {csv_name} has {csv_count}')
+        except Exception as e:
+            error = short_error(e)
+            print(f'{filename}: FAILED validation: {error} (restoring previous files)')
+            record_failure(filename, error)
+            restore_file(filename)
+            restore_file(csv_name)
+            continue
         print(f'{filename}: {count} records (CSV: {csv_count})')
     validate_etf_groups()
 

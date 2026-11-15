@@ -6,6 +6,28 @@ from pathlib import Path
 
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
+# Failure report for the workflow's email step: every job that fails to
+# populate is listed here (job name + one-line error) so the admin gets
+# an email naming the failed datasets. Written on every run, even a
+# clean one (empty list), and never committed — the workflow only
+# commits public/data. Lives at the repo root, next to error.log.
+FAILURES_PATH = Path(__file__).resolve().parent.parent.parent / 'refresh-failures.json'
+
+
+def short_error(e):
+    # One line, so the email stays readable.
+    text = str(e).splitlines()[0][:300] if str(e) else type(e).__name__
+    return text
+
+
+def write_failures(failures):
+    report = {
+        'generatedAt': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'failures': failures,
+    }
+    with FAILURES_PATH.open('w') as report_file:
+        json.dump(report, report_file, indent=2)
+
 # local scripts
 import prep_nasdaq
 import prep_sandp_sectors
@@ -27,6 +49,15 @@ def main():
     # SPDR runs second so fresh spy.json/dia.json exist before the jobs
     # that enrich sectors from them (SCHD/QQQ/Russell 2000/Berkshire)
     # and before the sectors job, which is built from the sector SPDR lists.
+    # Every job is optional: a failure is recorded (job name + one-line
+    # error) and the rest keep running, so one bad source never stops the
+    # other lists from updating. A failed job writes nothing, so its
+    # previous file stays in place and the manifest, commit and deploy
+    # still run. Failures are reported at the end of the run instead of
+    # aborting it — see refresh-failures.json and the workflow's notify
+    # step (notify_run.py). Downstream jobs that enrich from a failed
+    # job's files build from the previous month's files; they do not
+    # fail, and only the job that actually failed is listed.
     jobs = [
         ('companies', prep_companies_market_cap.read_prep_companies_market_cap),
         ('SPDR ETFs', prep_spdr.read_prep_spdr),
@@ -40,33 +71,22 @@ def main():
         ('Russell 2000', prep_russell_2000.read_prep_russell_2000),
         ('s&p sectors', prep_sandp_sectors.prep_spy_sectors),
         ('Berkshire Hathaway', prep_berkshire.read_prep_berkshire),
+        ('ETF groups', prep_etf_groups.read_prep_etf_groups),
     ]
     failures = []
     for name, job in jobs:
         try:
             job()
         except Exception as e:
-            print(f'{name} failed: {e}')
-            failures.append(name)
-
-    # Optional jobs: a failure here must never stop the refresh. The job
-    # writes its output only on success, so a failure leaves the previous
-    # file in place and the run continues as usual (manifest, commit,
-    # deploy). Today the only optional job is the ETF groups file — its
-    # source (ETFIQ) gates on User-Agent and can go away without warning.
-    optional_jobs = [
-        ('ETF groups', prep_etf_groups.read_prep_etf_groups),
-    ]
-    for name, job in optional_jobs:
-        try:
-            job()
-        except Exception as e:
-            print(f'WARNING: {name} failed (non-fatal, keeping previous file): {e}')
-
-    if failures:
-        raise RuntimeError(f'Data refresh failed for: {", ".join(failures)}')
+            error = short_error(e)
+            print(f'{name} failed: {error}')
+            failures.append({'job': name, 'error': error})
 
     write_manifest()
+    write_failures(failures)
+    if failures:
+        print(f'{len(failures)} dataset(s) failed: '
+              f'{", ".join(f["job"] for f in failures)} (see refresh-failures.json)')
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
@@ -89,9 +109,11 @@ def count_rows(data):
 
 def write_manifest():
     # Row counts + refresh date for the data-site index page.
-    # Runs only after a fully successful refresh, so the manifest
-    # always matches the committed data. Committed with the data
-    # (the workflow does `git add public/data`).
+    # Runs on every refresh, successful or partial: a failed job leaves
+    # its previous file in place, so the manifest counts that file's
+    # rows under the new date. Which datasets are stale is disclosed
+    # by the failure report (refresh-failures.json), not the manifest.
+    # Committed with the data (the workflow does `git add public/data`).
     datasets = []
     for path in sorted(DATA_DIR.glob('*.json')):
         if path.name in MANIFEST_EXCLUDE:

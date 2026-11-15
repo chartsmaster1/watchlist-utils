@@ -10,6 +10,15 @@ name: Refresh market data monthly
 # (13:30 UTC during PDT summer months; cron is UTC-only so we use 12:30
 # year-round and accept a 1h shift in summer).
 # Manual run: Actions tab -> Refresh market data monthly -> Run workflow.
+#
+# Every dataset job is optional: one failing source never stops the other
+# lists from updating (see public/src/main.py). Datasets that failed to
+# populate are listed in refresh-failures.json and emailed at the end of
+# the run by the final notify step, which uses the repo's own notifier
+# (public/src/notify_run.py, Brevo SMTP — see docs/brevo-smtp-email-setup.md).
+# It needs these repo secrets: SMTP_HOST, SMTP_USER, SMTP_PASS, EMAIL_FROM,
+# EMAIL_TO. Until they exist the step reports "not configured" and the run
+# is unaffected (continue-on-error).
 
 'on':
   schedule:
@@ -40,6 +49,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Refresh all datasets
+        id: refresh
         run: python3 public/src/main.py
 
       - name: Validate generated datasets
@@ -55,6 +65,7 @@ jobs:
           git push origin HEAD:main
 
       - name: Deploy to Firebase Hosting
+        id: deploy
         if: ${{ env.FIREBASE_SERVICE_ACCOUNT != '' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -62,3 +73,22 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           projectId: '${{ secrets.FIREBASE_PROJECT_ID }}'
           channelId: live
+
+      # Email the run summary (success, partial failure, or hard failure)
+      # to the admin. Runs even when an earlier step failed, and a
+      # notification problem never fails the run (continue-on-error).
+      # Until the SMTP_* / EMAIL_* secrets exist this step reports
+      # "not configured" and sends nothing.
+      - name: Email run summary
+        id: notify
+        if: always()
+        continue-on-error: true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          if [ "${{ steps.refresh.outcome }}" = "success" ]; then EC=0; else EC=1; fi
+          python3 public/src/notify_run.py --exit-code "$EC" --deploy "${{ steps.deploy.outcome }}"

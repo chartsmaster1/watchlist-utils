@@ -193,3 +193,6 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Monthly refresh failure report (generated each run, never committed)
+refresh-failures.json

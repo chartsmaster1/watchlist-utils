@@ -19,6 +19,17 @@ Usage (see scheduled_refresh.sh):
     python3 public/src/notify_run.py --exit-code 0 --log-file logs/scheduled-refresh.log
     python3 public/src/notify_run.py --exit-code 1 --dry-run   # print, send nothing
 
+In GitHub Actions the workflow calls it as its final step instead, with
+the SMTP/EMAIL settings as environment variables from repo secrets and
+--deploy carrying the deploy step's outcome:
+
+    python3 public/src/notify_run.py --exit-code 0 --deploy success
+
+The per-dataset failure report (refresh-failures.json, written by main.py
+and appended by validate_data.py) is read when present: datasets that
+failed to populate are listed in the email even though the run itself
+succeeds — a failed dataset never fails the run, it only gets reported.
+
 Exit codes: 0 = sent (or dry-run), 2 = not configured, 3 = send failed.
 """
 
@@ -40,6 +51,7 @@ REPO_ROOT = SRC_DIR.parent.parent
 CONFIG_PATH = REPO_ROOT / 'config.json'
 SUMMARY_PATH = REPO_ROOT / 'logs' / 'last-run-summary.txt'
 DEFAULT_LOG = REPO_ROOT / 'logs' / 'scheduled-refresh.log'
+DEFAULT_FAILURES = REPO_ROOT / 'refresh-failures.json'
 
 SETTING_KEYS = (
     'SMTP_HOST',
@@ -93,17 +105,37 @@ def after(line, prefix):
     return line.split(prefix, 1)[1].strip()
 
 
-def build_subject(status, exit_code, entries, log, settings):
+def load_failures(path):
+    """Read the refresh failure report (refresh-failures.json).
+
+    Returns the list of {'job', 'error'} entries, [] when the run was
+    clean, and None when the report is missing or unreadable — the
+    refresh step crashed before it could write one.
+    """
+    try:
+        report = json.loads(Path(path).read_text())
+    except (OSError, ValueError):
+        return None
+    failures = report.get('failures') if isinstance(report, dict) else None
+    if not isinstance(failures, list):
+        return None
+    return [f for f in failures if isinstance(f, dict) and f.get('job')]
+
+
+def build_subject(status, exit_code, entries, log, settings, failures):
     prefix = settings.get('EMAIL_SUBJECT_PREFIX') or DEFAULT_SUBJECT_PREFIX
     stamp = datetime.now().astimezone().strftime('%Y-%m-%d')
     total = sum(e['json'] for e in entries if e['json'] is not None)
     if status == 'SUCCESS':
         commit = log['commit'] or git('rev-parse', '--short', 'HEAD') or 'no commit'
+        if failures:
+            return (f'{prefix} data refresh OK with {len(failures)} failed '
+                    f'dataset(s) - {total} rows, {commit} ({stamp})')
         return f'{prefix} data refresh OK - {total} rows, {commit} ({stamp})'
     return f'{prefix} data refresh FAILED - exit {exit_code} ({stamp})'
 
 
-def build_body(status, exit_code, log, entries, problems):
+def build_body(status, exit_code, log, entries, problems, failures, deploy_status):
     now = datetime.now().astimezone()
     total_rows = sum(e['json'] for e in entries if e['json'] is not None)
     commit = log['commit'] or git('rev-parse', '--short', 'HEAD')
@@ -157,6 +189,14 @@ def build_body(status, exit_code, log, entries, problems):
     else:
         lines.append('  Validation    : passed (all datasets)')
 
+    if failures:
+        lines.append('')
+        lines.append(f'Failed datasets ({len(failures)})')
+        for failure in failures:
+            lines.append(f"  {failure['job']}: {failure.get('error') or 'failed'}")
+        lines.append('  These datasets were left at their previous version;')
+        lines.append('  every other dataset updated as usual.')
+
     if log['warnings']:
         lines.append('')
         lines.append('Warnings')
@@ -165,7 +205,13 @@ def build_body(status, exit_code, log, entries, problems):
 
     lines.append('')
     lines.append('Deploy')
-    if log['deployed']:
+    if deploy_status == 'success':
+        lines.append('  Firebase      : released')
+    elif deploy_status == 'failure':
+        lines.append('  Firebase      : FAILED (see the workflow run)')
+    elif deploy_status == 'skipped':
+        lines.append('  Firebase      : skipped (no release this run)')
+    elif log['deployed']:
         lines.append('  Firebase      : released' + (f' ({log["deploy_url"]})' if log['deploy_url'] else ''))
     elif 'firebase' in log['tail']:
         lines.append('  Firebase      : not confirmed in the log')
@@ -347,6 +393,11 @@ def main():
     parser.add_argument('--to', help='override EMAIL_TO recipients')
     parser.add_argument('--tail-lines', type=int, default=14,
                         help='log lines to include in the email')
+    parser.add_argument('--failures-file', default=str(DEFAULT_FAILURES),
+                        help='failure report written by main.py (refresh-failures.json)')
+    parser.add_argument('--deploy', default='',
+                        help='deploy outcome from the workflow (success, failure, skipped); '
+                             'when empty the wrapper log is used instead')
     args = parser.parse_args()
 
     settings = load_settings()
@@ -356,8 +407,17 @@ def main():
     status = 'SUCCESS' if args.exit_code == 0 else 'FAILURE'
     log = parse_log(args.log_file, args.tail_lines)
     entries, problems = dataset_rows()
-    subject = build_subject(status, args.exit_code, entries, log, settings)
-    body = build_body(status, args.exit_code, log, entries, problems)
+    failures = load_failures(args.failures_file)
+    if failures is None:
+        # No report: the refresh step crashed before it could write one.
+        # Only worth reporting as a failure when the run itself failed;
+        # older runs (e.g. the macOS flow before this report existed)
+        # simply have nothing to list.
+        failures = [] if args.exit_code == 0 else [
+            {'job': 'refresh', 'error': 'the refresh step failed before it could write its failure report'}
+        ]
+    subject = build_subject(status, args.exit_code, entries, log, settings, failures)
+    body = build_body(status, args.exit_code, log, entries, problems, failures, args.deploy)
 
     try:
         SUMMARY_PATH.parent.mkdir(parents=True, exist_ok=True)
