@@ -1,9 +1,33 @@
 {
-  "generatedAt": "2026-11-15T13:55:28Z",
+  "generatedAt": "2026-11-15T17:20:40Z",
   "datasets": [
+    {
+      "file": "acwi.json",
+      "rows": 2181
+    },
+    {
+      "file": "arkf.json",
+      "rows": 41
+    },
+    {
+      "file": "arkg.json",
+      "rows": 33
+    },
     {
       "file": "arkk.json",
       "rows": 39
+    },
+    {
+      "file": "arkq.json",
+      "rows": 36
+    },
+    {
+      "file": "arkw.json",
+      "rows": 38
+    },
+    {
+      "file": "arkx.json",
+      "rows": 33
     },
     {
       "file": "berkshire.json",
@@ -16,6 +40,18 @@
     {
       "file": "dia.json",
       "rows": 30
+    },
+    {
+      "file": "divaristocrats.json",
+      "rows": 69
+    },
+    {
+      "file": "eem.json",
+      "rows": 1153
+    },
+    {
+      "file": "efa.json",
+      "rows": 658
     },
     {
       "file": "etfgrouped.json",
@@ -64,6 +100,14 @@
     {
       "file": "stocks.json",
       "rows": 4000
+    },
+    {
+      "file": "top100_us.json",
+      "rows": 100
+    },
+    {
+      "file": "top100_world.json",
+      "rows": 100
     },
     {
       "file": "xlb.json",
