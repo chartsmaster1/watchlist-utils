@@ -54,6 +54,7 @@ def _get(url, timeout, stream=False):
 
 def _filing_series_name(cik, accession, primary_doc):
     """Stream the filing XML only until <seriesName> is found."""
+    import html
     doc_name = primary_doc.split('/')[-1]
     url = (f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/'
            f"{accession.replace('-', '')}/{doc_name}")
@@ -63,7 +64,9 @@ def _filing_series_name(cik, accession, primary_doc):
             buffer += chunk
             match = re.search(rb'<seriesName>([^<]+)</seriesName>', buffer)
             if match:
-                return match.group(1).decode('utf-8').strip()
+                # XML entities (&amp; etc.) must be decoded: SPDR series
+                # names contain "S&P(R)" which arrives as "S&amp;P(R)".
+                return html.unescape(match.group(1).decode('utf-8').strip())
             if len(buffer) > 65536:
                 return None
     return None

@@ -42,6 +42,7 @@ import prep_schd
 import prep_qqq
 import prep_russell_2000
 import prep_global_etfs
+import prep_grouping_etfs
 import prep_top100
 import prep_dividend_aristocrats
 import prep_spdr
@@ -83,6 +84,13 @@ def main():
         ('MSCI ACWI', prep_global_etfs.read_prep_acwi),
         ('MSCI EAFE', prep_global_etfs.read_prep_efa),
         ('MSCI Emerging Markets', prep_global_etfs.read_prep_eem),
+        ('SMH Semiconductors', prep_grouping_etfs.read_prep_smh),
+        ('SOXX Semiconductors', prep_grouping_etfs.read_prep_soxx),
+        ('IYR Real Estate', prep_grouping_etfs.read_prep_iyr),
+        ('GDX Gold Miners', prep_grouping_etfs.read_prep_gdx),
+        ('XBI Biotech', prep_grouping_etfs.read_prep_xbi),
+        ('KRE Regional Banks', prep_grouping_etfs.read_prep_kre),
+        ('ICLN Clean Energy', prep_grouping_etfs.read_prep_icln),
         ('s&p sectors', prep_sandp_sectors.prep_spy_sectors),
         ('Berkshire Hathaway', prep_berkshire.read_prep_berkshire),
         ('ETF groups', prep_etf_groups.read_prep_etf_groups),
