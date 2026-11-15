@@ -66,6 +66,44 @@ def validate_csv(filename):
     return len(rows)
 
 
+def validate_etf_groups():
+    """Validate etfgrouped.json + its CSV twin.
+
+    Shape differs from the per-ticker list files (groups of tickers, with
+    overlaps across groups expected), so it is checked separately and never
+    added to LIST_FILES. If the files do not exist yet (first run, and the
+    optional ETF groups job failed), warn and skip — the missing file must
+    not block the rest of the refresh.
+    """
+    json_path = DATA_DIR / 'etfgrouped.json'
+    csv_path = DATA_DIR / 'etfgrouped.csv'
+    if not json_path.exists():
+        print('etfgrouped.json: missing (ETF groups job did not produce it), skipping')
+        return
+    with json_path.open() as data_file:
+        groups = json.load(data_file, parse_constant=reject_constant)
+    if not isinstance(groups, list) or not groups:
+        raise ValueError('etfgrouped.json must contain a non-empty list of groups')
+    csv_rows = []
+    for group in groups:
+        if not isinstance(group, dict) or not group.get('Name') \
+                or not isinstance(group.get('Items'), list) or not group['Items']:
+            raise ValueError('etfgrouped.json has a group without a name or items')
+        tickers = group['Items']
+        if any(not t or not isinstance(t, str) or t == 'nan' for t in tickers):
+            raise ValueError(f"etfgrouped.json group {group['Name']} has a blank ticker")
+        if len(tickers) != len(set(tickers)):
+            raise ValueError(f"etfgrouped.json group {group['Name']} has duplicate tickers")
+        csv_rows += [(group['Name'], t) for t in tickers]
+    if not csv_path.exists():
+        raise ValueError('etfgrouped.json exists but etfgrouped.csv is missing')
+    with csv_path.open(newline='') as data_file:
+        rows = list(csv.DictReader(data_file))
+    if [(r['Group'], r['Ticker']) for r in rows] != csv_rows:
+        raise ValueError('etfgrouped.csv does not match etfgrouped.json')
+    print(f"etfgrouped.json: {len(groups)} groups, {len(csv_rows)} tickers (CSV: {len(rows)})")
+
+
 def main():
     for filename, ticker_field in LIST_FILES.items():
         count = validate_json(filename, ticker_field)
@@ -77,6 +115,7 @@ def main():
         if filename not in {'spysectors.json'} and not counts_match:
             raise ValueError(f'{filename} has {count} rows but {csv_name} has {csv_count}')
         print(f'{filename}: {count} records (CSV: {csv_count})')
+    validate_etf_groups()
 
 
 if __name__ == '__main__':

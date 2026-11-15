@@ -12,6 +12,7 @@ import prep_sandp_sectors
 import prep_companies_market_cap
 import prep_coins_market_cap
 import prep_etfs_market_cap
+import prep_etf_groups
 import prep_russell_1000
 import prep_arkk
 import prep_schd
@@ -48,6 +49,20 @@ def main():
             print(f'{name} failed: {e}')
             failures.append(name)
 
+    # Optional jobs: a failure here must never stop the refresh. The job
+    # writes its output only on success, so a failure leaves the previous
+    # file in place and the run continues as usual (manifest, commit,
+    # deploy). Today the only optional job is the ETF groups file — its
+    # source (ETFIQ) gates on User-Agent and can go away without warning.
+    optional_jobs = [
+        ('ETF groups', prep_etf_groups.read_prep_etf_groups),
+    ]
+    for name, job in optional_jobs:
+        try:
+            job()
+        except Exception as e:
+            print(f'WARNING: {name} failed (non-fatal, keeping previous file): {e}')
+
     if failures:
         raise RuntimeError(f'Data refresh failed for: {", ".join(failures)}')
 
@@ -60,9 +75,12 @@ MANIFEST_EXCLUDE = {'cusip_tickers.json', 'manifest.json'}
 
 def count_rows(data):
     # Sector grouping file: rows are the holdings inside each sector.
+    # ETF groups file: rows are the tickers inside each group.
     if isinstance(data, list):
         if data and all(isinstance(row, dict) and isinstance(row.get('Comps'), list) for row in data):
             return sum(len(row['Comps']) for row in data)
+        if data and all(isinstance(row, dict) and isinstance(row.get('Items'), list) for row in data):
+            return sum(len(row['Items']) for row in data)
         return len(data)
     if isinstance(data, dict):
         return len(data)
