@@ -60,9 +60,13 @@ def prep_spy_sectors():
         if fund_df['Ticker'].duplicated().any():
             raise ValueError(f"{sector_files[ticker]} has duplicate tickers")
 
+        # Round the weight: pd.read_json turns a clean 2.28 into the
+        # float 2.2800000000000002, and an unrounded write would ship
+        # that noise into both the JSON and the CSV (seen live 2026-11-15).
         sec_items = [
             {'Name': r['Name'], 'Ticker': r['Ticker'], 'Exchange': '',
-             'Weight': r.get('Weight')}
+             'Weight': round(float(r['Weight']), 2)
+             if r.get('Weight') is not None else None}
             for r in fund_df.to_dict(orient='records')
         ]
         res_list.append({'Name': name, 'Ticker': ticker, 'Comps': sec_items})
@@ -94,6 +98,10 @@ def prep_spy_sectors():
         try:
             comps_df = pd.concat(frames, ignore_index=True)
             comps_df['MarketCap'] = comps_df['MarketCap'].round(0).astype('Int64')
+            # Weight to exactly 2 decimals in the CSV (same float-noise
+            # reason as the JSON above; the other preps format likewise).
+            comps_df['Weight'] = comps_df['Weight'].map(
+                lambda v: f'{float(v):.2f}' if pd.notna(v) else v)
             comps_df.to_csv(
                 data_dir / 'spysectors.csv', index=False, encoding='utf-8-sig'
             )

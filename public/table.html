@@ -72,9 +72,9 @@
       const tbody = document.createElement("tbody");
       rows.forEach(r => {
         const tr = document.createElement("tr");
-        Object.values(r).forEach(val => {
+        Object.entries(r).forEach(([col, val]) => {
           const td = document.createElement("td");
-          td.textContent = val;
+          td.textContent = formatCell(col, val);
           tr.appendChild(td);
         });
         tbody.appendChild(tr);
@@ -82,6 +82,16 @@
       table.appendChild(tbody);
 
       outputEl.appendChild(table);
+    }
+
+    // Weights come from CSVs as plain numbers; a float artifact like
+    // 2.2800000000000002 must never reach the screen. Always show the
+    // Weight column with exactly 2 decimals, whatever the file holds.
+    function formatCell(col, val) {
+      if (col === "Weight" && val !== "" && val != null && !isNaN(Number(val))) {
+        return Number(val).toFixed(2);
+      }
+      return val;
     }
   </script>
 </body>
