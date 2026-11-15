@@ -14,6 +14,17 @@ DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
 REPORT_PATH = DATA_DIR.parent.parent / 'refresh-failures.json'
 LIST_FILES = {
     'arkk.json': 'Ticker',
+    'arkw.json': 'Ticker',
+    'arkg.json': 'Ticker',
+    'arkf.json': 'Ticker',
+    'arkx.json': 'Ticker',
+    'arkq.json': 'Ticker',
+    'acwi.json': 'Ticker',
+    'efa.json': 'Ticker',
+    'eem.json': 'Ticker',
+    'top100_us.json': 'Ticker',
+    'top100_world.json': 'Ticker',
+    'divaristocrats.json': 'Ticker',
     'coins.json': 'Ticker',
     'etfs_market_cap.json': 'Ticker',
     'nasdaq.json': 'Ticker',

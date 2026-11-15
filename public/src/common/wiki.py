@@ -26,6 +26,10 @@ WIKI = {
         "https://en.wikipedia.org/wiki/List_of_Russell_1000_companies",
         {"Company", "Symbol"},
     ),
+    "divaristocrats": (
+        "https://en.wikipedia.org/wiki/S%26P_500_Dividend_Aristocrats",
+        {"Ticker symbol", "Company", "Sector"},
+    ),
 }
 
 # Old hard indexes used by prep_*.py (for comparison / regression check)

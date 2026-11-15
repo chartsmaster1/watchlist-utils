@@ -37,9 +37,13 @@ import prep_etfs_market_cap
 import prep_etf_groups
 import prep_russell_1000
 import prep_arkk
+import prep_ark
 import prep_schd
 import prep_qqq
 import prep_russell_2000
+import prep_global_etfs
+import prep_top100
+import prep_dividend_aristocrats
 import prep_spdr
 import prep_berkshire
 
@@ -65,10 +69,20 @@ def main():
         ('ETFs', prep_etfs_market_cap.read_prep_etfs_market_cap),
         ('coins', prep_coins_market_cap.read_prep_coins),
         ('Russell 1000', prep_russell_1000.read_prep_russell),
+        ('Top 100', prep_top100.read_prep_top100),
+        ('Dividend Aristocrats', prep_dividend_aristocrats.read_prep_dividend_aristocrats),
         ('ARKK', prep_arkk.read_prep_arkk),
+        ('ARKW', prep_ark.read_prep_arkw),
+        ('ARKG', prep_ark.read_prep_arkg),
+        ('ARKF', prep_ark.read_prep_arkf),
+        ('ARKX', prep_ark.read_prep_arkx),
+        ('ARKQ', prep_ark.read_prep_arkq),
         ('SCHD', prep_schd.read_prep_schd),
         ('QQQ', prep_qqq.read_prep_qqq),
         ('Russell 2000', prep_russell_2000.read_prep_russell_2000),
+        ('MSCI ACWI', prep_global_etfs.read_prep_acwi),
+        ('MSCI EAFE', prep_global_etfs.read_prep_efa),
+        ('MSCI Emerging Markets', prep_global_etfs.read_prep_eem),
         ('s&p sectors', prep_sandp_sectors.prep_spy_sectors),
         ('Berkshire Hathaway', prep_berkshire.read_prep_berkshire),
         ('ETF groups', prep_etf_groups.read_prep_etf_groups),

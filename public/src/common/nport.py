@@ -32,14 +32,33 @@ CUSIP_RE = re.compile(r'^[0-9A-Z]{9}$')
 CURRENCY_SUFFIX_RE = re.compile(r'(EUR|GBP|CHF|JPY|AUD|CAD|SEK|NOK|DKK|HKD|SGD|USD)$')
 
 
+def _get(url, timeout, stream=False):
+    """GET with a short retry on SEC throttling (429/503). EDGAR 503s
+    are transient — a single throttled filing must not kill a whole
+    N-PORT scan that checks hundreds of filings to find one series."""
+    last_exc = None
+    for delay in (0, 2, 5):
+        if delay:
+            time.sleep(delay)
+        try:
+            response = requests.get(url, headers=EDGAR_HEADERS, timeout=timeout, stream=stream)
+            response.raise_for_status()
+            return response
+        except requests.HTTPError as exc:
+            if exc.response is not None and exc.response.status_code in (429, 503):
+                last_exc = exc
+                continue
+            raise
+    raise last_exc
+
+
 def _filing_series_name(cik, accession, primary_doc):
     """Stream the filing XML only until <seriesName> is found."""
     doc_name = primary_doc.split('/')[-1]
     url = (f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/'
            f"{accession.replace('-', '')}/{doc_name}")
     buffer = b''
-    with requests.get(url, headers=EDGAR_HEADERS, timeout=30, stream=True) as response:
-        response.raise_for_status()
+    with _get(url, timeout=30, stream=True) as response:
         for chunk in response.iter_content(4096):
             buffer += chunk
             match = re.search(rb'<seriesName>([^<]+)</seriesName>', buffer)
@@ -53,10 +72,7 @@ def _filing_series_name(cik, accession, primary_doc):
 def find_filing(cik, series_name, max_periods=6):
     """Return (accession, primary_doc, report_date) of the newest public
     NPORT-P filing for the given series of the given trust CIK."""
-    response = requests.get(
-        f'https://data.sec.gov/submissions/CIK{cik}.json',
-        headers=EDGAR_HEADERS, timeout=30)
-    response.raise_for_status()
+    response = _get(f'https://data.sec.gov/submissions/CIK{cik}.json', timeout=30)
     recent = response.json()['filings']['recent']
     by_period = {}
     for i, form in enumerate(recent['form']):
@@ -76,8 +92,7 @@ def fetch_stock_holdings(cik, accession, primary_doc):
     doc_name = primary_doc.split('/')[-1]
     url = (f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/'
            f"{accession.replace('-', '')}/{doc_name}")
-    response = requests.get(url, headers=EDGAR_HEADERS, timeout=120)
-    response.raise_for_status()
+    response = _get(url, timeout=120)
     root = ET.fromstring(response.content)
 
     def text(sec, tag):
