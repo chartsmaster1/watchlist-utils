@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T20:20:42Z",
+  "generatedAt": "2026-11-15T12:45:22Z",
   "datasets": [
     {
       "file": "arkk.json",
@@ -16,6 +16,10 @@
     {
       "file": "dia.json",
       "rows": 30
+    },
+    {
+      "file": "etfgrouped.json",
+      "rows": 194
     },
     {
       "file": "etfs_market_cap.json",
