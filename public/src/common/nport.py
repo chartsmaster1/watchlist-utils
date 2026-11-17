@@ -14,6 +14,7 @@ the series is found.
 """
 
 import json
+from datetime import datetime, timedelta, timezone
 import re
 import time
 import xml.etree.ElementTree as ET
@@ -27,6 +28,7 @@ NPORT_NS = {'n': 'http://www.sec.gov/edgar/nport'}
 OPENFIGI_URL = 'https://api.openfigi.com/v3/mapping'
 OPENFIGI_BATCH = 10  # jobs per request without an API key
 CACHE_NAME = 'cusip_tickers.json'
+CACHE_MAX_AGE = timedelta(days=90)
 PLAIN_TICKER_RE = re.compile(r'^[A-Z0-9]+(\.[A-Z])?$')
 CUSIP_RE = re.compile(r'^[0-9A-Z]{9}$')
 CURRENCY_SUFFIX_RE = re.compile(r'(EUR|GBP|CHF|JPY|AUD|CAD|SEK|NOK|DKK|HKD|SGD|USD)$')
@@ -196,6 +198,24 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
     cache_path = data_dir / CACHE_NAME
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
 
+    def cached_ticker(value):
+        if isinstance(value, dict):
+            return value.get('ticker')
+        # Older cache files stored ticker strings directly.
+        return value if isinstance(value, str) else None
+
+    def cache_entry_is_stale(value, now):
+        if not isinstance(value, dict) or not value.get('updatedAt'):
+            return True
+        try:
+            updated_at = datetime.fromisoformat(
+                value['updatedAt'].replace('Z', '+00:00'))
+            if updated_at.tzinfo is None:
+                updated_at = updated_at.replace(tzinfo=timezone.utc)
+        except (TypeError, ValueError):
+            return True
+        return now - updated_at >= CACHE_MAX_AGE
+
     def real_cusip(holding):
         # Filings use placeholders for some foreign issuers ('N/A',
         # all-zero CUSIPs). Those must never become lookup or cache
@@ -211,6 +231,9 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
         if cusip:
             return cusip
         return f"ISIN:{holding['ISIN']}" if holding['ISIN'] else None
+
+    now = datetime.now(timezone.utc)
+    checked_at = now.isoformat(timespec='seconds').replace('+00:00', 'Z')
 
     def apply_pass(missing, id_type, slow, exch_code=None):
         if id_type in ('ID_CUSIP', 'ID_CINS'):
@@ -234,12 +257,21 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
             if ticker:
                 key = cache_key(holding)
                 if key:
-                    cache[key] = ticker
+                    cache[key] = {'ticker': ticker, 'updatedAt': checked_at}
             else:
                 still.append(holding)
         return still
 
-    missing = [h for h in holdings if not cache.get(cache_key(h) or '')]
+    stale_cache = {}
+    missing = []
+    for holding in holdings:
+        key = cache_key(holding)
+        value = cache.get(key or '')
+        ticker = cached_ticker(value)
+        if ticker and cache_entry_is_stale(value, now):
+            stale_cache[key] = ticker
+        if not ticker or (key and cache_entry_is_stale(value, now)):
+            missing.append(holding)
     if missing:
         slow = len(missing) > 100
         for id_type, exch_code in (('ID_CUSIP', None), ('ID_CINS', None),
@@ -248,9 +280,14 @@ def resolve_tickers(holdings, data_dir, allow_unresolved=0):
             if not missing:
                 break
             missing = apply_pass(missing, id_type, slow, exch_code)
+        # If OpenFIGI had no replacement, keep the old ticker but record
+        # that it was checked so it is not retried on every run.
+        for key, old_ticker in stale_cache.items():
+            if cached_ticker(cache.get(key)) == old_ticker:
+                cache[key] = {'ticker': old_ticker, 'updatedAt': checked_at}
         cache_path.write_text(json.dumps(cache, indent=0, sort_keys=True))
 
-    tickers = [cache.get(cache_key(h) or '') for h in holdings]
+    tickers = [cached_ticker(cache.get(cache_key(h) or '')) for h in holdings]
     unresolved = [h for h, t in zip(holdings, tickers) if t is None]
     if len(unresolved) > allow_unresolved:
         names = [h['Name'] for h in unresolved]

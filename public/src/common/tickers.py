@@ -3,7 +3,7 @@
 
 ALIASES = {
     'BRK-B': 'BRK.B',
-    'BF-A': 'BF.B',
+    'BF-A': 'BF.A',
     'BF-B': 'BF.B',
     'GOOGL': 'GOOG',
 }

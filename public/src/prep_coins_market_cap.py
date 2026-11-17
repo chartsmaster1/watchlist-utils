@@ -97,10 +97,12 @@ def read_prep_coins():
             except Exception as e:
                 logging.error(str(e))
                 print('Failed to save CMC data to csv.')
+                raise
 
         except Exception as e:
             logging.error(str(e))
             print('Failed to read & save CMC data.')
+            raise
 
     else:
         logging.error('read api return null.')

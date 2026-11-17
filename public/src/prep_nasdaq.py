@@ -22,6 +22,7 @@ ICB_TO_GICS_SECTOR = {
     'Consumer Goods': 'Consumer Staples',
     'Consumer Services': 'Consumer Discretionary',
 }
+MIN_ROWS = 90
 
 
 def sort_by_market_cap(df):
@@ -88,6 +89,10 @@ def read_prep_nasdaq():
                 'Sector': item[2]
             }
             res_list.append(d)
+
+        if len(res_list) < MIN_ROWS:
+            raise ValueError(
+                f'Nasdaq-100 table has only {len(res_list)} rows; expected at least {MIN_ROWS}')
 
         with open(file_path, "w") as write_file:
             json.dump(res_list, write_file)
