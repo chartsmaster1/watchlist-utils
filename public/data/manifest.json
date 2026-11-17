@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T20:12:15Z",
+  "generatedAt": "2026-11-17T01:36:34Z",
   "datasets": [
     {
       "file": "acwi.json",
@@ -31,7 +31,7 @@
     },
     {
       "file": "berkshire.json",
-      "rows": 29
+      "rows": 30
     },
     {
       "file": "coins.json",
@@ -79,7 +79,7 @@
     },
     {
       "file": "mdy.json",
-      "rows": 399
+      "rows": 398
     },
     {
       "file": "nasdaq.json",

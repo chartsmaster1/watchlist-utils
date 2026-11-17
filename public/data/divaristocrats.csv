@@ -1,70 +1,70 @@
 ﻿Rank,Name,Ticker,Sector,MarketCap
-1,Walmart Inc.,WMT,Consumer Staples,1016233525248
-2,Exxon Mobil Corp,XOM,Energy,695874551808
-3,Johnson & Johnson,JNJ,Health Care,687888924672
-4,AbbVie,ABBV,Health Care,521499836416
-5,Chevron Corp,CVX,Energy,429061144576
-6,Coca-Cola Co,KO,Consumer Staples,426963795968
-7,Procter & Gamble,PG,Consumer Staples,393559572480
-8,Caterpillar Inc,CAT,Industrials,274648023040
-9,Linde plc,LIN,Materials,241505615872
-10,IBM,IBM,Information Technology,233567715328
-11,PepsiCo,PEP,Consumer Staples,198197067776
-12,McDonald's Corp,MCD,Consumer Discretionary,191952289792
-13,Abbott Laboratories,ABT,Health Care,187950301184
-14,NextEra Energy,NEE,Utilities,178522701824
-15,Chubb Limited,CB,Financials,143562440704
-16,S&P Global Inc,SPGI,Financials,137293742080
-17,Medtronic plc,MDT,Health Care,131572129792
-18,Lowe's,LOW,Consumer Discretionary,127768829952
-19,Automatic Data Processing,ADP,Information Technology,122347782144
-20,General Dynamics,GD,Industrials,98215510016
-21,Emerson Electric,EMR,Industrials,91276066816
-22,Cintas Corp,CTAS,Industrials,89834274816
-23,Ecolab Inc,ECL,Materials,86740262912
-24,Sherwin-Williams,SHW,Materials,84529250304
-25,Illinois Tool Works,ITW,Industrials,81713184768
-26,Colgate-Palmolive,CL,Consumer Staples,79229722624
-27,Target Corp,TGT,Consumer Discretionary,73346203648
-28,Air Products & Chemicals,APD,Materials,70486654976
-29,W. W. Grainger,GWW,Industrials,69720309760
-30,Kimberly-Clark,KMB,Consumer Staples,67154489344
-31,Cardinal Health Inc,CAH,Health Care,64972517376
-32,Fastenal,FAST,Industrials,63319568384
-33,AFLAC,AFL,Financials,63116808192
-34,Becton Dickinson & Co,BDX,Health Care,59388497920
-35,Nucor Corp,NUE,Materials,56625197056
-36,Realty Income,O,Real Estate,56095387648
-37,Roper Technologies,ROP,Industrials,47535013888
-38,Consolidated Edison Inc,ED,Utilities,44907184128
-39,Sysco Corp,SYY,Consumer Staples,37954072576
-40,"Kenvue, Inc.",KVUE,Consumer Staples,37109346304
-41,Archer-Daniels-Midland Co,ADM,Consumer Staples,34694508544
-42,Atmos Energy Corp,ATO,Utilities,29792684032
-43,Cincinnati Financial Corp,CINF,Financials,29113231360
-44,West Pharmaceutical Services,WST,Health Care,29008250880
-45,Dover Corp,DOV,Industrials,27924963328
-46,PPG Industries,PPG,Materials,27073503232
-47,Eversource Energy,ES,Utilities,27018881024
-48,Church & Dwight,CHD,Consumer Staples,26671622144
-49,Expeditors International of Washington,EXPD,Industrials,25150758912
-50,Brown & Brown Inc.,BRO,Financials,23858593792
-51,T Rowe Price Group Inc,TROW,Financials,23237595136
-52,Amcor,AMCR,Materials,20228841472
-53,Essex Property Trust,ESS,Real Estate,18859616256
-54,Franklin Resources Inc,BEN,Financials,18460250112
-55,Nordson Corp,NDSN,Industrials,18087813120
-56,Genuine Parts Company,GPC,Consumer Discretionary,17004229632
-57,Stanley Black & Decker,SWK,Industrials,16842820608
-58,C.H. Robinson,CHRW,Industrials,15589512192
-59,Brown–Forman (class B),BF.B,Consumer Staples,14495521792
-60,Erie Indemnity,ERIE,Financials,14365595648
-61,The J. M. Smucker Company,SJM,Consumer Staples,14174368768
-62,Clorox,CLX,Consumer Staples,13237893120
-63,McCormick & Company,MKC,Consumer Staples,12635268096
-64,Hormel Foods Corp,HRL,Consumer Staples,12157248512
-65,FactSet Research Systems,FDS,Financials,11733934080
-66,Albemarle Corporation,ALB,Materials,11037460480
-67,Pentair,PNR,Industrials,10904415232
-68,Federal Realty Investment Trust,FRT,Real Estate,9772996608
-69,A.O. Smith,AOS,Industrials,8629292032
+1,Walmart Inc.,WMT,Consumer Staples,1018772389888.0
+2,Exxon Mobil Corp,XOM,Energy,680699822080.0
+3,Johnson & Johnson,JNJ,Health Care,680185495552.0
+4,AbbVie,ABBV,Health Care,520651341824.0
+5,Coca-Cola Co,KO,Consumer Staples,427953258496.0
+6,Chevron Corp,CVX,Energy,423695220736.0
+7,Procter & Gamble,PG,Consumer Staples,401022844928.0
+8,Caterpillar Inc,CAT,Industrials,261052891136.0
+9,Linde plc,LIN,Materials,240312008704.0
+10,IBM,IBM,Information Technology,229201248256.0
+11,PepsiCo,PEP,Consumer Staples,199546175488.0
+12,McDonald's Corp,MCD,Consumer Discretionary,193857912832.0
+13,Abbott Laboratories,ABT,Health Care,186097123328.0
+14,NextEra Energy,NEE,Utilities,178984091648.0
+15,Chubb Limited,CB,Financials,145679171584.0
+16,S&P Global Inc,SPGI,Financials,136713936896.0
+17,Medtronic plc,MDT,Health Care,131597705216.0
+18,Lowe's,LOW,Consumer Discretionary,126197874688.0
+19,Automatic Data Processing,ADP,Information Technology,123729444864.0
+20,General Dynamics,GD,Industrials,97196769280.0
+21,Cintas Corp,CTAS,Industrials,89008357376.0
+22,Emerson Electric,EMR,Industrials,88132583424.0
+23,Ecolab Inc,ECL,Materials,86499065856.0
+24,Sherwin-Williams,SHW,Materials,84686282752.0
+25,Illinois Tool Works,ITW,Industrials,80894689280.0
+26,Colgate-Palmolive,CL,Consumer Staples,80279019520.0
+27,Target Corp,TGT,Consumer Discretionary,72832851968.0
+28,W. W. Grainger,GWW,Industrials,70023667712.0
+29,Air Products & Chemicals,APD,Materials,69900984320.0
+30,Kimberly-Clark,KMB,Consumer Staples,68326608896.0
+31,Cardinal Health Inc,CAH,Health Care,65608142848.0
+32,AFLAC,AFL,Financials,63349276672.0
+33,Fastenal,FAST,Industrials,63227785216.0
+34,Becton Dickinson & Co,BDX,Health Care,58963574784.0
+35,Nucor Corp,NUE,Materials,56836644864.0
+36,Realty Income,O,Real Estate,55837896704.0
+37,Roper Technologies,ROP,Industrials,47905902592.0
+38,Consolidated Edison Inc,ED,Utilities,45233782784.0
+39,Sysco Corp,SYY,Consumer Staples,38515261440.0
+40,"Kenvue, Inc.",KVUE,Consumer Staples,37109346304.0
+41,Archer-Daniels-Midland Co,ADM,Consumer Staples,33609414656.0
+42,Atmos Energy Corp,ATO,Utilities,29769025536.0
+43,Cincinnati Financial Corp,CINF,Financials,29371129856.0
+44,West Pharmaceutical Services,WST,Health Care,29104381952.0
+45,Eversource Energy,ES,Utilities,27418155008.0
+46,Dover Corp,DOV,Industrials,27415543808.0
+47,Church & Dwight,CHD,Consumer Staples,27082315776.0
+48,PPG Industries,PPG,Materials,26943172608.0
+49,Expeditors International of Washington,EXPD,Industrials,25220478976.0
+50,Brown & Brown Inc.,BRO,Financials,24382668800.0
+51,T Rowe Price Group Inc,TROW,Financials,23030667264.0
+52,Amcor,AMCR,Materials,20214986752.0
+53,Essex Property Trust,ESS,Real Estate,18869274624.0
+54,Nordson Corp,NDSN,Industrials,17966387200.0
+55,Franklin Resources Inc,BEN,Financials,17942624256.0
+56,Genuine Parts Company,GPC,Consumer Discretionary,16844307456.0
+57,Stanley Black & Decker,SWK,Industrials,16790776832.0
+58,C.H. Robinson,CHRW,Industrials,15613859840.0
+59,The J. M. Smucker Company,SJM,Consumer Staples,14478813184.0
+60,Erie Indemnity,ERIE,Financials,14427035648.0
+61,Clorox,CLX,Consumer Staples,13346807808.0
+62,McCormick & Company,MKC,Consumer Staples,12681009152.0
+63,Hormel Foods Corp,HRL,Consumer Staples,12498465792.0
+64,FactSet Research Systems,FDS,Financials,11710872576.0
+65,Pentair,PNR,Industrials,10926767104.0
+66,Albemarle Corporation,ALB,Materials,10403748864.0
+67,Federal Realty Investment Trust,FRT,Real Estate,9865603072.0
+68,A.O. Smith,AOS,Industrials,8583620608.0
+69,Brown–Forman (class B),BF.B,Consumer Staples,

@@ -1,65 +1,65 @@
 ﻿Rank,Name,Ticker,MarketCap,Sector,Weight
-1,Moderna Inc,MRNA,90380181504,Health Care,1.41
-2,Twist Bioscience Corp,TWST,7399211008,,1.41
+1,Moderna Inc,MRNA,87102758912,Health Care,1.41
+2,Twist Bioscience Corp,TWST,6964275712,,1.41
 3,Oruka Therapeutics Inc,ORKA,,,1.38
-4,Kymera Therapeutics Inc,KYMR,10890829824,,1.36
-5,Viking Therapeutics Inc,VKTX,3726198272,Health Care,1.30
-6,Praxis Precision Medicines Inc,PRAX,9171742720,,1.29
-7,Erasca Inc,ERAS,5477273600,,1.27
-8,CG oncology Inc,CGON,6645327360,,1.20
-9,Revolution Medicines Inc,RVMD,37265002496,Health Care,1.20
-10,Rhythm Pharmaceuticals Inc,RYTM,7974440448,,1.20
+4,Kymera Therapeutics Inc,KYMR,10743990272,,1.36
+5,Viking Therapeutics Inc,VKTX,3417594624,Health Care,1.30
+6,Praxis Precision Medicines Inc,PRAX,8672527360,,1.29
+7,Erasca Inc,ERAS,5302951424,,1.27
+8,CG oncology Inc,CGON,7572457472,,1.20
+9,Revolution Medicines Inc,RVMD,36092698624,Health Care,1.20
+10,Rhythm Pharmaceuticals Inc,RYTM,7451685888,,1.20
 11,SELLAS Life Sciences Group Inc,SLS,,,1.19
-12,Vaxcyte Inc,PCVX,10031469568,,1.19
-13,Cytokinetics Inc,CYTK,7819097088,,1.18
+12,Vaxcyte Inc,PCVX,9752861696,,1.19
+13,Cytokinetics Inc,CYTK,7406758400,,1.18
 14,Dianthus Therapeutics Inc,DNTH,,,1.18
-15,Mirum Pharmaceuticals Inc,MIRM,6135859200,,1.16
-16,Natera Inc,NTRA,46269493248,Health Care,1.16
-17,Scholar Rock Holding Corp,SRRK,5271203840,,1.16
-18,Roivant Sciences Ltd,ROIV,28641914880,Health Care,1.16
-19,Cogent Biosciences Inc,COGT,4969281536,,1.14
+15,Mirum Pharmaceuticals Inc,MIRM,5978529792,,1.16
+16,Natera Inc,NTRA,41830907904,Health Care,1.16
+17,Scholar Rock Holding Corp,SRRK,5434079744,,1.16
+18,Roivant Sciences Ltd,ROIV,27975319552,Health Care,1.16
+19,Cogent Biosciences Inc,COGT,4774407680,,1.14
 20,Ultragenyx Pharmaceutical Inc,RARE,,,1.14
-21,Travere Therapeutics Inc,TVTX,4862002688,,1.13
-22,Alkermes PLC,ALKS,7903087104,,1.11
-23,Spyre Therapeutics Inc,SYRE,9876795392,,1.10
+21,Travere Therapeutics Inc,TVTX,4770809856,,1.13
+22,Alkermes PLC,ALKS,7819065344,,1.11
+23,Spyre Therapeutics Inc,SYRE,9437087744,,1.10
 24,Celcuity Inc,CELC,,,1.10
-25,Krystal Biotech Inc,KRYS,9045024768,,1.10
-26,Relay Therapeutics Inc,RLAY,3997156864,,1.10
-27,TG Therapeutics Inc,TGTX,9750546432,,1.09
+25,Krystal Biotech Inc,KRYS,8827810816,,1.10
+26,Relay Therapeutics Inc,RLAY,3815970304,,1.10
+27,TG Therapeutics Inc,TGTX,9486036992,,1.09
 28,Beam Therapeutics Inc,BEAM,,,1.08
-29,Insmed Inc,INSM,26580117504,Health Care,1.08
-30,Arrowhead Pharmaceuticals Inc,ARWR,6749137920,Health Care,1.07
-31,Protagonist Therapeutics Inc,PTGX,8547121152,,1.07
-32,Madrigal Pharmaceuticals Inc,MDGL,9928082432,Health Care,1.06
+29,Insmed Inc,INSM,26957451264,Health Care,1.08
+30,Arrowhead Pharmaceuticals Inc,ARWR,6249879040,Health Care,1.07
+31,Protagonist Therapeutics Inc,PTGX,8147667968,,1.07
+32,Madrigal Pharmaceuticals Inc,MDGL,9848403968,Health Care,1.06
 33,Vera Therapeutics Inc,VERA,,,1.06
-34,Vertex Pharmaceuticals Inc,VRTX,136555388928,Health Care,1.06
-35,AbbVie Inc,ABBV,521499836416,Health Care,1.04
-36,Biogen Inc,BIIB,37457645568,Health Care,1.03
-37,Halozyme Therapeutics Inc,HALO,11431782400,Health Care,1.03
-38,PTC Therapeutics Inc,PTCT,5304226816,,1.03
+34,Vertex Pharmaceuticals Inc,VRTX,136350023680,Health Care,1.06
+35,AbbVie Inc,ABBV,520651341824,Health Care,1.04
+36,Biogen Inc,BIIB,37198958592,Health Care,1.03
+37,Halozyme Therapeutics Inc,HALO,11001964544,Health Care,1.03
+38,PTC Therapeutics Inc,PTCT,5093695488,,1.03
 39,uniQure NV,QURE,,,1.03
-40,Bridgebio Pharma Inc,BBIO,15252901888,Health Care,1.02
-41,ImmunityBio Inc,IBRX,6404232704,,1.02
-42,CRISPR Therapeutics AG,CRSP,4097314560,,1.02
-43,Summit Therapeutics Inc,SMMT,11316659200,Health Care,1.01
-44,Incyte Corp,INCY,24657616896,Health Care,1.00
-45,Ionis Pharmaceuticals Inc,IONS,4839800832,Health Care,1.00
-46,Amgen Inc,AMGN,251886256128,Health Care,0.99
-47,Neurocrine Biosciences Inc,NBIX,16944000000,Health Care,0.97
-48,Alnylam Pharmaceuticals Inc,ALNY,22105057280,Health Care,0.96
-49,Exelixis Inc,EXEL,16836751360,Health Care,0.96
-50,Gilead Sciences Inc,GILD,208476110848,Health Care,0.96
-51,Regeneron Pharmaceuticals Inc,REGN,98841321472,Health Care,0.96
-52,ACADIA Pharmaceuticals Inc,ACAD,3240543232,,0.94
-53,BioMarin Pharmaceutical Inc,BMRN,11085149184,Health Care,0.94
-54,Immunovant Inc,IMVT,7073474560,,0.92
-55,United Therapeutics Corp,UTHR,25177178112,Health Care,0.92
-56,GRAIL Inc,GRAL,5210665984,,0.91
+40,Bridgebio Pharma Inc,BBIO,15069789184,Health Care,1.02
+41,ImmunityBio Inc,IBRX,6361679872,,1.02
+42,CRISPR Therapeutics AG,CRSP,3915922944,,1.02
+43,Summit Therapeutics Inc,SMMT,9453209600,Health Care,1.01
+44,Incyte Corp,INCY,24514932736,Health Care,1.00
+45,Ionis Pharmaceuticals Inc,IONS,4664928256,Health Care,1.00
+46,Amgen Inc,AMGN,250074202112,Health Care,0.99
+47,Neurocrine Biosciences Inc,NBIX,16732452864,Health Care,0.97
+48,Alnylam Pharmaceuticals Inc,ALNY,21393848320,Health Care,0.96
+49,Exelixis Inc,EXEL,16373130240,Health Care,0.96
+50,Gilead Sciences Inc,GILD,207855943680,Health Care,0.96
+51,Regeneron Pharmaceuticals Inc,REGN,98523742208,Health Care,0.96
+52,ACADIA Pharmaceuticals Inc,ACAD,3226716928,,0.94
+53,BioMarin Pharmaceutical Inc,BMRN,11232358400,Health Care,0.94
+54,Immunovant Inc,IMVT,6887221248,,0.92
+55,United Therapeutics Corp,UTHR,25037062144,Health Care,0.92
+56,GRAIL Inc,GRAL,4748005376,,0.91
 57,Intellia Therapeutics Inc,NTLA,,,0.91
 58,BioCryst Pharmaceuticals Inc,BCRX,,,0.89
 59,Catalyst Pharmaceuticals Inc,CPRX,,,0.87
 60,Dyne Therapeutics Inc,DYN,,,0.86
-61,Tango Therapeutics Inc,TNGX,4321106944,,0.84
+61,Tango Therapeutics Inc,TNGX,4095731456,,0.84
 62,Denali Therapeutics Inc,DNLI,,,0.83
 63,Veracyte Inc,VCYT,,,0.82
 64,Ideaya Biosciences Inc,IDYA,,,0.80
@@ -67,20 +67,20 @@
 66,Sarepta Therapeutics Inc,SRPT,,,0.75
 67,Arcus Biosciences Inc,RCUS,,,0.74
 68,Syndax Pharmaceuticals Inc,SNDX,,,0.72
-69,Arcutis Biotherapeutics Inc,ARQT,3573619200,,0.71
+69,Arcutis Biotherapeutics Inc,ARQT,3433254144,,0.71
 70,Mineralys Therapeutics Inc,MLYS,,,0.71
 71,Celldex Therapeutics Inc,CLDX,,,0.70
 72,Agios Pharmaceuticals Inc,AGIO,,,0.69
-73,Viridian Therapeutics Inc,VRDN,3505549312,,0.67
+73,Viridian Therapeutics Inc,VRDN,3384041728,,0.67
 74,Novavax Inc,NVAX,,,0.66
-75,Disc Medicine Inc,IRON,3643267072,,0.65
+75,Disc Medicine Inc,IRON,3487972864,,0.65
 76,ADMA Biologics Inc,ADMA,,,0.61
 77,Immunome Inc,IMNM,,,0.59
 78,Palvella Therapeutics Inc,PVLA,,,0.58
 79,Absci Corp,ABSI,,,0.56
-80,Iovance Biotherapeutics Inc,IOVA,3590203904,,0.56
+80,Iovance Biotherapeutics Inc,IOVA,3493046272,,0.56
 81,Nurix Therapeutics Inc,NRIX,,,0.56
-82,Kodiak Sciences Inc,KOD,6988231168,,0.54
+82,Kodiak Sciences Inc,KOD,6587294208,,0.54
 83,Biohaven Ltd,BHVN,,,0.53
 84,AnaptysBio Inc,ANAB,,,0.49
 85,Capricor Therapeutics Inc,CAPR,,,0.49
@@ -105,7 +105,7 @@
 104,Olema Pharmaceuticals Inc,OLMA,,,0.32
 105,Zenas Biopharma Inc,ZBIO,,,0.32
 106,Bicara Therapeutics Inc,BCAX,,,0.30
-107,CareDx Inc,CDNA,4092032000,,0.30
+107,CareDx Inc,CDNA,3873454080,,0.30
 108,Vor BioPharma Inc,VOR,,,0.30
 109,Xencor Inc,XNCR,,,0.29
 110,ArriVent Biopharma Inc,AVBP,,,0.28
@@ -142,7 +142,7 @@
 141,Verastem Inc,VSTM,,,0.12
 142,Lexeo Therapeutics Inc,LXEO,,,0.11
 143,MiMedx Group Inc,MDXG,,,0.11
-144,Achieve Life Sciences Inc,ACHV,,,0.08
+144,Achieve Life Sciences Inc,QUIT,,,0.08
 145,Sagimet Biosciences Inc,SGMT,,,0.07
 146,BridgeBio Oncology Therapeutics Inc,BBOT,,,0.06
 147,Atrium Therapeutics Inc,RNA,,,0.00
