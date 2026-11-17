@@ -15,6 +15,7 @@ parameters = {
   'limit':'1000',
   'convert':'USD'
 }
+MIN_ROWS = 900
 DATA_DIR = Path(__file__).resolve().parent.parent / 'data'
 CONFIG_PATH = Path(__file__).resolve().parent.parent.parent / 'config.json'
 
@@ -33,6 +34,7 @@ def _handle_ticker(tkr):
 def read_prep_coins():
 
     coinlist = []
+    skipped_rows = 0
     try:
         api_key = os.environ.get('CMC_API_KEY')
         if not api_key and CONFIG_PATH.exists():
@@ -63,8 +65,16 @@ def read_prep_coins():
                     
                     
             except Exception as e:
-                print(e)
+                skipped_rows += 1
+                print(f'Skipping bad CoinMarketCap row: {e}')
         
+        if skipped_rows:
+            print(f'Skipped {skipped_rows} bad CoinMarketCap row(s).')
+
+        if len(coinlist) < MIN_ROWS:
+            raise ValueError(
+                f'CoinMarketCap returned only {len(coinlist)} rows; expected at least {MIN_ROWS}')
+
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         logging.error(str(e))
 
@@ -95,6 +105,7 @@ def read_prep_coins():
     else:
         logging.error('read api return null.')
         print('CMC data read failed.')
+        raise ValueError('CoinMarketCap returned no rows')
 
 
 if __name__ == '__main__':

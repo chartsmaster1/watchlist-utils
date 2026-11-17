@@ -79,6 +79,7 @@ def read_prep_arkk(download=True):
     except Exception as e:
         logging.error(str(e))
         print(f'ARKK data read failed. {e}')
+        raise
 
 
 

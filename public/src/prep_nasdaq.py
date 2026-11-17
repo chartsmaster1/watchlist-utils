@@ -107,6 +107,7 @@ def read_prep_nasdaq():
     except Exception as e:
         logging.error(str(e))
         print(f'Nasdaq data read failed. {e}')
+        raise
 
 
 if __name__ == '__main__':

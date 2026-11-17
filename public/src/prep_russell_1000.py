@@ -226,6 +226,7 @@ def read_prep_russell():
     except Exception as e:
         logging.error(str(e))
         print(f'Russell 1000 data read failed. {e}')
+        raise
 
 
 if __name__ == '__main__':
