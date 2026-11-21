@@ -5,10 +5,12 @@ file never blocks the others. Each job writes <fund>.json (Rank/Name/
 Ticker/Weight, weight order) + <fund>.csv and keeps the raw daily file
 as <fund>_holdings.csv. Raises on failure so main.py records the job.
 
-Verified live 2026-11-15 (HTTP 200 + row counts): ARKW 45 lines,
-ARKG 36, ARKF 46, ARKX 36, ARKQ 39. ARKQ's file is abbreviated
-ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF (not TECHNOLOGY) — the full name
-404s, so the exact verified URL is pinned below.
+Verified live 2026-11-21 (HTTP 200 + 11/20/2026 holdings date).
+ARK renamed three files in Nov 2026 — the old URLs still return
+HTTP 200 with stale files (ARKF/ARKX 01/02/2026, ARKW 10/06/2026),
+so the exact verified URLs are pinned below. ARKQ's file is
+abbreviated ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF (not TECHNOLOGY) —
+the full name 404s.
 """
 
 import json
@@ -25,14 +27,14 @@ BASE = 'https://assets.ark-funds.com/fund-documents/funds-etf-csv'
 REQUIRED_COLUMNS = {'company', 'ticker', 'weight (%)'}
 
 FUNDS = {
-    'arkw': ('ARK Next Generation Internet ETF',
-             f'{BASE}/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv'),
+    'arkw': ('ARK Next Generation Technology ETF',
+             f'{BASE}/ARK_NEXT_GENERATION_TECHNOLOGY_ETF_ARKW_HOLDINGS.csv'),
     'arkg': ('ARK Genomic Revolution ETF',
              f'{BASE}/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv'),
-    'arkf': ('ARK Fintech Innovation ETF',
-             f'{BASE}/ARK_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv'),
-    'arkx': ('ARK Space Exploration & Innovation ETF',
-             f'{BASE}/ARK_SPACE_EXPLORATION_%26_INNOVATION_ETF_ARKX_HOLDINGS.csv'),
+    'arkf': ('ARK Blockchain & Fintech Innovation ETF',
+             f'{BASE}/ARK_BLOCKCHAIN_%26_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv'),
+    'arkx': ('ARK Space & Defense Innovation ETF',
+             f'{BASE}/ARK_SPACE_%26_DEFENSE_INNOVATION_ETF_ARKX_HOLDINGS.csv'),
     'arkq': ('ARK Autonomous Tech. & Robotics ETF',
              f'{BASE}/ARK_AUTONOMOUS_TECH._%26_ROBOTICS_ETF_ARKQ_HOLDINGS.csv'),
 }
