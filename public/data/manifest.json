@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T01:36:34Z",
+  "generatedAt": "2026-11-21T17:30:11Z",
   "datasets": [
     {
       "file": "acwi.json",
@@ -7,7 +7,7 @@
     },
     {
       "file": "arkf.json",
-      "rows": 41
+      "rows": 34
     },
     {
       "file": "arkg.json",
@@ -23,11 +23,11 @@
     },
     {
       "file": "arkw.json",
-      "rows": 38
+      "rows": 36
     },
     {
       "file": "arkx.json",
-      "rows": 33
+      "rows": 31
     },
     {
       "file": "berkshire.json",
@@ -79,7 +79,7 @@
     },
     {
       "file": "mdy.json",
-      "rows": 398
+      "rows": 397
     },
     {
       "file": "nasdaq.json",

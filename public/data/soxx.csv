@@ -1,31 +1,31 @@
 ﻿Rank,Name,Ticker,MarketCap,Sector,Weight
-1,"Micron Technology, Inc.",MU,813515931648,Information Technology,8.54
-2,"Advanced Micro Devices, Inc.",AMD,827063205888,Information Technology,8.09
-3,NVIDIA Corp.,NVDA,3770312556544,Information Technology,6.81
-4,Intel Corp.,INTC,294823034880,Information Technology,6.33
-5,"Broadcom, Inc.",AVGO,1591528259584,Information Technology,6.08
-6,"Applied Materials, Inc.",AMAT,277957509120,Information Technology,5.77
-7,KLA Corp.,KLAC,187574484992,Information Technology,5.64
-8,"Marvell Technology, Inc.",MRVL,130789974016,Information Technology,5.22
-9,Lam Research Corp.,LRCX,263362707456,Information Technology,4.89
-10,Taiwan Semiconductor Manufacturing Co. Ltd.,TSM,1936888430592,,4.26
-11,"Texas Instruments, Inc.",TXN,268840353792,Information Technology,3.50
-12,"Analog Devices, Inc.",ADI,185670959104,Information Technology,3.45
-13,"Teradyne, Inc.",TER,36205330432,Information Technology,3.36
-14,NXP Semiconductors NV,NXPI,64069349376,Information Technology,3.14
-15,"Astera Labs, Inc.",ALAB,35365404672,Information Technology,3.02
-16,"Monolithic Power Systems, Inc.",MPWR,64081149952,Information Technology,2.93
-17,"QUALCOMM, Inc.",QCOM,180316405760,Information Technology,2.65
-18,ASML Holding NV,ASML,542201806848,Information Technology,2.30
-19,"Microchip Technology, Inc.",MCHP,31913273344,Information Technology,2.17
-20,Credo Technology Group Holding Ltd.,CRDO,22687676416,Information Technology,2.01
-21,ON Semiconductor Corp.,ON,26350667776,Information Technology,1.65
-22,"Entegris, Inc.",ENTG,21395056640,Information Technology,1.22
-23,ASE Technology Holding Co. Ltd.,ASX,72408416256,,1.22
-24,"MACOM Technology Solutions Holdings, Inc.",MTSI,16927049728,Information Technology,1.17
-25,United Microelectronics Corp.,UMC,35961765888,,1.02
-26,STMicroelectronics NV,STM,39789727744,,0.79
-27,ARM Holdings plc,ARM,187303510016,Information Technology,0.79
-28,Nova Ltd.,NVMI,9747315712,,0.77
-29,"Rambus, Inc.",RMBS,8347061248,Information Technology,0.64
-30,"Skyworks Solutions, Inc.",SWKS,20314925056,Information Technology,0.45
+1,"Micron Technology, Inc.",MU,672642433024,Information Technology,8.54
+2,"Advanced Micro Devices, Inc.",AMD,702393286656,Information Technology,8.09
+3,NVIDIA Corp.,NVDA,3031172907008,Information Technology,6.81
+4,Intel Corp.,INTC,272553181184,Information Technology,6.33
+5,"Broadcom, Inc.",AVGO,1453140738048,Information Technology,6.08
+6,"Applied Materials, Inc.",AMAT,240166404096,Information Technology,5.77
+7,KLA Corp.,KLAC,165306843136,Information Technology,5.64
+8,"Marvell Technology, Inc.",MRVL,110023368704,Information Technology,5.22
+9,Lam Research Corp.,LRCX,228935565312,Information Technology,4.89
+10,Taiwan Semiconductor Manufacturing Co. Ltd.,TSM,1652980711424,,4.26
+11,"Texas Instruments, Inc.",TXN,241006919680,Information Technology,3.50
+12,"Analog Devices, Inc.",ADI,167620886528,Information Technology,3.45
+13,"Teradyne, Inc.",TER,31970445312,Information Technology,3.36
+14,NXP Semiconductors NV,NXPI,59270258688,Information Technology,3.14
+15,"Astera Labs, Inc.",ALAB,31521949696,Information Technology,3.02
+16,"Monolithic Power Systems, Inc.",MPWR,55695495168,Information Technology,2.93
+17,"QUALCOMM, Inc.",QCOM,160435798016,Information Technology,2.65
+18,ASML Holding NV,ASML,488023621632,Information Technology,2.30
+19,"Microchip Technology, Inc.",MCHP,30171756544,Information Technology,2.17
+20,Credo Technology Group Holding Ltd.,CRDO,18768879616,Information Technology,2.01
+21,ON Semiconductor Corp.,ON,23684067328,Information Technology,1.65
+22,"Entegris, Inc.",ENTG,19028183040,Information Technology,1.22
+23,ASE Technology Holding Co. Ltd.,ASX,57992962048,,1.22
+24,"MACOM Technology Solutions Holdings, Inc.",MTSI,14966663168,Information Technology,1.17
+25,United Microelectronics Corp.,UMC,30193838080,,1.02
+26,STMicroelectronics NV,STM,34922135552,,0.79
+27,ARM Holdings plc,ARM,162853994496,Information Technology,0.79
+28,Nova Ltd.,NVMI,8933078016,,0.77
+29,"Rambus, Inc.",RMBS,7105818624,Information Technology,0.64
+30,"Skyworks Solutions, Inc.",SWKS,17358106624,Information Technology,0.45

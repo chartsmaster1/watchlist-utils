@@ -1,26 +1,26 @@
 ﻿Rank,Name,Ticker,MarketCap,Sector,Weight
-1,NVIDIA Corp,NVDA,3770312556544,Information Technology,17.55
-2,Taiwan Semiconductor Manufacturing Co Ltd,TSM,1936888430592,,9.29
-3,Applied Materials Inc,AMAT,277957509120,Information Technology,5.74
-4,Micron Technology Inc,MU,813515931648,Information Technology,5.67
-5,Advanced Micro Devices Inc,AMD,827063205888,Information Technology,5.63
-6,KLA Corp,KLAC,187574484992,Information Technology,5.57
-7,Lam Research Corp,LRCX,263362707456,Information Technology,5.31
-8,Broadcom Inc,AVGO,1591528259584,Information Technology,5.28
-9,Intel Corp,INTC,294823034880,Information Technology,5.15
-10,ASML Holding NV,ASML,542201806848,Information Technology,5.04
-11,Marvell Technology Inc,MRVL,130789974016,Information Technology,4.66
-12,Texas Instruments Inc,TXN,268840353792,Information Technology,4.17
-13,Analog Devices Inc,ADI,185670959104,Information Technology,4.00
-14,QUALCOMM Inc,QCOM,180316405760,Information Technology,3.74
-15,Cadence Design Systems Inc,CDNS,84901093376,Information Technology,2.15
-16,Synopsys Inc,SNPS,84574994432,Information Technology,1.79
-17,Teradyne Inc,TER,36205330432,Information Technology,1.50
-18,Astera Labs Inc,ALAB,35365404672,Information Technology,1.27
-19,STMicroelectronics NV,STM,39789727744,,1.26
-20,Monolithic Power Systems Inc,MPWR,64081149952,Information Technology,1.22
-21,ARM Holdings PLC,ARM,187303510016,Information Technology,1.17
-22,NXP Semiconductors NV,NXPI,64069349376,Information Technology,1.15
-23,Microchip Technology Inc,MCHP,31913273344,Information Technology,0.90
-24,ON Semiconductor Corp,ON,26350667776,Information Technology,0.58
-25,Skyworks Solutions Inc,SWKS,20314925056,Information Technology,0.16
+1,NVIDIA Corp,NVDA,3031172907008,Information Technology,19.37
+2,Taiwan Semiconductor Manufacturing Co Ltd,TSM,1652980711424,,9.24
+3,Advanced Micro Devices Inc,AMD,702393286656,Information Technology,5.57
+4,Broadcom Inc,AVGO,1453140738048,Information Technology,5.20
+5,Micron Technology Inc,MU,672642433024,Information Technology,4.91
+6,Intel Corp,INTC,272553181184,Information Technology,4.82
+7,Applied Materials Inc,AMAT,240166404096,Information Technology,4.64
+8,Texas Instruments Inc,TXN,241006919680,Information Technology,4.56
+9,KLA Corp,KLAC,165306843136,Information Technology,4.54
+10,Marvell Technology Inc,MRVL,110023368704,Information Technology,4.47
+11,ASML Holding NV,ASML,488023621632,Information Technology,4.47
+12,Lam Research Corp,LRCX,228935565312,Information Technology,4.43
+13,SK hynix Inc,SKHY,,,4.40
+14,Analog Devices Inc,ADI,167620886528,Information Technology,4.05
+15,QUALCOMM Inc,QCOM,160435798016,Information Technology,3.72
+16,Cadence Design Systems Inc,CDNS,77259636736,Information Technology,1.92
+17,Synopsys Inc,SNPS,75920687104,Information Technology,1.78
+18,Teradyne Inc,TER,31970445312,Information Technology,1.26
+19,Monolithic Power Systems Inc,MPWR,55695495168,Information Technology,1.19
+20,ARM Holdings PLC,ARM,162853994496,Information Technology,1.13
+21,Astera Labs Inc,ALAB,31521949696,Information Technology,1.12
+22,NXP Semiconductors NV,NXPI,59270258688,Information Technology,1.01
+23,STMicroelectronics NV,STM,34922135552,,0.91
+24,Microchip Technology Inc,MCHP,30171756544,Information Technology,0.78
+25,ON Semiconductor Corp,ON,23684067328,Information Technology,0.47
