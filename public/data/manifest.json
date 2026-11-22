@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T17:30:11Z",
+  "generatedAt": "2026-11-22T14:00:19Z",
   "datasets": [
     {
       "file": "acwi.json",
@@ -123,7 +123,7 @@
     },
     {
       "file": "stocks.json",
-      "rows": 4000
+      "rows": 11373
     },
     {
       "file": "top100_us.json",
