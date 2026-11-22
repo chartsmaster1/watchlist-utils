@@ -3,7 +3,7 @@
 No new source: both lists are slices of public/data/stocks.json, which
 the companies job refreshes earlier in the same run (main.py runs this
 job after 'companies'). Top 100 World is the 100 largest companies by
-market cap; Top 100 US is the 100 largest with Country == 'USA'.
+market cap; Top 100 US is the 100 largest with Country == 'United States'.
 Sorted by MarketCap descending, nulls last. Raises on failure so
 main.py records the job instead of silently shipping stale files.
 """
@@ -69,9 +69,9 @@ def read_prep_top100():
     world = _ranked(stocks, 'Top 100 World')
     _write_dataset(world, 'top100_world', data_dir)
 
-    us = stocks[stocks['Country'] == 'USA']
+    us = stocks[stocks['Country'] == 'United States']
     if len(us) < 100:
-        raise ValueError(f'stocks.json has only {len(us)} USA rows, need 100')
+        raise ValueError(f'stocks.json has only {len(us)} United States rows, need 100')
     us_top = _ranked(us, 'Top 100 US')
     _write_dataset(us_top, 'top100_us', data_dir)
 
