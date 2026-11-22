@@ -36,6 +36,11 @@ def read_prep_companies_market_cap(use_live=True):
             if duplicate_count:
                 logging.warning(f'Dropped {duplicate_count} duplicate ticker rows.')
 
+            # The site labels US companies 'USA'; the app and the manual
+            # fallback CSV use 'United States' (the Top 100 US card filters
+            # on it), so normalize here so the JSON and CSV agree.
+            df_new['Country'] = df_new['Country'].replace({'USA': 'United States'})
+
             # Keep the fallback CSV in sync with stocks.json so validation does
             # not reject a larger, freshly scraped JSON file on the next run.
             csv_path = file_path.with_name('CompaniesMarketCap.csv')
