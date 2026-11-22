@@ -36,28 +36,37 @@ def _parse_page_html(html):
             "MarketCap": int(mcap),
             "Country": country.strip(),
         })
-    if not rows:
-        raise ValueError("no company rows parsed - page layout changed")
     return rows
 
 
-def scrape_companies(max_pages=20, delay=DELAY, need_tickers=None):
-    """Scrape top max_pages (100 rows each). Early-stop when need_tickers covered."""
+def scrape_companies(max_pages=200, delay=DELAY, need_tickers=None):
+    """Scrape up to max_pages (capped at 200), stopping at the end of the list."""
     rows = []
     sess = requests.Session()
     sess.headers.update(UA)
+    max_pages = min(max_pages, 200)
     for page in range(1, max_pages + 1):
         if page == 1:
             url = "https://companiesmarketcap.com/"
         else:
             url = BASE.format(n=page)
         r = sess.get(url, timeout=30)
+        if r.status_code == 404:
+            if rows:
+                break
+            r.raise_for_status()
         r.raise_for_status()
-        rows.extend(_parse_page_html(r.text))
+        page_rows = _parse_page_html(r.text)
+        if not page_rows:
+            if rows:
+                break
+            raise ValueError("no company rows parsed - page layout changed")
+        rows.extend(page_rows)
         if need_tickers:
             have = set(x["Ticker"] for x in rows)
             if need_tickers <= have:
                 break
-        time.sleep(delay)
+        if page < max_pages:
+            time.sleep(delay)
     df = pd.DataFrame(rows).dropna(subset=["Ticker"]).query("MarketCap > 0")
     return df.sort_values("Rank").reset_index(drop=True)

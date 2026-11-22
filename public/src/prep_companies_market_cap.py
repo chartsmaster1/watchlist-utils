@@ -18,16 +18,32 @@ def read_prep_companies_market_cap(use_live=True):
     file_name = 'stocks'
     file_path = Path(__file__).resolve().parent.parent / 'data' / (file_name + '.json')
 
-    # Pages to scrape live (100 rows each). 40 pages = top 4000 covers all but
-    # ~110 small-cap Russell names; see compare_marketcap.py for coverage check.
-    live_pages, live_delay = 40, 1.0
+    # Scrape through the end of the site, with a 200-page safety cap.
+    live_pages, live_delay = 200, 1.0
 
     try:
         if use_live:
-            print(f'Scraping companiesmarketcap.com ({live_pages} pages)...')
+            print(f'Scraping companiesmarketcap.com (up to {live_pages} pages)...')
             df_live = scrape_companies(max_pages=live_pages, delay=live_delay)
             print(f'Live scrape OK: {len(df_live)} rows.')
-            df_new = df_live[['Rank', 'Name', 'Ticker', 'MarketCap', 'Country']]
+            df_new = (
+                df_live[['Rank', 'Name', 'Ticker', 'MarketCap', 'Country']]
+                .sort_values('Rank')
+                .drop_duplicates(subset=['Ticker'], keep='first')
+                .reset_index(drop=True)
+            )
+            duplicate_count = len(df_live) - len(df_new)
+            if duplicate_count:
+                logging.warning(f'Dropped {duplicate_count} duplicate ticker rows.')
+
+            # Keep the fallback CSV in sync with stocks.json so validation does
+            # not reject a larger, freshly scraped JSON file on the next run.
+            csv_path = file_path.with_name('CompaniesMarketCap.csv')
+            df_csv = df_new.rename(columns={
+                'Ticker': 'Symbol', 'MarketCap': 'marketcap', 'Country': 'country'
+            })[['Rank', 'Name', 'Symbol', 'marketcap', 'country']]
+            df_csv.insert(4, 'price (USD)', '')
+            df_csv.to_csv(csv_path, index=False)
         else:
             raise RuntimeError('skip-live')
 
