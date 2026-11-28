@@ -21,6 +21,8 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+from common.ark import validate_ark_holdings_date
+
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 BASE = 'https://assets.ark-funds.com/fund-documents/funds-etf-csv'
@@ -58,6 +60,7 @@ def _prep_ark(fund):
         raise ValueError(f'{fund.upper()} source missing columns: {sorted(missing_columns)}')
     if df_raw['ticker'].notna().sum() == 0:
         raise ValueError(f'{fund.upper()} source contains no holdings')
+    validate_ark_holdings_date(df_raw, fund.upper())
     temporary_path = holdings_path.with_suffix('.csv.tmp')
     normalized_csv = response.text.replace('\r\n', '\n').replace('\r', '\n')
     temporary_path.write_text(normalized_csv)

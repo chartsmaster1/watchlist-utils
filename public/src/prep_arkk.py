@@ -11,6 +11,8 @@ import requests
 from io import StringIO
 from pathlib import Path
 
+from common.ark import validate_ark_holdings_date
+
 logging.basicConfig(filename='error.log', filemode='w', format='%(levelname)s - %(message)s')
 
 SOURCE_URL = 'https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv'
@@ -38,6 +40,7 @@ def read_prep_arkk(download=True):
                 raise ValueError(f'ARKK source missing columns: {sorted(missing_columns)}')
             if df_raw['ticker'].notna().sum() == 0:
                 raise ValueError('ARKK source contains no holdings')
+            validate_ark_holdings_date(df_raw, 'ARKK')
             temporary_path = holdings_path.with_suffix('.csv.tmp')
             normalized_csv = response.text.replace('\r\n', '\n').replace('\r', '\n')
             temporary_path.write_text(normalized_csv)
@@ -49,6 +52,7 @@ def read_prep_arkk(download=True):
         missing_columns = REQUIRED_COLUMNS - set(df_raw.columns)
         if missing_columns:
             raise ValueError(f'ARKK file missing columns: {sorted(missing_columns)}')
+        validate_ark_holdings_date(df_raw, 'ARKK')
         df_raw['ticker'] = df_raw['ticker'].str.strip().str.upper()
         df_raw['ticker'] = df_raw['ticker'].apply(lambda x: x.split(' ')[0] if ' ' in x else x)
 
